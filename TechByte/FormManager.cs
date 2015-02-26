@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TechByte.Views;
+using TechByte.Views.DashboardSub;
 
 namespace TechByte
 {
@@ -10,14 +12,9 @@ namespace TechByte
     /// </summary>
     class FormManager
     {
+
         public static Dashboard frmDashboard;
-
-
-        public static void Initialize()
-        {
-            frmDashboard = new Dashboard();
-        }
-
+        public static DatabaseConfiguration frmDatabaseConfiguration;
 
     }
 }

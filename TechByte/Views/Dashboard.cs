@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using TechByte.Configs;
+using TechByte.Views.DashboardSub;
+
+namespace TechByte.Views
+{
+    public partial class Dashboard : Form
+    {
+
+        public Dashboard() {
+            InitializeComponent();
+        }
+
+
+        public void UpdateUI() {
+            foreach (Control ctrl in this.Controls) {
+                if (ctrl is MdiClient) {
+                    ctrl.BackColor = AppConfig.UI.DashboardBackColor;
+                    break;
+                }
+            }
+        }
+
+
+        private void Dashboard_Load(object sender, EventArgs e) {
+            AppConfig.Initialize();
+            UpdateUI();
+        }
+
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+
+        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e) {
+            DialogResult result =
+                MessageBox.Show("Are you sure you want to exit this session?", "Confirm exit", MessageBoxButtons.YesNo);
+            if (result != System.Windows.Forms.DialogResult.Yes) {
+                e.Cancel = true;
+            }
+        }
+
+
+        private void systemConfigurationToolStripMenuItem_Click(object sender, EventArgs e) {
+            Views.DashboardSub.Admin.SystemConfiguration
+                systemConfiguration = new DashboardSub.Admin.SystemConfiguration();
+            systemConfiguration.MdiParent = this;
+            systemConfiguration.Show();
+        }
+
+
+        private void userManagementToolStripMenuItem_Click(object sender, EventArgs e) {
+            UserManagement frmUserManagement = new UserManagement();
+            frmUserManagement.MdiParent = this;
+            frmUserManagement.Show();
+        }
+    }
+}

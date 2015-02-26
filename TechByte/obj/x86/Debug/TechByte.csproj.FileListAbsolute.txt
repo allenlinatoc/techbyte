@@ -9,14 +9,28 @@ c:\users\test\documents\visual studio 2010\Projects\TechByte\TechByte\obj\x86\De
 c:\users\test\documents\visual studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.pdb
 c:\users\test\documents\visual studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Dashboard.resources
 c:\users\test\documents\visual studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.Dashboard.UserManagement.resources
-C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.exe
-C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.pdb
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\bin\Debug\TechByte.exe
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\bin\Debug\TechByte.pdb
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Dashboard.resources
-C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.Dashboard.UserManagement.resources
-C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Form1.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.Form1.resources
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Properties.Resources.resources
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.exe
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.pdb
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.Dashboard.resources
+C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.exe
+C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.pdb
+C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.Dashboard.resources
+C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.Dashboard_Sub.DatabaseConfiguration.resources
+C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.Dashboard_Sub.Modals.UserManagementForm.resources
+C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.Dashboard_Sub.UserManagement.resources
+C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.Form1.resources
+C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Properties.Resources.resources
+C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.csproj.GenerateResource.Cache
+C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\bin\Debug\TechByte.exe
+C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\bin\Debug\TechByte.pdb
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.DatabaseConfiguration.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Modals.UserManagementForm.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.UserManagement.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Admin.SystemConfiguration.resources

@@ -33,8 +33,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,37 +56,99 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dashboard.cs">
+    <Compile Include="Architecture\Usecases\UCNewSystemUser.cs" />
+    <Compile Include="Architecture\Usecases\UCSystemUserCollection.cs" />
+    <Compile Include="Architecture\Validations\UserPower.cs" />
+    <Compile Include="Configs\AppConfig.cs" />
+    <Compile Include="Configs\DatabaseCredentialsFile.cs" />
+    <Compile Include="Configs\DatabaseInstance.cs" />
+    <Compile Include="Controllers\NewUser.cs" />
+    <Compile Include="Library\Common\IMonitorable.cs" />
+    <Compile Include="Library\Common\IStringDatatype.cs" />
+    <Compile Include="Library\Controllers\FormController.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
+    <Compile Include="Library\Database\DatabaseConnection.cs" />
+    <Compile Include="Library\Database\DatabaseCredentials.cs" />
+    <Compile Include="Library\Database\QueryResult.cs" />
+    <Compile Include="Library\Exceptions\DisconnectedException.cs" />
+    <Compile Include="Library\Exceptions\OutOfRangeLengthException.cs" />
+    <Compile Include="Library\Exceptions\OutOfRangeValueException.cs" />
+    <Compile Include="Library\Cryptography\MD5Hash.cs" />
+    <Compile Include="Library\Session.cs" />
+    <Compile Include="Library\SystemResponse.cs" />
+    <Compile Include="Library\Utilities\Diagnostics.cs" />
+    <Compile Include="Library\Utilities\INIFactory.cs" />
+    <Compile Include="Library\Validations\Numeric.cs" />
+    <Compile Include="Library\Validations\DateTime.cs" />
+    <Compile Include="Library\Validations\Currency.cs" />
+    <Compile Include="Library\Validations\IPAddress.cs" />
+    <Compile Include="Library\Validations\Fax.cs" />
+    <Compile Include="Library\Validations\Email.cs" />
+    <Compile Include="Library\Validations\Gender.cs" />
+    <Compile Include="Library\Validations\Password.cs" />
+    <Compile Include="Library\Validations\Monitors\InputMonitor.cs" />
+    <Compile Include="Library\Validations\Monitors\InputMonitorCollection.cs" />
+    <Compile Include="Library\Validations\SingleWordAlpha.cs" />
+    <Compile Include="Library\Validations\MultiWordAlpha.cs" />
+    <Compile Include="Library\Validations\SingleWordAlphaNumeric.cs" />
+    <Compile Include="Library\Validations\MultiWordAlphaNumeric.cs" />
+    <Compile Include="Library\Validations\MultiWord.cs" />
+    <Compile Include="Architecture\Common\INewSystemUser.cs" />
+    <Compile Include="Library\Common\INumericDatatype.cs" />
+    <Compile Include="Library\Validator.cs" />
+    <Compile Include="Library\Validations\SingleWord.cs" />
+    <Compile Include="Architecture\Usecases\UCSystemUser.cs" />
+    <Compile Include="Architecture\Validations\AccountStatus.cs" />
+    <Compile Include="Architecture\Validations\MobileNumber.cs" />
+    <Compile Include="Architecture\Validations\TIN.cs" />
+    <Compile Include="Values\CODES.cs" />
+    <Compile Include="Values\FileSystem.cs" />
+    <Compile Include="FormManager.cs" />
+    <Compile Include="Library\Database\QueryBuilder.cs" />
+    <Compile Include="Library\Utilities\Database.cs" />
+    <Compile Include="Library\Utilities\Strings.cs" />
+    <Compile Include="Architecture\Common\IFormModal.cs" />
+    <Compile Include="Architecture\Common\IRegisteredUser.cs" />
+    <Compile Include="Architecture\Beans\Accounts\Userprofile.cs" />
+    <Compile Include="Architecture\Enums\FormModalTypes.cs" />
+    <Compile Include="Architecture\Enums\UserTypes.cs" />
+    <Compile Include="Architecture\Beans\Profiles\AddressDetails.cs" />
+    <Compile Include="Architecture\Beans\Profiles\ContactDetails.cs" />
+    <Compile Include="Architecture\Beans\Profiles\Fullname.cs" />
+    <Compile Include="Library\Model.cs" />
+    <Compile Include="Views\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormManager.cs" />
-    <Compile Include="Library\Classes\QueryBuilder.cs" />
-    <Compile Include="Library\Utilities\Database.cs" />
-    <Compile Include="Library\Utilities\STRING.cs" />
-    <Compile Include="Models\Architecture\Accounts\AbstractNewUser.cs" />
-    <Compile Include="Models\Architecture\Accounts\IRegisteredUser.cs" />
-    <Compile Include="Models\Architecture\Accounts\Userprofile.cs" />
-    <Compile Include="Models\Architecture\Profiles\AddressDetails.cs" />
-    <Compile Include="Models\Architecture\Profiles\ContactDetails.cs" />
-    <Compile Include="Models\Architecture\Profiles\Fullname.cs" />
-    <Compile Include="Models\Architecture\Accounts\AbstractRegisteredUser.cs" />
-    <Compile Include="Models\Model.cs" />
-    <Compile Include="Views\Dashboard\UserManagement.cs">
+    <Compile Include="Views\DashboardSub\Admin\SystemConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Dashboard\UserManagement.Designer.cs">
-      <DependentUpon>UserManagement.cs</DependentUpon>
+    <Compile Include="Views\DashboardSub\Admin\SystemConfiguration.Designer.cs">
+      <DependentUpon>SystemConfiguration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Dashboard\Modals\UserManagementForm.cs">
+    <Compile Include="Views\DashboardSub\DatabaseConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Dashboard\Modals\UserManagementForm.Designer.cs">
+    <Compile Include="Views\DashboardSub\DatabaseConfiguration.Designer.cs">
+      <DependentUpon>DatabaseConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Modals\UserManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Modals\UserManagementForm.Designer.cs">
       <DependentUpon>UserManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardSub\UserManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\UserManagement.Designer.cs">
+      <DependentUpon>UserManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
@@ -83,14 +156,23 @@
     <Compile Include="Views\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Architecture\Accounts\SystemUser.cs" />
-    <Compile Include="Models\SystemLogin.cs" />
+    <Compile Include="Architecture\Beans\Accounts\SystemUser.cs" />
+    <Compile Include="Controllers\SystemLogin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Dashboard.resx">
+    <EmbeddedResource Include="Views\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Dashboard\UserManagement.resx">
+    <EmbeddedResource Include="Views\DashboardSub\Admin\SystemConfiguration.resx">
+      <DependentUpon>SystemConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\DatabaseConfiguration.resx">
+      <DependentUpon>DatabaseConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Modals\UserManagementForm.resx">
+      <DependentUpon>UserManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Form1.resx">
@@ -104,7 +186,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -116,8 +200,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Configs\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Architecture\Exceptions\" />
+    <Folder Include="Library\IO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

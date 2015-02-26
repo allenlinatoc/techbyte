@@ -5,7 +5,7 @@ using System.Text;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
-namespace TechByte.Library.Utilities
+namespace Guitar32.Utilities
 {
     /// <summary>
     /// Static utility for Database connections
