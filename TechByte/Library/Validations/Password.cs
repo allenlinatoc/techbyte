@@ -17,13 +17,15 @@ namespace Guitar32.Validations
 
         public Password(String value, bool throwException = false) {
             this.value = value;
-            if (throwException) {
+            if (throwException && value != null) {
                 if (!this.isValid()) {
                     throw new InvalidPasswordException();
                 }
-                else if (!this.isWithinRange()) {
-                    throw new OutOfRangeLengthException();
-                }
+                //if (this.getValue().Length > 0) {
+                //    if (!this.isWithinRange()) {
+                //        throw new Guitar32.Exceptions.OutOfRangeLengthException();
+                //    }
+                //}
             }
         }
 
@@ -35,6 +37,10 @@ namespace Guitar32.Validations
             return 5;
         }
 
+        public String getRawValue() {
+            return this.value;
+        }
+
         public String getValue() {
             return Guitar32.Cryptography.MD5Hash.Compute(this.value);
         }
@@ -44,7 +50,7 @@ namespace Guitar32.Validations
         }
 
         public override bool isValid() {
-            return Regex.IsMatch(this.getValue(), expression);
+            return this.getValue().Length > 0 ? Regex.IsMatch(this.getValue(), expression) : true;
         }
     }
 

@@ -2,18 +2,39 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TechByte.Architecture;
 using Guitar32;
+using Guitar32.Database;
 using Guitar32.Validations;
+using TechByte.Architecture;
 
 namespace TechByte.Architecture.Beans.Profiles
 {
     public class Fullname : Model
     {
+        private DatabaseConnection dbConn = TechByte.Configs.DatabaseInstance.databaseConnection;
         protected String firstName;
         protected String middleName;
         protected String lastName;
 
+
+        public Fullname(int profileId = -1) {
+            this.setId(profileId);
+            if (this.getId() >= 0) {
+                QueryBuilder query = new QueryBuilder();
+                query.Select(new string[] { "fname", "mname", "lname" })
+                    .From("tblprofiles")
+                    .Where("id", profileId);
+                Dictionary<string, object> row = dbConn.QuerySingle(query);
+                if (row != null && row.Count > 0) {
+                    this.setFirstName(new MultiWordAlpha(row["fname"].ToString()));
+                    this.setMiddleName(new MultiWordAlpha(row["mname"].ToString()));
+                    this.setLastName(new MultiWordAlpha(row["lname"].ToString()));
+                }
+                else {
+                    throw new Guitar32.Exceptions.BeanDataNotFoundException();
+                }
+            }
+        }
 
 
         public String getFirstName() {

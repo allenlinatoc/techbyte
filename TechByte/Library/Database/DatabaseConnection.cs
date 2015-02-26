@@ -200,7 +200,14 @@ namespace Guitar32.Database
             }
 
             MySqlCommand cmd = new MySqlCommand(query, this.mysql);
-            MySqlDataReader reader = cmd.ExecuteReader();
+            MySqlDataReader reader = null;
+            try {
+                reader = cmd.ExecuteReader();
+            }
+            catch (MySqlException ex) {
+                this.LogError(ex.Message, ex.ErrorCode);
+                throw ex;
+            }
 
             List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
             while (reader.Read()) {
@@ -246,7 +253,14 @@ namespace Guitar32.Database
             }
 
             MySqlCommand cmd = new MySqlCommand(query, this.mysql);
-            MySqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.SingleRow);
+            MySqlDataReader reader = null;
+            try {
+                reader = cmd.ExecuteReader(System.Data.CommandBehavior.SingleRow);
+            }
+            catch (MySqlException ex) {
+                this.LogError(ex.Message, ex.ErrorCode);
+                throw ex;
+            }
 
             Dictionary<string, object> result = new Dictionary<string, object>();
             // Check if result returned a row

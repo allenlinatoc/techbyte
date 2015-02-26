@@ -138,7 +138,7 @@
             this.comboPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPosition.FormattingEnabled = true;
             this.comboPosition.Items.AddRange(new object[] {
-            "Executive (Admin)",
+            "Admin",
             "Manager",
             "Human Resource",
             "Purchasing",

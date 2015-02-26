@@ -19,13 +19,15 @@ namespace Guitar32.Validations
 
         public Numeric(String value, bool throwException = false) {
             this.value = value;
-            if (throwException) {
+            if (throwException && value != null) {
                 if (!this.isValid()) {
                     throw new InvalidNumericException();
                 }
-                else if (!this.isWithinRange()) {
-                    throw new OutOfRangeValueException();
-                }
+                //if (this.getValue().ToString().Length > 0) {
+                //    if (!this.isWithinRange()) {
+                //        throw new Guitar32.Exceptions.OutOfRangeValueException();
+                //    }
+                //}
             }
         }
 
@@ -39,7 +41,8 @@ namespace Guitar32.Validations
         }
 
         public override bool isValid() {
-            return Regex.IsMatch(this.getValue().ToString(), expression, RegexOptions.IgnoreCase);
+            return this.getValue().ToString().Length > 0 ?
+                Regex.IsMatch(this.getValue().ToString(), expression, RegexOptions.IgnoreCase) : true;
         }
 
         public int getMaxValue() {

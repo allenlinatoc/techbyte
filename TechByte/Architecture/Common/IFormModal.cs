@@ -12,7 +12,9 @@ namespace TechByte.Architecture.Common
     /// </summary>
     interface IFormModal
     {
-        void setMode(FormModalTypes type);
-        void initFormModal();
+        void Fetch(); // method for FormModalTypes.Update when fetching data from database
+        void SetFormModalKey(object key); // when you want to set Update key
+        void SetFormModalType(FormModalTypes type); // when you want to set the FormModalType
+        void InitFormModal(); // when initializing FormModal
     }
 }

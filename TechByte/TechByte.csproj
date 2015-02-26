@@ -74,6 +74,7 @@
     <Compile Include="Library\Database\DatabaseConnection.cs" />
     <Compile Include="Library\Database\DatabaseCredentials.cs" />
     <Compile Include="Library\Database\QueryResult.cs" />
+    <Compile Include="Library\Exceptions\BeanDataNotFoundException.cs" />
     <Compile Include="Library\Exceptions\DisconnectedException.cs" />
     <Compile Include="Library\Exceptions\OutOfRangeLengthException.cs" />
     <Compile Include="Library\Exceptions\OutOfRangeValueException.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Library\SystemResponse.cs" />
     <Compile Include="Library\Utilities\Diagnostics.cs" />
     <Compile Include="Library\Utilities\INIFactory.cs" />
+    <Compile Include="Library\Utilities\UI\DataGridViews.cs" />
     <Compile Include="Library\Validations\Numeric.cs" />
     <Compile Include="Library\Validations\DateTime.cs" />
     <Compile Include="Library\Validations\Currency.cs" />
@@ -113,7 +115,7 @@
     <Compile Include="Library\Utilities\Strings.cs" />
     <Compile Include="Architecture\Common\IFormModal.cs" />
     <Compile Include="Architecture\Common\IRegisteredUser.cs" />
-    <Compile Include="Architecture\Beans\Accounts\Userprofile.cs" />
+    <Compile Include="Architecture\Beans\Accounts\ProfileDetails.cs" />
     <Compile Include="Architecture\Enums\FormModalTypes.cs" />
     <Compile Include="Architecture\Enums\UserTypes.cs" />
     <Compile Include="Architecture\Beans\Profiles\AddressDetails.cs" />

@@ -24,9 +24,11 @@ namespace TechByte.Architecture.Validations
                 if (!valid) {
                     throw new InvalidUserPowerException();
                 }
-                if (!this.isWithinRange()) {
-                    throw new Guitar32.Exceptions.OutOfRangeLengthException();
-                }
+                //if (this.getValue().Length > 0) {
+                //    if (!this.isWithinRange()) {
+                //        throw new Guitar32.Exceptions.OutOfRangeLengthException();
+                //    }
+                //}
             }
         }
         public UserPower(String powerName, bool throwException = false) {
@@ -64,6 +66,11 @@ namespace TechByte.Architecture.Validations
         }
 
         public override bool isValid() {
+            // Check string length
+            if (this.getValue().Length == 0) {
+                return true;
+            }
+
             // Lookup in database
             if (this.value == null) {
                 String powerName = this.LookupName();

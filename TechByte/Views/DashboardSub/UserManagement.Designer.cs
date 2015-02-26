@@ -39,6 +39,8 @@
             this.cmsOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miActivate = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnActivateToggle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).BeginInit();
             this.cmsOptions.SuspendLayout();
             this.SuspendLayout();
@@ -60,13 +62,17 @@
             this.Column4,
             this.Column5,
             this.Column3});
+            this.dgUsers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgUsers.Location = new System.Drawing.Point(167, 12);
+            this.dgUsers.MultiSelect = false;
             this.dgUsers.Name = "dgUsers";
             this.dgUsers.RowHeadersVisible = false;
+            this.dgUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgUsers.Size = new System.Drawing.Size(613, 331);
             this.dgUsers.TabIndex = 0;
             this.dgUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgUsers.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dgUsers.SelectionChanged += new System.EventHandler(this.dgUsers_SelectionChanged);
             // 
             // Column1
             // 
@@ -134,12 +140,36 @@
             this.miActivate.Size = new System.Drawing.Size(170, 22);
             this.miActivate.Text = "Activate/Deactivate";
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(12, 56);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(149, 38);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnActivateToggle
+            // 
+            this.btnActivateToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActivateToggle.Location = new System.Drawing.Point(12, 100);
+            this.btnActivateToggle.Name = "btnActivateToggle";
+            this.btnActivateToggle.Size = new System.Drawing.Size(149, 38);
+            this.btnActivateToggle.TabIndex = 1;
+            this.btnActivateToggle.Text = "Activate/Deactivate";
+            this.btnActivateToggle.UseVisualStyleBackColor = true;
+            this.btnActivateToggle.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // UserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 355);
             this.Controls.Add(this.btnNew);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnActivateToggle);
             this.Controls.Add(this.dgUsers);
             this.Name = "UserManagement";
             this.Text = "UserManagement";
@@ -162,5 +192,7 @@
         private System.Windows.Forms.ContextMenuStrip cmsOptions;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miActivate;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnActivateToggle;
     }
 }

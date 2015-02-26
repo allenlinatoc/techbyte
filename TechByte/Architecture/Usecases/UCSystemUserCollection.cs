@@ -18,10 +18,10 @@ namespace TechByte.Architecture.Usecases
             QueryBuilder query = new QueryBuilder();
 
             Dictionary<object, object> conditions = new Dictionary<object, object>();
-            conditions.Add("profile_user_id", "user_id");
             conditions.Add("profile_address_id", "address_id");
             conditions.Add("profile_contact_id", "contact_id");
             conditions.Add("user_power_id", "power_id");
+            conditions.Add("user_profile_id", "profile_id");
             query.Select()
                 .From("view_users, view_powers, view_profiles, view_contactdetails, view_addressdetails")
                 .Where(conditions)

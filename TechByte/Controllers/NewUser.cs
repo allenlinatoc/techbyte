@@ -8,6 +8,7 @@ using TechByte.Architecture;
 using TechByte.Architecture.Beans;
 using TechByte.Architecture.Common;
 using TechByte.Architecture.Validations;
+using System.Windows.Forms;
 
 namespace TechByte.Controllers
 {
@@ -45,8 +46,8 @@ namespace TechByte.Controllers
                 addressDetails.setRegion(new MultiWordAlpha(region, true));
                 addressDetails.setCountry(new MultiWordAlpha(country, true));
                 // Create profile entry
-                TechByte.Architecture.Beans.Accounts.Userprofile
-                    profileDetails = new Architecture.Beans.Accounts.Userprofile();
+                TechByte.Architecture.Beans.Accounts.ProfileDetails
+                    profileDetails = new Architecture.Beans.Accounts.ProfileDetails();
                 TechByte.Architecture.Beans.Profiles.Fullname
                     fullName = new Architecture.Beans.Profiles.Fullname();
                 fullName.setFirstName(new MultiWordAlpha(firstName, true));
@@ -67,6 +68,7 @@ namespace TechByte.Controllers
                     ucNewSystemUser = new Architecture.Usecases.UCNewSystemUser();
                 ucNewSystemUser.setUsername(new SingleWordAlphaNumeric(username, true));
                 ucNewSystemUser.setPassword(new Password(password1, true));
+                ucNewSystemUser.setStatus(new AccountStatus("ACTIVE", true));
                 ucNewSystemUser.setPower(new UserPower(position, true));
                 ucNewSystemUser.setProfile(profileDetails);
                 ucNewSystemUser.Register();

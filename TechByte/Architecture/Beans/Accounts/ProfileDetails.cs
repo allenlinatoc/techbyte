@@ -1,14 +1,17 @@
-﻿using System;
+﻿using Guitar32;
+using Guitar32.Database;
+using Guitar32.Validations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Guitar32;
 using TechByte.Architecture;
 
 namespace TechByte.Architecture.Beans.Accounts
 {
-    public class Userprofile : Model
+    public class ProfileDetails : Model
     {
+        private DatabaseConnection dbConn = TechByte.Configs.DatabaseInstance.databaseConnection;
         public Profiles.AddressDetails
             addressDetails;
         public Profiles.ContactDetails
@@ -24,6 +27,39 @@ namespace TechByte.Architecture.Beans.Accounts
             SSS,
             PAGIBIG
         ;
+
+        public ProfileDetails(int id = -1) {
+            if (id >= 0) {
+                // Fetch data
+                this.setId(id);
+                QueryBuilder query = new QueryBuilder();
+                query.Select()
+                    .From("tblprofiles")
+                    .Where("id", id);
+                Dictionary<string, object> row = dbConn.QuerySingle(query);
+                if (row != null && row.Count > 0) {
+                    Profiles.AddressDetails addressDetails = new Profiles.AddressDetails(int.Parse(row["address_id"] + ""));
+                    Profiles.ContactDetails contactDetails = new Profiles.ContactDetails(int.Parse(row["contact_id"] + ""));
+                    Profiles.Fullname fullName = new Profiles.Fullname();
+                    fullName.setFirstName(new MultiWordAlpha(row["fname"].ToString()));
+                    fullName.setMiddleName(new MultiWordAlpha(row["mname"].ToString()));
+                    fullName.setLastName(new MultiWordAlpha(row["lname"].ToString()));
+                    this.setFullname(fullName);
+                    this.setAddressDetails(addressDetails);
+                    this.setContactDetails(contactDetails);
+                    this.setGender(new Gender(row["gender"].ToString()));
+                    this.setBirthDate(new Guitar32.Validations.DateTime(row["birthdate"].ToString()));
+                    this.setBirthPlace(new MultiWord(row["birthplace"].ToString()));
+                    this.setNationality(new MultiWordAlpha(row["nationality"].ToString()));
+                    this.setTIN(new Validations.TIN(row["tin"].ToString()));
+                    this.setSSS(row["sss"].ToString());
+                    this.setPAGIBIG(row["pagibig"].ToString());
+                }
+                else {
+                    throw new Guitar32.Exceptions.BeanDataNotFoundException();
+                }
+            }
+        }
 
 
         public Profiles.AddressDetails getAddressDetails() {

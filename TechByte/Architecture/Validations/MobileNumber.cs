@@ -15,13 +15,15 @@ namespace TechByte.Architecture.Validations
 
         public MobileNumber(String value, bool throwException = false) {
             this.value = value;
-            if (throwException) {
+            if (throwException && value != null) {
                 if (!this.isValid()) {
                     throw new InvalidMobileNumberException();
                 }
-                if (!this.isWithinRange()) {
-                    throw new Guitar32.Exceptions.OutOfRangeLengthException();
-                }
+                //if (this.getValue().Length > 0) {
+                //    if (!this.isWithinRange()) {
+                //        throw new Guitar32.Exceptions.OutOfRangeLengthException();
+                //    }
+                //}
             }
         }
 
@@ -31,7 +33,7 @@ namespace TechByte.Architecture.Validations
         }
 
         public int getMinLength() {
-            return 15;
+            return 11;
         }
 
         public string getValue() {
@@ -43,7 +45,7 @@ namespace TechByte.Architecture.Validations
         }
 
         public override bool isValid() {
-            return Regex.IsMatch(this.getValue(), expression);
+            return this.getValue().Length > 0 ? Regex.IsMatch(this.getValue(), expression) : true;
         }
     }
 

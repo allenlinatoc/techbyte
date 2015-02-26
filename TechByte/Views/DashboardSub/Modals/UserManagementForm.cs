@@ -20,6 +20,7 @@ namespace TechByte.Views.DashboardSub.Modals
     {
         private Architecture.Enums.FormModalTypes
             type = Architecture.Enums.FormModalTypes.Create;
+        private object key;
         private DatabaseConnection dbConn = TechByte.Configs.DatabaseInstance.databaseConnection;
 
 
@@ -29,11 +30,12 @@ namespace TechByte.Views.DashboardSub.Modals
             this.ResetFields();
         }
 
-        public void setMode(Architecture.Enums.FormModalTypes type) {
+        public void SetFormModalType(Architecture.Enums.FormModalTypes type) {
             this.type = type;
+            this.InitFormModal();
         }
 
-        public void initFormModal() {
+        public void InitFormModal() {
             switch (this.type) {
                 case Architecture.Enums.FormModalTypes.Create: {
                     lblTitle.Text = lblTitle.Text.Replace("{0}", "New");
@@ -44,6 +46,14 @@ namespace TechByte.Views.DashboardSub.Modals
                         break;
                     }
             }
+        }
+
+        public void Fetch() {
+            
+        }
+
+        public void SetFormModalKey(object key) {
+            this.key = key;
         }
 
         public void InitializeMonitors() {
@@ -113,6 +123,7 @@ namespace TechByte.Views.DashboardSub.Modals
                 .AddInputMonitor(mCountry)
             ;
         }
+
 
         private void btnSubmit_Click(object sender, EventArgs e) {
             // Additional non-text inputs

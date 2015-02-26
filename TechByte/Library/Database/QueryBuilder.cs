@@ -169,12 +169,23 @@ namespace Guitar32.Database
         public QueryBuilder Where(Dictionary<object, object> conditions) {
             string conditionStr = "";
             foreach (KeyValuePair<object, object> condition in conditions) {
-                conditionStr += (conditionStr.Length > 0 ? "AND " : "") + condition.Key + "=" + condition.Value + " ";
+                conditionStr += (conditionStr.Length > 0 ? "AND `" : "`") + condition.Key + "`=" + condition.Value + " ";
             }
             if (conditionStr.Trim().Length == 0) {
                 throw new ArgumentNullException(conditionStr);
             }
             return this.Where(conditionStr.Trim());
+        }
+        /// <summary>
+        /// Attach single column-value-based condition to your query
+        /// </summary>
+        /// <param name="column">The column name</param>
+        /// <param name="value">The expected column value</param>
+        /// <returns>Current instance</returns>
+        public QueryBuilder Where(String column, object value) {
+            Dictionary<object, object> condition = new Dictionary<object, object>();
+            condition.Add(column, value);
+            return this.Where(condition);
         }
 
 

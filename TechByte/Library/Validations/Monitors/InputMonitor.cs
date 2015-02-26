@@ -168,10 +168,10 @@ namespace Guitar32.Validations.Monitors
                 this.control.Focus();
                 return false;
             }
-            else if (this.expression!=null && !Regex.IsMatch(this.control.Text, this.expression)) {
-                this.control.Focus();
-                this.toolTip.Show(this.message, this.control, new Point(this.control.Width, -5));
-                return false;
+            else if (this.control.Text.Length > 0 && this.expression != null && !Regex.IsMatch(this.control.Text, this.expression)) {
+                    this.control.Focus();
+                    this.toolTip.Show(this.message, this.control, new Point(this.control.Width, -5));
+                    return false;
             }
             else {
                 return true;

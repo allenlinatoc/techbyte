@@ -1,5 +1,6 @@
 ﻿using Guitar32;
 using Guitar32.Database;
+using Guitar32.Utilities.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,14 +18,18 @@ namespace TechByte.Views.DashboardSub
 {
     public partial class UserManagement : Form
     {
+
+
         public UserManagement()
         {
             InitializeComponent();
         }
 
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
         }
+
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e) {
             if (e.Button == MouseButtons.Right) {
@@ -32,12 +37,29 @@ namespace TechByte.Views.DashboardSub
             }
         }
 
+
         private void btnNew_Click(object sender, EventArgs e) {
             UserManagementForm formNew = new UserManagementForm();
             formNew.ShowDialog(this);
+            this.LoadData();
         }
 
+
+        private void btnEdit_Click(object sender, EventArgs e) {
+            UserManagementForm formEdit = new UserManagementForm();
+            formEdit.SetFormModalType(Architecture.Enums.FormModalTypes.Update);
+            int id = int.Parse(DataGridViews.GetSelectedValue("ID", ref dgUsers).ToString());
+            formEdit.SetFormModalKey(id);
+            formEdit.Fetch();
+        }
+
+
         private void UserManagement_Load(object sender, EventArgs e) {
+            this.LoadData();
+        }
+
+
+        public void LoadData() {
             UCSystemUserCollection systemUserCollection = new UCSystemUserCollection();
             SystemResponse response;
 
@@ -50,8 +72,7 @@ namespace TechByte.Views.DashboardSub
                 for (int i = 0; i < result.RowCount(); i++) {
                     DataGridViewRow nRow = new DataGridViewRow();
                     Dictionary<string, object> dbRow = result.GetSingle(i);
-                    Console.WriteLine("LINE1: " + dbRow["user_username"]);
-                    dgUsers.Rows.Add( new object[] {
+                    dgUsers.Rows.Add(new object[] {
                         dbRow["user_id"].ToString(),
                         dbRow["user_username"].ToString(),
                         dbRow["profile_fname"].ToString() + " " + dbRow["profile_lname"].ToString(),
@@ -63,6 +84,22 @@ namespace TechByte.Views.DashboardSub
             else {
                 MessageBox.Show(response.GetMessage());
             }
+            dgUsers.ClearSelection();
+            DataGridViews.SelectIndex(0, ref dgUsers);
         }
+
+
+        private void dgUsers_SelectionChanged(object sender, EventArgs e) {
+            DataGridView dataGridView = (DataGridView)sender;
+            btnEdit.Visible = dataGridView.SelectedRows.Count > 0;
+            btnActivateToggle.Visible = dataGridView.SelectedRows.Count > 0;
+            if (btnActivateToggle.Visible) {
+                btnActivateToggle.Text =
+                    DataGridViews.GetSelectedValue(4, ref dataGridView)
+                        .ToString().Trim().ToUpper().Equals("ACTIVE") ? "Activate" : "Deactivate";
+            }
+        }
+
+
     }
 }
