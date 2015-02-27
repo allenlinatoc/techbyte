@@ -43,6 +43,9 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guitar32">
+      <HintPath>..\..\Guitar32\Guitar32\bin\Debug\Guitar32.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -59,6 +62,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Architecture\Beans\Accounts\UserPower.cs" />
     <Compile Include="Architecture\Usecases\UCNewSystemUser.cs" />
     <Compile Include="Architecture\Usecases\UCSystemUserCollection.cs" />
     <Compile Include="Architecture\Validations\UserPower.cs" />
@@ -66,43 +70,7 @@
     <Compile Include="Configs\DatabaseCredentialsFile.cs" />
     <Compile Include="Configs\DatabaseInstance.cs" />
     <Compile Include="Controllers\NewUser.cs" />
-    <Compile Include="Library\Common\IMonitorable.cs" />
-    <Compile Include="Library\Common\IStringDatatype.cs" />
-    <Compile Include="Library\Controllers\FormController.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Library\Database\DatabaseConnection.cs" />
-    <Compile Include="Library\Database\DatabaseCredentials.cs" />
-    <Compile Include="Library\Database\QueryResult.cs" />
-    <Compile Include="Library\Exceptions\BeanDataNotFoundException.cs" />
-    <Compile Include="Library\Exceptions\DisconnectedException.cs" />
-    <Compile Include="Library\Exceptions\OutOfRangeLengthException.cs" />
-    <Compile Include="Library\Exceptions\OutOfRangeValueException.cs" />
-    <Compile Include="Library\Cryptography\MD5Hash.cs" />
-    <Compile Include="Library\Session.cs" />
-    <Compile Include="Library\SystemResponse.cs" />
-    <Compile Include="Library\Utilities\Diagnostics.cs" />
-    <Compile Include="Library\Utilities\INIFactory.cs" />
-    <Compile Include="Library\Utilities\UI\DataGridViews.cs" />
-    <Compile Include="Library\Validations\Numeric.cs" />
-    <Compile Include="Library\Validations\DateTime.cs" />
-    <Compile Include="Library\Validations\Currency.cs" />
-    <Compile Include="Library\Validations\IPAddress.cs" />
-    <Compile Include="Library\Validations\Fax.cs" />
-    <Compile Include="Library\Validations\Email.cs" />
-    <Compile Include="Library\Validations\Gender.cs" />
-    <Compile Include="Library\Validations\Password.cs" />
-    <Compile Include="Library\Validations\Monitors\InputMonitor.cs" />
-    <Compile Include="Library\Validations\Monitors\InputMonitorCollection.cs" />
-    <Compile Include="Library\Validations\SingleWordAlpha.cs" />
-    <Compile Include="Library\Validations\MultiWordAlpha.cs" />
-    <Compile Include="Library\Validations\SingleWordAlphaNumeric.cs" />
-    <Compile Include="Library\Validations\MultiWordAlphaNumeric.cs" />
-    <Compile Include="Library\Validations\MultiWord.cs" />
     <Compile Include="Architecture\Common\INewSystemUser.cs" />
-    <Compile Include="Library\Common\INumericDatatype.cs" />
-    <Compile Include="Library\Validator.cs" />
-    <Compile Include="Library\Validations\SingleWord.cs" />
     <Compile Include="Architecture\Usecases\UCSystemUser.cs" />
     <Compile Include="Architecture\Validations\AccountStatus.cs" />
     <Compile Include="Architecture\Validations\MobileNumber.cs" />
@@ -110,9 +78,6 @@
     <Compile Include="Values\CODES.cs" />
     <Compile Include="Values\FileSystem.cs" />
     <Compile Include="FormManager.cs" />
-    <Compile Include="Library\Database\QueryBuilder.cs" />
-    <Compile Include="Library\Utilities\Database.cs" />
-    <Compile Include="Library\Utilities\Strings.cs" />
     <Compile Include="Architecture\Common\IFormModal.cs" />
     <Compile Include="Architecture\Common\IRegisteredUser.cs" />
     <Compile Include="Architecture\Beans\Accounts\ProfileDetails.cs" />
@@ -121,7 +86,6 @@
     <Compile Include="Architecture\Beans\Profiles\AddressDetails.cs" />
     <Compile Include="Architecture\Beans\Profiles\ContactDetails.cs" />
     <Compile Include="Architecture\Beans\Profiles\Fullname.cs" />
-    <Compile Include="Library\Model.cs" />
     <Compile Include="Views\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,7 +167,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Architecture\Exceptions\" />
-    <Folder Include="Library\IO\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />

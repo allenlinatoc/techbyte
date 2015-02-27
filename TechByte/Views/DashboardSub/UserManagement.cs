@@ -48,9 +48,13 @@ namespace TechByte.Views.DashboardSub
         private void btnEdit_Click(object sender, EventArgs e) {
             UserManagementForm formEdit = new UserManagementForm();
             formEdit.SetFormModalType(Architecture.Enums.FormModalTypes.Update);
-            int id = int.Parse(DataGridViews.GetSelectedValue("ID", ref dgUsers).ToString());
+            // Get User ID
+            object cellValue = DataGridViews.GetSelectedValue("ID", ref dgUsers);
+            int id = int.Parse(cellValue.ToString());
+            // Pass User ID
             formEdit.SetFormModalKey(id);
-            formEdit.Fetch();
+            // Show dialog
+            formEdit.ShowDialog();
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using Guitar32;
 using Guitar32.Database;
+using Guitar32.Utilities;
 using Guitar32.Validations;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using TechByte.Architecture;
 
 namespace TechByte.Architecture.Beans.Accounts
 {
-    public class ProfileDetails : Model
+    public class ProfileDetails : Model, Guitar32.Common.IDatabaseEntity
     {
         private DatabaseConnection dbConn = TechByte.Configs.DatabaseInstance.databaseConnection;
         public Profiles.AddressDetails
@@ -48,6 +49,7 @@ namespace TechByte.Architecture.Beans.Accounts
                     this.setAddressDetails(addressDetails);
                     this.setContactDetails(contactDetails);
                     this.setGender(new Gender(row["gender"].ToString()));
+                    Console.WriteLine("Fetched birthdate with value " + row["birthdate"]);
                     this.setBirthDate(new Guitar32.Validations.DateTime(row["birthdate"].ToString()));
                     this.setBirthPlace(new MultiWord(row["birthplace"].ToString()));
                     this.setNationality(new MultiWordAlpha(row["nationality"].ToString()));
@@ -142,7 +144,80 @@ namespace TechByte.Architecture.Beans.Accounts
         public void setPAGIBIG(String PAGIBIG) {
             this.PAGIBIG = PAGIBIG;
         }
-        
 
+
+
+        public bool CreateData() {
+            if (!this.exists() && !this.getContactDetails().exists() && !this.getAddressDetails().exists()) {
+                bool contactCreateSuccess = this.getContactDetails().CreateData();
+                bool addressCreateSuccess = this.getAddressDetails().CreateData();
+                if (contactCreateSuccess && addressCreateSuccess) {
+                    int
+                        contactId = this.getContactDetails().getId(),
+                        addressId = this.getAddressDetails().getId()
+                    ;
+
+                    QueryBuilder query = new QueryBuilder();
+                    query.InsertInto("tblprofiles", new string[] {
+                        "address_id", "contact_id",
+                        "fname", "mname", "lname", "gender", "birthdate", "birthplace", "nationality", "tin", "sss", "pagibig"
+                    })
+                        .Values(new object[] {
+                            addressId,
+                            contactId,
+                            Strings.Surround(this.getFullname().getFirstName()),
+                            Strings.Surround(this.getFullname().getMiddleName()),
+                            Strings.Surround(this.getFullname().getLastName()),
+                            Strings.Surround(this.getGender()),
+                            Strings.Surround(this.getBirthDate()),
+                            Strings.Surround(this.getBirthPlace()),
+                            Strings.Surround(this.getNationality()),
+                            Strings.Surround(this.getTIN()),
+                            Strings.Surround(this.getSSS()),
+                            Strings.Surround(this.getPAGIBIG())
+                        });
+                    Boolean success = dbConn.Execute(query);
+                    if (success) {
+                        this.setId(dbConn.GetLastInsertID());
+                    }
+                    return success;
+                }
+            }
+            return false;
+        }
+
+        public bool Delete() {
+            if (this.exists()) {
+                Boolean addressDeleteSuccess = this.getAddressDetails().Delete();
+                Boolean contactDeleteSuccess = this.getContactDetails().Delete();
+                if (addressDeleteSuccess && contactDeleteSuccess) {
+                    // Once both address and contact were deleted,
+                    //  this profile detail will also be cascaded
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool Update() {
+            if (this.exists()) {
+                Dictionary<string, string> setPairs = new Dictionary<string, string>();
+                setPairs.Add("fname", Strings.Surround(this.getFullname().getFirstName()));
+                setPairs.Add("mname", Strings.Surround(this.getFullname().getMiddleName()));
+                setPairs.Add("lname", Strings.Surround(this.getFullname().getLastName()));
+                setPairs.Add("gender", Strings.Surround(this.getGender()));
+                setPairs.Add("birthdate", Strings.Surround(this.getBirthDate()));
+                setPairs.Add("birthplace", Strings.Surround(this.getBirthPlace()));
+                setPairs.Add("nationality", Strings.Surround(this.getNationality()));
+                setPairs.Add("tin", Strings.Surround(this.getTIN()));
+                setPairs.Add("sss", Strings.Surround(this.getSSS()));
+                setPairs.Add("pagibig", Strings.Surround(this.getPAGIBIG()));
+
+                QueryBuilder query = new QueryBuilder();
+                query.Update("tblprofiles").Set(setPairs).Where("id", this.getId());
+                return dbConn.Execute(query);
+            }
+            return false;
+        }
     }
 }

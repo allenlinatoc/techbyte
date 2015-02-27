@@ -67,7 +67,7 @@ namespace TechByte.Architecture.Validations
 
         public override bool isValid() {
             // Check string length
-            if (this.getValue().Length == 0) {
+            if (this.getValue() != null && this.getValue().Length == 0) {
                 return true;
             }
 

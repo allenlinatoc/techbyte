@@ -1,4 +1,9 @@
-﻿using System;
+﻿using Guitar32.Controllers;
+using Guitar32.Database;
+using Guitar32.Validations;
+using Guitar32.Validations.Monitors;
+using MySql.Data.Types;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,13 +11,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
-using Guitar32.Controllers;
-using Guitar32.Database;
-using Guitar32.Validations;
-using Guitar32.Validations.Monitors;
-
+using TechByte.Architecture;
+using TechByte.Architecture.Beans;
+using TechByte.Architecture.Beans.Accounts;
+using TechByte.Architecture.Beans.Profiles;
 using TechByte.Architecture.Validations;
+
 
 namespace TechByte.Views.DashboardSub.Modals
 {
@@ -20,14 +24,67 @@ namespace TechByte.Views.DashboardSub.Modals
     {
         private Architecture.Enums.FormModalTypes
             type = Architecture.Enums.FormModalTypes.Create;
-        private object key;
+        private int key;
         private DatabaseConnection dbConn = TechByte.Configs.DatabaseInstance.databaseConnection;
 
 
         public UserManagementForm() : base(true) {
             InitializeComponent();
-            this.InitializeMonitors();
             this.ResetFields();
+        }
+
+        private void UserManagementForm_Load(object sender, EventArgs e) {
+            Fetch();
+            this.InitializeMonitors();
+        }
+
+        public void InitFormModal() {
+            switch (this.type) {
+                case Architecture.Enums.FormModalTypes.Create: {
+                        lblTitle.Text = lblTitle.Text.Replace("{0}", "New");
+                        btnSubmit.Text = "Save";
+                        break;
+                    }
+                case Architecture.Enums.FormModalTypes.Update: {
+                        lblTitle.Text = lblTitle.Text.Replace("{0}", "Edit");
+                        btnSubmit.Text = "Save changes";
+                        btnCancel.Text = "Close";
+                        this.DisableCloseDetections();
+                        break;
+                    }
+            }
+        }
+
+        public void Fetch() {
+            SystemUser user = new SystemUser(this.key);
+            // account
+            txtUsername.Text = user.getUsername();
+            comboPosition.SelectedItem = user.getPower().Trim().ToUpper();
+            // profile
+            txtProfile_Firstname.Text = user.getProfile().getFullname().getFirstName();
+            txtProfile_Middlename.Text = user.getProfile().getFullname().getMiddleName();
+            txtProfile_Lastname.Text = user.getProfile().getFullname().getLastName();
+            txtProfile_Birthplace.Text = user.getProfile().getBirthPlace();
+            dtProfile_Birthdate.Value = System.DateTime.Parse(user.getProfile().getBirthDate());
+            txtProfile_Nationality.Text = user.getProfile().getNationality();
+            // license
+            txtLicense_TIN.Text = user.getProfile().getTIN();
+            txtLicense_SSS.Text = user.getProfile().getSSS();
+            txtLicense_PAGIBIG.Text = user.getProfile().getPAGIBIG();
+            // contact details
+            txtContact_Email.Text = user.getProfile().getContactDetails().getEmail();
+            txtContact_Mobile.Text = user.getProfile().getContactDetails().getMobile();
+            txtContact_Landline.Text = user.getProfile().getContactDetails().getLandline();
+            txtContact_Fax.Text = user.getProfile().getContactDetails().getFax();
+            // address details
+            txtAddress_Street.Text = user.getProfile().getAddressDetails().getStreet();
+            txtAddress_City.Text = user.getProfile().getAddressDetails().getCity();
+            txtAddress_Region.Text = user.getProfile().getAddressDetails().getRegion();
+            txtAddress_Country.Text = user.getProfile().getAddressDetails().getCountry();
+        }
+
+        public void SetFormModalKey(object key) {
+            this.key = (int)key;
         }
 
         public void SetFormModalType(Architecture.Enums.FormModalTypes type) {
@@ -35,35 +92,18 @@ namespace TechByte.Views.DashboardSub.Modals
             this.InitFormModal();
         }
 
-        public void InitFormModal() {
-            switch (this.type) {
-                case Architecture.Enums.FormModalTypes.Create: {
-                    lblTitle.Text = lblTitle.Text.Replace("{0}", "New");
-                    break;
-                    }
-                case Architecture.Enums.FormModalTypes.Update: {
-                        lblTitle.Text = lblTitle.Text.Replace("{0}", "Edit");
-                        break;
-                    }
-            }
-        }
-
-        public void Fetch() {
-            
-        }
-
-        public void SetFormModalKey(object key) {
-            this.key = key;
-        }
-
         public void InitializeMonitors() {
             // {{ BLOCK for account details
             InputMonitor mUsername = new InputMonitor(txtUsername, true);
-            InputMonitor mPassword2 = new InputMonitor(txtPassword2, true);
-            InputMonitor mPassword1 = new InputMonitor(txtPassword1, true);
             mUsername.SetValidator(SingleWordAlphaNumeric.expression, SingleWordAlphaNumeric.message);
-            mPassword1.SetValidator(Password.expression, Password.message);
-            mPassword2.SetValidator(Password.expression, Password.message);
+            if (this.type == Architecture.Enums.FormModalTypes.Create) {
+                InputMonitor mPassword2 = new InputMonitor(txtPassword2, true);
+                InputMonitor mPassword1 = new InputMonitor(txtPassword1, true);
+                mPassword1.SetValidator(Password.expression, Password.message);
+                mPassword2.SetValidator(Password.expression, Password.message);
+                this.AddInputMonitor(mPassword1);
+                this.AddInputMonitor(mPassword2);
+            }
             // }}
             // {{ BLOCK for Personal information
             InputMonitor mFirstname = new InputMonitor(txtProfile_Firstname, true);
@@ -102,8 +142,6 @@ namespace TechByte.Views.DashboardSub.Modals
 
 
             this.AddInputMonitor(mUsername)
-                .AddInputMonitor(mPassword1)
-                .AddInputMonitor(mPassword2)
                 // Personal info
                 .AddInputMonitor(mFirstname)
                 .AddInputMonitor(mMiddlename)
@@ -126,37 +164,65 @@ namespace TechByte.Views.DashboardSub.Modals
 
 
         private void btnSubmit_Click(object sender, EventArgs e) {
+            // Check password match
+            if (txtPassword1.TextLength > 0 || txtPassword2.TextLength > 0) {
+                if (!txtPassword1.Text.Equals(txtPassword2.Text)) {
+                    MessageBox.Show("Passwords didn't matched, please check and try again");
+                    return;
+                }
+            }
+
             // Additional non-text inputs
             if (this.IsSubmittable()) {
-                Guitar32.Validations.DateTime dt = Guitar32.Validations.DateTime.CreateFromDateTimePicker(dtProfile_Birthdate);
+                if (this.type == Architecture.Enums.FormModalTypes.Create) {
+                    // Create
+                    Guitar32.Validations.DateTime dt = Guitar32.Validations.DateTime.CreateFromDateTimePicker(dtProfile_Birthdate);
 
-                TechByte.Controllers.NewUser ctrlNewUser = new Controllers.NewUser();
-                ctrlNewUser.Register(comboPosition.SelectedItem.ToString(),
-                    txtUsername.Text,
-                    txtPassword1.Text,
-                    txtPassword2.Text,
-                    txtProfile_Firstname.Text,
-                    txtProfile_Middlename.Text,
-                    txtProfile_Lastname.Text,
-                    comboProfile_Gender.SelectedItem.ToString().ToUpper(),
-                    dt.getValue(),
-                    txtProfile_Birthplace.Text,
-                    txtProfile_Nationality.Text,
-                    txtLicense_TIN.Text,
-                    txtLicense_SSS.Text,
-                    txtLicense_PAGIBIG.Text,
-                    txtContact_Email.Text,
-                    txtContact_Mobile.Text,
-                    txtContact_Landline.Text,
-                    txtContact_Fax.Text,
-                    txtAddress_Street.Text,
-                    txtAddress_City.Text,
-                    txtAddress_Region.Text,
-                    txtAddress_Country.Text);
-                MessageBox.Show(ctrlNewUser.getResponse().GetMessage());
-                if (ctrlNewUser.getResponse().GetCode() == "00") {
+                    TechByte.Controllers.NewUser ctrlNewUser = new Controllers.NewUser();
+                    ctrlNewUser.Register(comboPosition.SelectedItem.ToString(),
+                        txtUsername.Text,
+                        txtPassword1.Text,
+                        txtPassword2.Text,
+                        txtProfile_Firstname.Text,
+                        txtProfile_Middlename.Text,
+                        txtProfile_Lastname.Text,
+                        comboProfile_Gender.SelectedItem.ToString().ToUpper(),
+                        dt.getValue(),
+                        txtProfile_Birthplace.Text,
+                        txtProfile_Nationality.Text,
+                        txtLicense_TIN.Text,
+                        txtLicense_SSS.Text,
+                        txtLicense_PAGIBIG.Text,
+                        txtContact_Email.Text,
+                        txtContact_Mobile.Text,
+                        txtContact_Landline.Text,
+                        txtContact_Fax.Text,
+                        txtAddress_Street.Text,
+                        txtAddress_City.Text,
+                        txtAddress_Region.Text,
+                        txtAddress_Country.Text);
+                    MessageBox.Show(ctrlNewUser.getResponse().GetMessage());
+                    if (ctrlNewUser.getResponse().GetCode() == "00") {
+                        this.DisableCloseDetections();
+                        this.Close();
+                    }
+                }
+                else {
+                    SystemUser user = new SystemUser(this.key);
+                    // Update password if it has contents
+                    if (txtPassword1.TextLength > 0 || txtPassword2.TextLength > 0) {
+                        user.setPassword(new Password(txtPassword1.Text, true));
+                    }
+                    // Update
+                    user.setUsername(new SingleWordAlphaNumeric(txtUsername.Text, true));
+                    if (!user.Update()) {
+                        MessageBox.Show("Something went wrong, please check your connection and try again");
+                        return;
+                    }
+                    MessageBox.Show("Changes have been successfully saved!");
                     this.DisableCloseDetections();
                     this.Close();
+                    return;
                 }
             }
         }
