@@ -31,8 +31,11 @@ C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\D
 C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\bin\Debug\TechByte.exe
 C:\Users\Allen\Documents\Visual Studio 2010\Projects\TechByte\TechByte\bin\Debug\TechByte.pdb
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.DatabaseConfiguration.resources
-C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Modals.UserManagementForm.resources
-C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.UserManagement.resources
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Admin.SystemConfiguration.resources
 c:\extravolume\misc\my documents\visual studio 2010\Projects\TechByte\TechByte\bin\Debug\Guitar32.dll
 c:\extravolume\misc\my documents\visual studio 2010\Projects\TechByte\TechByte\bin\Debug\Guitar32.pdb
+c:\extravolume\misc\my documents\visual studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Admin.UserManagement.resources
+c:\extravolume\misc\my documents\visual studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Admin.BusinessPartners.resources
+c:\extravolume\misc\my documents\visual studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Admin.Modals.UserManagementForm.resources
+c:\extravolume\misc\my documents\visual studio 2010\Projects\TechByte\TechByte\bin\Debug\Guitar32.xml
+c:\extravolume\misc\my documents\visual studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Admin.Modals.BusinessPartnersForm.resources

@@ -18,7 +18,7 @@ using TechByte.Architecture.Beans.Profiles;
 using TechByte.Architecture.Validations;
 
 
-namespace TechByte.Views.DashboardSub.Modals
+namespace TechByte.Views.DashboardSub.Admin.Modals
 {
     public partial class UserManagementForm : FormController, TechByte.Architecture.Common.IFormModal
     {
@@ -34,8 +34,10 @@ namespace TechByte.Views.DashboardSub.Modals
         }
 
         private void UserManagementForm_Load(object sender, EventArgs e) {
-            Fetch();
             this.InitializeMonitors();
+            if (this.type == Architecture.Enums.FormModalTypes.Update) {
+                Fetch();
+            }
         }
 
         public void InitFormModal() {
@@ -209,18 +211,53 @@ namespace TechByte.Views.DashboardSub.Modals
                 }
                 else {
                     SystemUser user = new SystemUser(this.key);
+
                     // Update password if it has contents
                     if (txtPassword1.TextLength > 0 || txtPassword2.TextLength > 0) {
+                        // Prompt user
+                        DialogResult answer =
+                            MessageBox.Show("You entered a password, this means you want to change this user's password. Are you sure you want to proceed?", "Confirm change password", MessageBoxButtons.YesNo);
+                        if (answer == System.Windows.Forms.DialogResult.No) {
+                            return;
+                        }
                         user.setPassword(new Password(txtPassword1.Text, true));
+                        user.UpdatePassword();
                     }
                     // Update
                     user.setUsername(new SingleWordAlphaNumeric(txtUsername.Text, true));
+                    user.setPower(new Architecture.Validations.UserPower(comboPosition.SelectedItem.ToString(), true));
+                    ProfileDetails profileDetails = user.getProfile();
+                    Fullname profileDetails_Fullname = profileDetails.getFullname();
+                    AddressDetails addressDetails = profileDetails.getAddressDetails();
+                    ContactDetails contactDetails = profileDetails.getContactDetails();
+                    profileDetails_Fullname.setFirstName(new MultiWordAlpha(txtProfile_Firstname.Text, true));
+                    profileDetails_Fullname.setMiddleName(new MultiWordAlpha(txtProfile_Middlename.Text, true));
+                    profileDetails_Fullname.setLastName(new MultiWordAlpha(txtProfile_Lastname.Text, true));
+                    profileDetails.setFullname(profileDetails_Fullname);
+                    profileDetails.setBirthDate(Guitar32.Validations.DateTime.CreateFromDateTimePicker(dtProfile_Birthdate));
+                    profileDetails.setBirthPlace(new MultiWord(txtProfile_Birthplace.Text, true));
+                    profileDetails.setNationality(new MultiWordAlpha(txtProfile_Nationality.Text, true));
+                    profileDetails.setGender(new Gender(comboProfile_Gender.SelectedItem.ToString(), true));
+                    profileDetails.setTIN(new TIN(txtLicense_TIN.Text, true));
+                    profileDetails.setSSS(txtLicense_SSS.Text);
+                    profileDetails.setPAGIBIG(txtLicense_PAGIBIG.Text);
+                    contactDetails.setEmail(new Email(txtContact_Email.Text, true));
+                    contactDetails.setMobile(new MobileNumber(txtContact_Mobile.Text, true));
+                    contactDetails.setLandline(txtContact_Landline.Text);
+                    contactDetails.setFax(txtContact_Fax.Text);
+                    addressDetails.setStreet(new MultiWord(txtAddress_Street.Text, true));
+                    addressDetails.setCity(new MultiWordAlpha(txtAddress_City.Text, true));
+                    addressDetails.setRegion(new MultiWordAlpha(txtAddress_Region.Text, true));
+                    addressDetails.setCountry(new MultiWordAlpha(txtAddress_Country.Text, true));
+                    profileDetails.setContactDetails(contactDetails);
+                    profileDetails.setAddressDetails(addressDetails);
                     if (!user.Update()) {
                         MessageBox.Show("Something went wrong, please check your connection and try again");
                         return;
                     }
                     MessageBox.Show("Changes have been successfully saved!");
                     this.DisableCloseDetections();
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
                     this.Close();
                     return;
                 }
@@ -228,6 +265,7 @@ namespace TechByte.Views.DashboardSub.Modals
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
+            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close();
         }
 

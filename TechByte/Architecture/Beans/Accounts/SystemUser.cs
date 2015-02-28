@@ -35,7 +35,7 @@ namespace TechByte.Architecture.Beans.Accounts
                 query.Select()
                     .From("view_users, view_powers")
                     .Where(conditions);
-                Dictionary<string, object> row = dbConn.QuerySingle(query);
+                QueryResultRow row = dbConn.QuerySingle(query);
                 if (row != null && row.Count > 0) {
                     ProfileDetails profileDetails = new ProfileDetails(int.Parse(row["user_profile_id"].ToString()));
                     this.setUsername(new SingleWordAlphaNumeric(row["user_username"].ToString()));
@@ -130,6 +130,11 @@ namespace TechByte.Architecture.Beans.Accounts
 
         public bool Update() {
             if (this.exists()) {
+                // Try to update child beans first
+                if (!this.getProfile().Update()) {
+                    return false;
+                }
+                // Proceed with update
                 Dictionary<string, string> setPairs = new Dictionary<string, string>();
                 setPairs.Add("username", Strings.Surround(this.getUsername()));
                 setPairs.Add("status", Strings.Surround(this.getStatus()));

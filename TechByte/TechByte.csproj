@@ -63,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Architecture\Beans\Accounts\UserPower.cs" />
+    <Compile Include="Architecture\Beans\AuditTrail.cs" />
+    <Compile Include="Architecture\Beans\Business\Company.cs" />
     <Compile Include="Architecture\Usecases\UCNewSystemUser.cs" />
     <Compile Include="Architecture\Usecases\UCSystemUserCollection.cs" />
     <Compile Include="Architecture\Validations\UserPower.cs" />
@@ -92,6 +94,18 @@
     <Compile Include="Views\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DashboardSub\Admin\BusinessPartners.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Admin\BusinessPartners.Designer.cs">
+      <DependentUpon>BusinessPartners.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Admin\Modals\BusinessPartnersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Admin\Modals\BusinessPartnersForm.Designer.cs">
+      <DependentUpon>BusinessPartnersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashboardSub\Admin\SystemConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,17 +118,23 @@
     <Compile Include="Views\DashboardSub\DatabaseConfiguration.Designer.cs">
       <DependentUpon>DatabaseConfiguration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\DashboardSub\Modals\UserManagementForm.cs">
+    <Compile Include="Views\DashboardSub\Admin\Modals\UserManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\DashboardSub\Modals\UserManagementForm.Designer.cs">
+    <Compile Include="Views\DashboardSub\Admin\Modals\UserManagementForm.Designer.cs">
       <DependentUpon>UserManagementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\DashboardSub\UserManagement.cs">
+    <Compile Include="Views\DashboardSub\Admin\UserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\DashboardSub\UserManagement.Designer.cs">
+    <Compile Include="Views\DashboardSub\Admin\UserManagement.Designer.cs">
       <DependentUpon>UserManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardSub\HR\Employees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\HR\Employees.Designer.cs">
+      <DependentUpon>Employees.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
@@ -129,17 +149,26 @@
     <EmbeddedResource Include="Views\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Admin\BusinessPartners.resx">
+      <DependentUpon>BusinessPartners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Admin\Modals\BusinessPartnersForm.resx">
+      <DependentUpon>BusinessPartnersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\Admin\SystemConfiguration.resx">
       <DependentUpon>SystemConfiguration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\DatabaseConfiguration.resx">
       <DependentUpon>DatabaseConfiguration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\DashboardSub\Modals\UserManagementForm.resx">
+    <EmbeddedResource Include="Views\DashboardSub\Admin\Modals\UserManagementForm.resx">
       <DependentUpon>UserManagementForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\DashboardSub\UserManagement.resx">
+    <EmbeddedResource Include="Views\DashboardSub\Admin\UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\HR\Employees.resx">
+      <DependentUpon>Employees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -167,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Architecture\Exceptions\" />
+    <Folder Include="Views\DashboardSub\HR\Modals\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />

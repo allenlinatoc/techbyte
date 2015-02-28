@@ -30,7 +30,11 @@ namespace TechByte.Architecture.Usecases
                 .From("tblusers")
                 .Where(conditions);
             if (DatabaseInstance.databaseConnection.Exists(query)) {
-                this.setResponse(SystemResponse.Success);
+                QueryResultRow row = DatabaseInstance.databaseConnection.QuerySingle(query);
+                int userId = int.Parse(row["id"].ToString());
+                TechByte.Architecture.Beans.Accounts.SystemUser systemUser
+                    = new Beans.Accounts.SystemUser(userId);
+                this.setResponse(new SystemResponse("00", "Success!", systemUser));
                 return this;
             }
 
@@ -53,7 +57,7 @@ namespace TechByte.Architecture.Usecases
             query.Select()
                 .From("view_users, view_powers, view_profiles, view_contactdetails, view_addressdetails")
                 .Where(conditions);
-            Dictionary<string, object> result;
+            QueryResultRow result;
             // Check for database error
             try {
                 result = dbConn.QuerySingle(query);

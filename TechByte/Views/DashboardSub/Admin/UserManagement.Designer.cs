@@ -1,4 +1,4 @@
-﻿namespace TechByte.Views.DashboardSub
+﻿namespace TechByte.Views.DashboardSub.Admin
 {
     partial class UserManagement
     {
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dgUsers = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,13 +35,9 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNew = new System.Windows.Forms.Button();
-            this.cmsOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.miActivate = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnActivateToggle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).BeginInit();
-            this.cmsOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgUsers
@@ -71,7 +66,7 @@
             this.dgUsers.Size = new System.Drawing.Size(613, 331);
             this.dgUsers.TabIndex = 0;
             this.dgUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dgUsers.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dgUsers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUsers_CellDoubleClick);
             this.dgUsers.SelectionChanged += new System.EventHandler(this.dgUsers_SelectionChanged);
             // 
             // Column1
@@ -120,26 +115,6 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // cmsOptions
-            // 
-            this.cmsOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem,
-            this.miActivate});
-            this.cmsOptions.Name = "cmsOptions";
-            this.cmsOptions.Size = new System.Drawing.Size(171, 48);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // miActivate
-            // 
-            this.miActivate.Name = "miActivate";
-            this.miActivate.Size = new System.Drawing.Size(170, 22);
-            this.miActivate.Text = "Activate/Deactivate";
-            // 
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -160,7 +135,7 @@
             this.btnActivateToggle.TabIndex = 1;
             this.btnActivateToggle.Text = "Activate/Deactivate";
             this.btnActivateToggle.UseVisualStyleBackColor = true;
-            this.btnActivateToggle.Click += new System.EventHandler(this.btnNew_Click);
+            this.btnActivateToggle.Click += new System.EventHandler(this.btnActivateToggle_Click);
             // 
             // UserManagement
             // 
@@ -172,10 +147,10 @@
             this.Controls.Add(this.btnActivateToggle);
             this.Controls.Add(this.dgUsers);
             this.Name = "UserManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "UserManagement";
             this.Load += new System.EventHandler(this.UserManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).EndInit();
-            this.cmsOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -189,9 +164,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.ContextMenuStrip cmsOptions;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem miActivate;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnActivateToggle;
     }

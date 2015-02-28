@@ -37,7 +37,7 @@ namespace TechByte.Architecture.Beans.Accounts
                 query.Select()
                     .From("tblprofiles")
                     .Where("id", id);
-                Dictionary<string, object> row = dbConn.QuerySingle(query);
+                QueryResultRow row = dbConn.QuerySingle(query);
                 if (row != null && row.Count > 0) {
                     Profiles.AddressDetails addressDetails = new Profiles.AddressDetails(int.Parse(row["address_id"] + ""));
                     Profiles.ContactDetails contactDetails = new Profiles.ContactDetails(int.Parse(row["contact_id"] + ""));
@@ -49,8 +49,7 @@ namespace TechByte.Architecture.Beans.Accounts
                     this.setAddressDetails(addressDetails);
                     this.setContactDetails(contactDetails);
                     this.setGender(new Gender(row["gender"].ToString()));
-                    Console.WriteLine("Fetched birthdate with value " + row["birthdate"]);
-                    this.setBirthDate(new Guitar32.Validations.DateTime(row["birthdate"].ToString()));
+                    this.setBirthDate(Guitar32.Validations.DateTime.CreateFromNativeDateTime(System.DateTime.Parse(row["birthdate"].ToString())));
                     this.setBirthPlace(new MultiWord(row["birthplace"].ToString()));
                     this.setNationality(new MultiWordAlpha(row["nationality"].ToString()));
                     this.setTIN(new Validations.TIN(row["tin"].ToString()));
@@ -201,6 +200,11 @@ namespace TechByte.Architecture.Beans.Accounts
 
         public bool Update() {
             if (this.exists()) {
+                // Try to update child beans first
+                if (!this.getAddressDetails().Update() || !this.getContactDetails().Update()) {
+                    return false;
+                }
+                // Proceed with update
                 Dictionary<string, string> setPairs = new Dictionary<string, string>();
                 setPairs.Add("fname", Strings.Surround(this.getFullname().getFirstName()));
                 setPairs.Add("mname", Strings.Surround(this.getFullname().getMiddleName()));

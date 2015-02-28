@@ -16,6 +16,7 @@ using Guitar32.Utilities;
 using Guitar32.Validations.Monitors;
 using Microsoft.Win32;
 using MySql.Data.MySqlClient;
+using TechByte.Architecture.Beans.Accounts;
 
 
 namespace TechByte.Views
@@ -96,15 +97,22 @@ namespace TechByte.Views
             TechByte.Controllers.SystemLogin ctrlSystemLogin = new TechByte.Controllers.SystemLogin();
             ctrlSystemLogin.Login(username, password);
             Guitar32.SystemResponse response = ctrlSystemLogin.getResponse();
-            if (response == Guitar32.SystemResponse.Success) {
+            if (response.GetCode() == "00") {
+                // Success login
                 this.Hide();
                 txtUsername.Clear();
                 txtPassword.Clear();
+                // {{ BLOCK for Session
+                SystemUser user = (SystemUser)response.GetData();
+                Guitar32.Utilities.Session.Set("CURRENT_USER", user);
+                // }}
                 FormManager.frmDashboard = new Dashboard();
                 FormManager.frmDashboard.ShowDialog(this);
                 this.Show();
+                txtUsername.Focus();
             }
             else {
+                // Login failure
                 MessageBox.Show(response.GetMessage());
                 txtPassword.Clear();
             }

@@ -79,7 +79,7 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -113,6 +113,7 @@
             this.businessPartnersToolStripMenuItem.Name = "businessPartnersToolStripMenuItem";
             this.businessPartnersToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.businessPartnersToolStripMenuItem.Text = "Business partners management";
+            this.businessPartnersToolStripMenuItem.Click += new System.EventHandler(this.businessPartnersToolStripMenuItem_Click);
             // 
             // auditTrailToolStripMenuItem
             // 
@@ -133,6 +134,7 @@
             this.employeeMasterDataToolStripMenuItem.Name = "employeeMasterDataToolStripMenuItem";
             this.employeeMasterDataToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.employeeMasterDataToolStripMenuItem.Text = "Employee master data";
+            this.employeeMasterDataToolStripMenuItem.Click += new System.EventHandler(this.employeeMasterDataToolStripMenuItem_Click);
             // 
             // purchasingToolStripMenuItem
             // 

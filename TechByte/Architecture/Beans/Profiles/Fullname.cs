@@ -24,7 +24,7 @@ namespace TechByte.Architecture.Beans.Profiles
                 query.Select(new string[] { "fname", "mname", "lname" })
                     .From("tblprofiles")
                     .Where("id", profileId);
-                Dictionary<string, object> row = dbConn.QuerySingle(query);
+                QueryResultRow row = dbConn.QuerySingle(query);
                 if (row != null && row.Count > 0) {
                     this.setFirstName(new MultiWordAlpha(row["fname"].ToString()));
                     this.setMiddleName(new MultiWordAlpha(row["mname"].ToString()));

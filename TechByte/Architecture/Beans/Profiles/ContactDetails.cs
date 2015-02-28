@@ -26,7 +26,7 @@ namespace TechByte.Architecture.Beans.Profiles
                 query.Select()
                     .From("tblcontactdetails")
                     .Where("id", id);
-                Dictionary<string, object> row = dbConn.QuerySingle(query);
+                QueryResultRow row = dbConn.QuerySingle(query);
                 if (row != null && row.Count > 0) {
                     this.setEmail(new Guitar32.Validations.Email(row["email"].ToString()));
                     this.setMobile(new TechByte.Architecture.Validations.MobileNumber(row["mobile"].ToString()));

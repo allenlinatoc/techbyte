@@ -58,9 +58,24 @@ namespace TechByte.Views
 
 
         private void userManagementToolStripMenuItem_Click(object sender, EventArgs e) {
-            UserManagement frmUserManagement = new UserManagement();
+            TechByte.Views.DashboardSub.Admin.UserManagement frmUserManagement = 
+                new TechByte.Views.DashboardSub.Admin.UserManagement();
             frmUserManagement.MdiParent = this;
             frmUserManagement.Show();
+        }
+
+        private void businessPartnersToolStripMenuItem_Click(object sender, EventArgs e) {
+            TechByte.Views.DashboardSub.Admin.BusinessPartners frmBusinessPartners
+                = new DashboardSub.Admin.BusinessPartners();
+            frmBusinessPartners.MdiParent = this;
+            frmBusinessPartners.Show();
+        }
+
+        private void employeeMasterDataToolStripMenuItem_Click(object sender, EventArgs e) {
+            TechByte.Views.DashboardSub.HR.Employees frmEmployees
+                = new DashboardSub.HR.Employees();
+            frmEmployees.MdiParent = this;
+            frmEmployees.Show();
         }
     }
 }

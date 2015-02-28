@@ -22,7 +22,7 @@ namespace TechByte.Architecture.Beans.Accounts
                 query.Select()
                     .From("tblpowers")
                     .Where("id", powerId);
-                Dictionary<string, object> row = dbConn.QuerySingle(query);
+                QueryResultRow row = dbConn.QuerySingle(query);
                 if (row != null && row.Count > 0) {
                     this.setName(new SingleWordAlphaNumeric(row["name"] + ""));
                     this.setModules(row["modules"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries));

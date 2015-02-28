@@ -1,4 +1,4 @@
-﻿namespace TechByte.Views.DashboardSub.Modals
+﻿namespace TechByte.Views.DashboardSub.Admin.Modals
 {
     partial class UserManagementForm
     {
@@ -464,7 +464,7 @@
             this.groupBox4.Controls.Add(this.label20);
             this.groupBox4.Location = new System.Drawing.Point(293, 19);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(268, 184);
+            this.groupBox4.Size = new System.Drawing.Size(268, 159);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Address details";
@@ -550,7 +550,7 @@
             this.groupBox3.Controls.Add(this.txtContact_Email);
             this.groupBox3.Location = new System.Drawing.Point(13, 19);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(274, 229);
+            this.groupBox3.Size = new System.Drawing.Size(274, 159);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Contact details";
@@ -661,7 +661,7 @@
             this.MinimizeBox = false;
             this.Name = "UserManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UserManagementForm";
+            this.Text = "User Management";
             this.Load += new System.EventHandler(this.UserManagementForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

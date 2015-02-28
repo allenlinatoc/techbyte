@@ -1,0 +1,683 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Guitar32</name>
+    </assembly>
+    <members>
+        <member name="T:Guitar32.Exceptions.DataUpdateException">
+            <summary>
+            Exception thrown when a failure occured while a data is being updated to a data source
+            </summary>
+        </member>
+        <member name="T:Guitar32.Exceptions.ChildBeanCreationException">
+            <summary>
+            Exception thrown when a child bean cannot be created
+            </summary>
+        </member>
+        <member name="M:Guitar32.Validations.Monitors.InputMonitorCollection.#ctor">
+            <summary>
+            Initialize an instance of InputMonitorCollection
+            </summary>
+        </member>
+        <member name="M:Guitar32.Validations.Monitors.InputMonitorCollection.IsSubmittable">
+            <summary>
+            Check if every InputMonitor in this collection is ready for user-defined submission
+            </summary>
+            <returns>If this input monitor collection is submittable or not</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.Strings.FormatInt(System.Int32,System.Int32)">
+            <summary>
+            Format an integer value with padded number of zeroes, depending on digit count
+            </summary>
+            <param name="number">The integer value to be formatted</param>
+            <param name="digitCount">The number of digits count</param>
+            <returns>The formatted integer value in string</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.Strings.LowercaseFirst(System.String)">
+            <summary>
+            Get the first-letter-only lowercase format of a string
+            </summary>
+            <param name="str">The string</param>
+            <returns>The first-letter-only lowercase</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.Strings.IsSurrounded(System.String,System.Char)">
+            <summary>
+            Check if a string is surrounded by certain character
+            </summary>
+            <param name="str">The string to be tested</param>
+            <param name="fence">(Optional) The fence to be determined</param>
+            <returns>If this string is surrounded by a fence or not</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.Strings.Reverse(System.String)">
+            <summary>
+            Reverse a string
+            </summary>
+            <param name="str">The string to be reversed</param>
+            <returns>The reversed string</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.Strings.RightTrim(System.String,System.Char)">
+            <summary>
+            Trims a character mask from right, space on default
+            </summary>
+            <param name="str">The string to be trimmed</param>
+            <param name="chmask">The character to be masked for</param>
+            <returns>The trimmed string</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.Strings.Surround(System.String,System.Char)">
+            <summary>
+            Surround a string with character fence
+            </summary>
+            <param name="str">The string to be surrounded</param>
+            <param name="fence">The character fence</param>
+            <returns>The surrounded string</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.Strings.Unsurround(System.String,System.Char)">
+            <summary>
+            Unsurround a string with character fence
+            </summary>
+            <param name="str">The string to be surrounded</param>
+            <param name="fence">The character fence to be determined</param>
+            <returns>The unsurrounded string</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.Strings.UppercaseFirst(System.String)">
+            <summary>
+            Get the first-letter-only uppercase form of a string
+            </summary>
+            <param name="str">The string</param>
+            <returns>The first-letter-only formatted string</returns>
+        </member>
+        <member name="T:Guitar32.Utilities.UI.DataGridViews">
+            <summary>
+            A utility class for additional basic helpers to control DataGridView objects
+            </summary>
+        </member>
+        <member name="M:Guitar32.Utilities.UI.DataGridViews.GetSelectedValue(System.Int32,System.Windows.Forms.DataGridView@)">
+            <summary>
+            Gets the value of the cell column index from a currently selected row.
+            Works only for non-MultiSelect DataGridView objects.
+            </summary>
+            <param name="columnIndex">The column index from the currently selected row</param>
+            <param name="dataGridView">The target DataGridView object</param>
+            <returns>The current value of the specified position, otherwise, FALSE if no current row is selected or columnIndex exceeds the total number of columns</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.UI.DataGridViews.GetSelectedValue(System.String,System.Windows.Forms.DataGridView@)">
+            <summary>
+            Gets the value of the cell column name from a currently selected row
+            Works only for non-MultiSelect DataGridView objects
+            </summary>
+            <param name="columnName">The column name from the currently selected row</param>
+            <param name="dataGridView">The target DataGridView object</param>
+            <returns>The current value of the specified position, otherwise, FALSE if no current row is selected or columnIndex exceeds the total number of columns</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.UI.DataGridViews.GetValue(System.Int32,System.Int32,System.Windows.Forms.DataGridView@)">
+            <summary>
+            Get the value of a specified position in DataGridView
+            </summary>
+            <param name="columnIndex">Index of column</param>
+            <param name="rowIndex">Index of row</param>
+            <param name="dataGridView">The target DataGridView object</param>
+            <returns>The current value of the specified position, otherwise, FALSE</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.UI.DataGridViews.SelectIndex(System.Int32,System.Windows.Forms.DataGridView@)">
+            <summary>
+            Select a row. If target DataGridView is MultiSelect, then the specified row index will be included in the selection.
+            </summary>
+            <param name="index">The index of the row to be selected</param>
+            <param name="dataGridView">The target DataGridView object</param>
+        </member>
+        <member name="M:Guitar32.Utilities.UI.DataGridViews.SelectIndices(System.Int32[],System.Windows.Forms.DataGridView@)">
+            <summary>
+            Select multiple rows. Works only when the target DataGridView is MultiSelect
+            </summary>
+            <param name="indices">The array of indices of rows to be selected</param>
+            <param name="dataGridView">The target DataGridView object</param>
+        </member>
+        <member name="M:Guitar32.Utilities.UI.DataGridViews.SetSelectedIndices(System.Int32[],System.Windows.Forms.DataGridView@)">
+            <summary>
+            Set an array of the row indices to be selected. Others not specified will be deselected. Works only when the target DataGridView is MultiSelect
+            </summary>
+            <param name="indices">The array of indices of rows to be selected</param>
+            <param name="dataGridView">The target DataGridView object</param>
+        </member>
+        <member name="T:Guitar32.Utilities.Diagnostics">
+            <summary>
+            Class for logging diagnostics and debugging log entries into Windows Event log
+            </summary>
+        </member>
+        <member name="M:Guitar32.Utilities.Diagnostics.#ctor(System.String)">
+            <summary>
+            Instantiate an instance of Windows event-based diagnostics
+            </summary>
+        </member>
+        <member name="M:Guitar32.Utilities.Diagnostics.LogEntry(System.String,System.Diagnostics.EventLogEntryType,System.Int32)">
+            <summary>
+            Write a log entry
+            </summary>
+            <param name="message">Log message to be written</param>
+            <param name="type">(Optional) Log type</param>
+            <param name="eventId">(Optional) Log event ID</param>
+        </member>
+        <member name="M:Guitar32.Validations.Monitors.InputMonitor.#ctor(System.Windows.Forms.TextBox,System.Boolean,System.Boolean)">
+            <summary>
+            Initialize an instance of InputMonitor
+            </summary>
+            <param name="control">The target input field to be monitored</param>
+            <param name="required">(Optional) If the input field being monitored is required to have value</param>
+            <param name="realtimeValidation">(Optional) If the validation prompt to user should be realtime</param>
+        </member>
+        <member name="M:Guitar32.Validations.Monitors.InputMonitor.EnableRealtimeValidation">
+            <summary>
+            Enable real-time validation
+            </summary>
+        </member>
+        <member name="M:Guitar32.Validations.Monitors.InputMonitor.DisableRealtimeValidation">
+            <summary>
+            Disable real-time validation
+            </summary>
+        </member>
+        <member name="M:Guitar32.Validations.Monitors.InputMonitor.ResetTimer">
+            <summary>
+            Reset timer
+            </summary>
+        </member>
+        <member name="M:Guitar32.Validations.Monitors.InputMonitor.SetValidator(System.String,System.String)">
+            <summary>
+            Set the RegEx validator and the corresponding validation message
+            </summary>
+            <param name="expression">The Regular Expression string to be associated</param>
+            <param name="message">The corresponding validation message</param>
+        </member>
+        <member name="M:Guitar32.Validations.Monitors.InputMonitor.Validate">
+            <summary>
+            Validate the control's value if it matched the validator
+            </summary>
+            <returns>If control's current value complies with the validation</returns>
+        </member>
+        <member name="M:Guitar32.Validations.Monitors.InputMonitor.GetControl">
+            <summary>
+            Get the associated control being monitored
+            </summary>
+            <returns>The associated control being monitored</returns>
+        </member>
+        <member name="T:Guitar32.SystemResponse">
+            <summary>
+            A response object from a Model or Module
+            </summary>
+        </member>
+        <member name="M:Guitar32.SystemResponse.#ctor(System.String,System.String)">
+            <summary>
+            Instantiate a response object
+            </summary>
+            <param name="code">The response code</param>
+            <param name="message">The response message</param>
+        </member>
+        <member name="M:Guitar32.SystemResponse.#ctor(System.String,System.String,System.Object)">
+            <summary>
+            Instantiate a response object
+            </summary>
+            <param name="code">The response code</param>
+            <param name="message">The response message</param>
+            <param name="data">The response data</param>
+        </member>
+        <member name="M:Guitar32.SystemResponse.GetCode">
+            <summary>
+            Get the code of this response
+            </summary>
+            <returns>The response code</returns>
+        </member>
+        <member name="M:Guitar32.SystemResponse.GetMessage">
+            <summary>
+            Get the message of this response
+            </summary>
+            <returns>The response message</returns>
+        </member>
+        <member name="M:Guitar32.SystemResponse.GetData">
+            <summary>
+            Get the data in this response
+            </summary>
+            <returns>The data in this response</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.IniFactory.readFile(System.String)">
+            <summary>
+            Read an INI file
+            </summary>
+            <param name="path">The path to the INI file to be read</param>
+            <returns>Pair of keys and values from the INI file</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.IniFactory.writeFile(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Write the INI file to a path
+            </summary>
+            <param name="configPairs">Pair of keys and values to be written</param>
+            <param name="path">Path to INI file where config values will be written. If file exists, it will be overwritten.</param>
+            <returns>If write of file succeed</returns>
+        </member>
+        <member name="T:Guitar32.Database.QueryResultRow">
+            <summary>
+            Class for storing a row from a QueryResult object
+            </summary>
+        </member>
+        <member name="T:Guitar32.Database.QueryResult">
+            <summary>
+            Class for storing result from a database query
+            </summary>
+        </member>
+        <member name="M:Guitar32.Database.QueryResult.#ctor(System.Collections.Generic.Dictionary{System.String,System.Object}[])">
+            <summary>
+            Instantiate an instance of QueryResult
+            </summary>
+            <param name="data">The database result to be passed</param>
+        </member>
+        <member name="M:Guitar32.Database.QueryResult.#ctor(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Instantiate an instance of QueryResult
+            </summary>
+            <param name="data">The database row to be passed</param>
+        </member>
+        <member name="M:Guitar32.Database.QueryResult.ContainsColumn(System.String)">
+            <summary>
+            Check if these rows contain a column name
+            </summary>
+            <param name="columnName">The column name</param>
+            <returns>If these rows contain a column name</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryResult.GetSingle(System.Int32)">
+            <summary>
+            Get a single row from the result
+            </summary>
+            <param name="index">The index of row from the result</param>
+            <returns>The row from the result</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryResult.IsEmpty">
+            <summary>
+            Check if result is empty
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryResult.RowCount">
+            <summary>
+            Get the row count from this result
+            </summary>
+            <returns>The number of count from the result</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryResult.ToArray(System.String)">
+            <summary>
+            Get an array of values from a column per row of this instance
+            </summary>
+            <param name="columnName">The column name</param>
+            <returns>The array of values from a column per row of this instance</returns>
+        </member>
+        <member name="T:Guitar32.Database.EmptyQueryResultException">
+            <summary>
+            Exception throw if tried to get a row from an empty QueryResult
+            </summary>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseCredentials.#ctor(System.String)">
+            <summary>
+            Instantiate from a dump file
+            </summary>
+            <param name="path">Path to the dump file</param>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseCredentials.Dump(System.String)">
+            <summary>
+            Dump this Database credential to a file
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseCredentials.createFromFile(System.String)">
+            <summary>
+            Create from a dump file
+            </summary>
+            <param name="path">The path to dump file</param>
+            <returns></returns>
+        </member>
+        <member name="T:Guitar32.Database.InvalidCredentialsFileException">
+            <summary>
+            Exception thrown when a DatabaseCredentials file is not valid
+            </summary>
+        </member>
+        <member name="T:Guitar32.Database.QueryBuilder">
+            <summary>
+            Lets you build database queries
+            </summary>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.#ctor(System.String)">
+            <summary>
+            Instantiate an instance of QueryBuilder
+            </summary>
+            <param name="queryString">(Optional) Existing query string to be incorporated inside this query builder</param>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.DeleteFrom(System.String)">
+            <summary>
+            Delete an entry from table
+            </summary>
+            <param name="table">Target source table</param>
+            <returns>Current instance</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.From(System.String)">
+            <summary>
+            From what table/s shall the query be executed?
+            </summary>
+            <param name="table">Name/s of table. Separate by commas if more than one is specified</param>
+            <returns>Current instance</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.From(Guitar32.Database.QueryBuilder)">
+            <summary>
+            From what table/s shall the query be executed?
+            </summary>
+            <param name="queryInstance">The queryBuilder instance where source of data will come from</param>
+            <returns>Current instance</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.InsertInto(System.String,System.String[])">
+            <summary>
+            Insert expression
+            </summary>
+            <param name="tablename">The name of the target table</param>
+            <param name="columns">(Optional) Array of column names</param>
+            <returns>Current instance</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.Select(System.String[])">
+            <summary>
+            Select a portion from table
+            </summary>
+            <param name="columns">Array of column names</param>
+            <returns>Current instance</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.Select(System.String)">
+            <summary>
+            Select a column from table
+            </summary>
+            <param name="column">The column to be selected</param>
+            <returns>Current instance</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.Set(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            SET syntax to set column values in UPDATE operations
+            </summary>
+            <param name="setPairs">The pair of columns and its corresponding values</param>
+            <returns>Current instance</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.Set(System.String,System.String)">
+            <summary>
+            SET syntax to set column values in UPDATE operations
+            </summary>
+            <param name="key">The key as column name</param>
+            <param name="value">The value of the specified column</param>
+            <returns>Current instance</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.Update(System.String)">
+            <summary>
+            Update the table
+            </summary>
+            <param name="tablename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.Values(System.Object[])">
+            <summary>
+            Insert an array of values
+            </summary>
+            <param name="values">Array of values</param>
+            <returns>Current instance</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.Where(System.String)">
+            <summary>
+            Attach condition to your query
+            </summary>
+            <param name="conditions">Condition string to be attached</param>
+            <returns>Current instance</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.Where(System.Collections.Generic.Dictionary{System.Object,System.Object})">
+            <summary>
+            Attach conditions to your query separated by logical operand "AND"
+            </summary>
+            <param name="conditions">Associative list of conditions</param>
+            <returns>Current instance</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.Where(System.String,System.Object)">
+            <summary>
+            Attach single column-value-based condition to your query
+            </summary>
+            <param name="column">The column name</param>
+            <param name="value">The expected column value</param>
+            <returns>Current instance</returns>
+        </member>
+        <member name="M:Guitar32.Database.QueryBuilder.getQueryString">
+            <summary>
+            Get current query string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseConnection.#ctor(Guitar32.Database.DatabaseCredentials,System.String,Guitar32.Database.DBMSTypes)">
+            <summary>
+            Create an instance of DatabaseConnection
+            </summary>
+            <param name="credentials">The credentials object to be used to connect to server</param>
+            <param name="characterSet">The character set to be used in the whole session</param>
+            <param name="type">The DBMS server type (e.g. Oracle, MySQL, etc.), refer to <code>DBMSTypes</code> enum</param>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseConnection.Connect">
+            <summary>
+            Start connecting to database
+            </summary>
+            <returns>If connection to database is success</returns>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseConnection.Execute(System.String)">
+            <summary>
+            Execute a non-scalar SQL query
+            </summary>
+            <param name="query">The query to be executed</param>
+            <returns>If execution of the query is success</returns>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseConnection.Execute(Guitar32.Database.QueryBuilder)">
+            <summary>
+            Execute a non-scalar SQL query
+            </summary>
+            <param name="query">The query to be executed</param>
+            <returns>If execution of the query is success</returns>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseConnection.Exists(System.String)">
+            <summary>
+            Check if a query returns a row
+            </summary>
+            <param name="query">The query to be executed</param>
+            <returns>If a query returns a row</returns>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseConnection.Exists(Guitar32.Database.QueryBuilder)">
+            <summary>
+            Check if a query returns a row
+            </summary>
+            <param name="query">The query to be executed</param>
+            <returns>If a query returns a row</returns>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseConnection.GetLastInsertID">
+            <summary>
+            Get the LAST_INSERT_ID from this current MySQL exception, returns -1 on failure/null
+            </summary>
+            <returns>The LAST_INSERT_ID from this current MySQL exception, otherwise, -1 on failure/null</returns>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseConnection.IsConnected">
+            <summary>
+            Check if this Database connection instance is currently connected or not
+            </summary>
+            <returns>If this Database connection instance is currently connected or not</returns>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseConnection.Query(System.String)">
+            <summary>
+            Execute query expecting multi-row result
+            </summary>
+            <param name="query">The query to be executed</param>
+            <returns>The resulting QueryResult object</returns>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseConnection.Query(Guitar32.Database.QueryBuilder)">
+            <summary>
+            Execute query expecting multi-row result
+            </summary>
+            <param name="query">The query to be executed</param>
+            <returns>The resulting QueryResult object</returns>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseConnection.QuerySingle(System.String)">
+            <summary>
+            Execute query expecting single-row result, otherwise, null
+            </summary>
+            <param name="query">The query to be executed</param>
+            <returns>The resulting row of result, an array of columnar field values, otherwise, null</returns>
+        </member>
+        <member name="M:Guitar32.Database.DatabaseConnection.QuerySingle(Guitar32.Database.QueryBuilder)">
+            <summary>
+            Execute query expecting single-row result, otherwise, null
+            </summary>
+            <param name="query">The query to be executed</param>
+            <returns>The resulting row of result, an array of columnar field values, otherwise, null</returns>
+        </member>
+        <member name="T:Guitar32.Database.DBMSTypes">
+            <summary>
+            List of common DBMS Types
+            </summary>
+        </member>
+        <member name="T:Guitar32.Utilities.Database">
+            <summary>
+            Static utility for Database connections
+            </summary>
+        </member>
+        <member name="M:Guitar32.Validations.DateTime.CreateFromDateTimePicker(System.Windows.Forms.DateTimePicker,System.Boolean)">
+            <summary>
+            Create a DateTime instance from a DateTimePicker control
+            </summary>
+            <param name="datetimePicker">The source DateTimePicker control</param>
+            <param name="includeTime">(Optional) If time should also be included in the result</param>
+            <returns>The resulting DateTime instance</returns>
+        </member>
+        <member name="M:Guitar32.Validations.DateTime.CreateFromNativeDateTime(System.DateTime,System.Boolean)">
+            <summary>
+            Create a DateTime instance from a native System.DateTime object
+            </summary>
+            <param name="dateTime">The DateTime object</param>
+            <param name="includeTime">(Optional) If time should be included or not</param>
+            <returns>DateTime instance from the specified native System.DateTime object</returns>
+        </member>
+        <member name="M:Guitar32.Cryptography.MD5Hash.Compute(System.String)">
+            <summary>
+            Compute the MD5 hash of a string
+            </summary>
+            <param name="input">The input string</param>
+            <returns>The computed MD5 hash string</returns>
+        </member>
+        <member name="M:Guitar32.Cryptography.MD5Hash.Verify(System.String,System.String)">
+            <summary>
+            Verify if an input string matches an MD5 hash
+            </summary>
+            <param name="input">The input string to be tested</param>
+            <param name="md5hash">The MD5 hash to be matched with</param>
+            <returns>If input matches the MD5 hash or not</returns>
+        </member>
+        <member name="M:Guitar32.Controllers.FormController.#ctor(System.Boolean)">
+            <summary>
+            Instantiate this FormController
+            </summary>
+            <param name="detectCloseOperations">(Optional) If close operations should be detected (e.g. unsaved user inputs detection, etc.)</param>
+        </member>
+        <member name="M:Guitar32.Controllers.FormController.AddInputMonitor(Guitar32.Validations.Monitors.InputMonitor)">
+            <summary>
+            Add an input monitor in one this form's input fields
+            </summary>
+            <param name="inputMonitor">The InputMonitor object to be added</param>
+        </member>
+        <member name="M:Guitar32.Controllers.FormController.Disable">
+            <summary>
+            Disable the whole form
+            </summary>
+        </member>
+        <member name="M:Guitar32.Controllers.FormController.DisableCloseDetections">
+            <summary>
+            Disable detection of onClose operations
+            </summary>
+        </member>
+        <member name="M:Guitar32.Controllers.FormController.Enable">
+            <summary>
+            Enable the whole form
+            </summary>
+        </member>
+        <member name="M:Guitar32.Controllers.FormController.EnableCloseDetections">
+            <summary>
+            Enable detection of onClose operations
+            </summary>
+        </member>
+        <member name="M:Guitar32.Controllers.FormController.GetInputMonitors">
+            <summary>
+            Get all input monitors in this form
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Guitar32.Controllers.FormController.HasUnsavedChanges(System.Windows.Forms.Control.ControlCollection)">
+            <summary>
+            Check if this form has fields with potential pending unsaved changes
+            </summary>
+            <param name="controls">Do not supply this parameter!!!</param>
+            <returns>If this form has fields with potential pending unsaved changes</returns>
+        </member>
+        <member name="M:Guitar32.Controllers.FormController.IsSubmittable">
+            <summary>
+            Check if this form is ready for submission
+            </summary>
+            <returns>If this form is ready for submission</returns>
+        </member>
+        <member name="M:Guitar32.Controllers.FormController.ResetFields(System.Windows.Forms.Control[],System.Windows.Forms.Control.ControlCollection)">
+            <summary>
+            Reset all child fields in this form
+            </summary>
+            <param name="exceptions">(Optional) An array of controls to be excluded from the reset</param>
+            <param name="controls">[NO!] Do not supply this parameter!!!</param>
+        </member>
+        <member name="T:Guitar32.Utilities.Session">
+            <summary>
+            Utility class for storing user session. Swiftly ends as soon as the program execution stops
+            </summary>
+        </member>
+        <member name="M:Guitar32.Utilities.Session.Clear">
+            <summary>
+            Clear the contents of the session
+            </summary>
+        </member>
+        <member name="M:Guitar32.Utilities.Session.Get(System.String)">
+            <summary>
+            Get the value of a session key, otherwise, null
+            </summary>
+            <param name="key">The target session key</param>
+            <returns>The value of the specified session key, otherwise, null</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.Session.IsSet(System.String)">
+            <summary>
+            Check if a session key exists
+            </summary>
+            <param name="key">The target session key</param>
+            <returns>If a session key exists</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.Session.Set(System.String,System.Object)">
+            <summary>
+            Set the value of a new session
+            </summary>
+            <param name="key">The key of the new session</param>
+            <param name="value">The value of the new session</param>
+            <returns>The value of the new session</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.Session.Unset(System.String)">
+            <summary>
+            Remove a session key
+            </summary>
+            <param name="key">The target session key</param>
+        </member>
+        <member name="T:Guitar32.Utilities.Integer">
+            <summary>
+            Utility class as integer helpers
+            </summary>
+        </member>
+        <member name="M:Guitar32.Utilities.Integer.Parse(System.Object)">
+            <summary>
+            Parse an object integer into an integer type
+            </summary>
+            <param name="value">The object value to be parsed</param>
+            <returns>The integer value of the object supplied</returns>
+        </member>
+    </members>
+</doc>

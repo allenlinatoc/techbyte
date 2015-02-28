@@ -30,7 +30,7 @@ namespace TechByte.Architecture.Usecases
             query.Select()
                 .From("tblusers")
                 .Where("upper(username) = " + Strings.Surround(this.getUsername().ToUpper()));
-            Dictionary<string, object> rowMatched = dbConn.QuerySingle(query);
+            QueryResultRow rowMatched = dbConn.QuerySingle(query);
             if (rowMatched != null && rowMatched.Count > 0) {
                 this.setResponse(CODES.USERNAME_ALREADY_TAKEN);
                 return;
@@ -43,7 +43,7 @@ namespace TechByte.Architecture.Usecases
                 ;
             // Check for database error
             try {
-                Dictionary<string, object> row = dbConn.QuerySingle(query);
+                QueryResultRow row = dbConn.QuerySingle(query);
                 powerId = int.Parse(row["id"].ToString());
             }
             catch (Exception ex) {

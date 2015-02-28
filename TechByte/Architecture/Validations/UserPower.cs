@@ -97,7 +97,7 @@ namespace TechByte.Architecture.Validations
             query.Select()
                 .From("tblpowers")
                 .Where("id=" + this.powerId);
-            Dictionary<string, object> row = dbConn.QuerySingle(query);
+            QueryResultRow row = dbConn.QuerySingle(query);
             if (row == null) {
                 return null;
             }
@@ -112,7 +112,7 @@ namespace TechByte.Architecture.Validations
                 .From("tblpowers")
                 .Where("name = " + Guitar32.Utilities.Strings.Surround(this.value))
             ;
-            Dictionary<string, object> row = dbConn.QuerySingle(query);
+            QueryResultRow row = dbConn.QuerySingle(query);
             if (row == null) {
                 return -1;
             }

@@ -27,7 +27,7 @@ namespace TechByte.Architecture.Beans.Profiles
                 query.Select()
                     .From("tbladdressdetails")
                     .Where("id", id);
-                Dictionary<string, object> row = dbConn.QuerySingle(query);
+                QueryResultRow row = dbConn.QuerySingle(query);
                 if (row != null && row.Count > 0) {
                     this.setStreet(new MultiWord(row["street"].ToString()));
                     this.setCity(new MultiWordAlpha(row["city"].ToString()));
