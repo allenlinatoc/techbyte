@@ -33,6 +33,7 @@ namespace TechByte.Views
             }
             // Analyze active modules and disable inactive
             string[] activeModules = AppConfig.Modules;
+            string[] allModules = AppConfig.AllModules;
 
             foreach (string module in activeModules) {
                 Console.WriteLine(module);
@@ -54,7 +55,7 @@ namespace TechByte.Views
                 QueryResultRow row = dbConn.QuerySingle(query);
                 string[] givenModules = row["modules"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                 List<string> hiddenModules = new List<string>();
-                foreach (string amod in activeModules) {
+                foreach (string amod in allModules) {
                     if (!givenModules.Contains(amod)) {
                         hiddenModules.Add(amod);
                     }

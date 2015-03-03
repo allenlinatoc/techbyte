@@ -716,5 +716,26 @@
             </summary>
             <param name="key">The target session key</param>
         </member>
+        <member name="T:Guitar32.Utilities.Arrays">
+            <summary>
+            Static class for array manipulation
+            </summary>
+        </member>
+        <member name="M:Guitar32.Utilities.Arrays.Diff(System.Array,System.Array)">
+            <summary>
+            Get the difference between two arrays
+            </summary>
+            <param name="array1">The first array</param>
+            <param name="array2">The second array</param>
+            <returns>The array of difference between the two supplied array</returns>
+        </member>
+        <member name="M:Guitar32.Utilities.Arrays.Contains(System.Array,System.Object)">
+            <summary>
+            Check if an instance of Array object contains certain value
+            </summary>
+            <param name="array">The Array object to be searched</param>
+            <param name="value">The value to search for</param>
+            <returns>If certain value exists in the supplied Array object instance</returns>
+        </member>
     </members>
 </doc>

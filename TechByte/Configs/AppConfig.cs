@@ -17,6 +17,8 @@ namespace TechByte.Configs
             UI;
         static public String[]
             Modules;
+        static public String[]
+            AllModules;
         static private Boolean __initialized = false;
         static private DatabaseConnection dbConn = TechByte.Configs.DatabaseInstance.databaseConnection;
 
@@ -27,7 +29,9 @@ namespace TechByte.Configs
                 query.Select()
                     .From("tblmodules");
                 QueryResult qsModules = dbConn.Query(query);
-                List<String> modules = new List<string>();
+                List<String>
+                    modules = new List<string>(),
+                    allModules = new List<string>();
                 for (int i = 0; i < qsModules.RowCount(); i++) {
                     String
                         key = qsModules.GetSingle(i)["key"].ToString().ToUpper(),
@@ -35,8 +39,10 @@ namespace TechByte.Configs
                     if (status.Equals("ACTIVE")) {
                         modules.Add(key);
                     }
+                    allModules.Add(key);
                 }
                 Modules = modules.ToArray();
+                AllModules = allModules.ToArray();
 
                 // Initialize UI config object
                 UI = new Configs.UI();
