@@ -41,8 +41,8 @@ namespace TechByte.Views.DashboardSub.Admin
             AppConfig.Reinitialize();
             // Modules
             checkAdmin.Checked = AppConfig.Modules.Contains("ADMIN");
-            checkHR.Checked = AppConfig.Modules.Contains("HR");
-            checkPurchasing.Checked = AppConfig.Modules.Contains("PURCHASING");
+            checkHR.Checked = AppConfig.Modules.Contains("HUMANRESOURCE");
+            checkPurchasing.Checked = AppConfig.Modules.Contains("ACCOUNTING");
             checkSales.Checked = AppConfig.Modules.Contains("SALES");
             checkClerk.Checked = AppConfig.Modules.Contains("CLERK");
             // System lock-down status
@@ -76,8 +76,8 @@ namespace TechByte.Views.DashboardSub.Admin
             QueryBuilder query = new QueryBuilder();
             Dictionary<string, string> checkStatuses = new Dictionary<string, string>();
             checkStatuses.Add("ADMIN", checkAdmin.Checked ? "ACTIVE" : "INACTIVE");
-            checkStatuses.Add("HR", checkHR.Checked ? "ACTIVE" : "INACTIVE");
-            checkStatuses.Add("PURCHASING", checkPurchasing.Checked ? "ACTIVE" : "INACTIVE");
+            checkStatuses.Add("HUMANRESOURCE", checkHR.Checked ? "ACTIVE" : "INACTIVE");
+            checkStatuses.Add("ACCOUNTING", checkPurchasing.Checked ? "ACTIVE" : "INACTIVE");
             checkStatuses.Add("SALES", checkSales.Checked ? "ACTIVE" : "INACTIVE");
             checkStatuses.Add("CLERK", checkClerk.Checked ? "ACTIVE" : "INACTIVE");
             foreach (KeyValuePair<string, string> kv in checkStatuses) {

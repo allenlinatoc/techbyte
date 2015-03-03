@@ -1,6 +1,6 @@
-﻿namespace TechByte.Views.DashboardSub.Admin.Modals
+﻿namespace TechByte.Views.DashboardSub.HR.Modals
 {
-    partial class UserManagementForm
+    partial class EmployeesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.comboPosition = new System.Windows.Forms.ComboBox();
-            this.txtPassword2 = new System.Windows.Forms.TextBox();
-            this.txtPassword1 = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtLicense_PAGIBIG = new System.Windows.Forms.TextBox();
             this.txtLicense_SSS = new System.Windows.Forms.TextBox();
@@ -60,7 +51,7 @@
             this.txtProfile_Firstname = new System.Windows.Forms.TextBox();
             this.txtProfile_Nationality = new System.Windows.Forms.TextBox();
             this.txtProfile_Birthplace = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtAddress_Country = new System.Windows.Forms.TextBox();
             this.txtAddress_Region = new System.Windows.Forms.TextBox();
@@ -79,14 +70,13 @@
             this.txtContact_Landline = new System.Windows.Forms.TextBox();
             this.txtContact_Mobile = new System.Windows.Forms.TextBox();
             this.txtContact_Email = new System.Windows.Forms.TextBox();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -97,9 +87,9 @@
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(12, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(143, 22);
+            this.lblTitle.Size = new System.Drawing.Size(168, 22);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "{0} User account";
+            this.lblTitle.Text = "{0} employee profile";
             // 
             // tabControl1
             // 
@@ -108,120 +98,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 43);
+            this.tabControl1.Location = new System.Drawing.Point(12, 47);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(583, 335);
+            this.tabControl1.Size = new System.Drawing.Size(572, 349);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.comboPosition);
-            this.tabPage1.Controls.Add(this.txtPassword2);
-            this.tabPage1.Controls.Add(this.txtPassword1);
-            this.tabPage1.Controls.Add(this.txtUsername);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(575, 309);
+            this.tabPage1.Size = new System.Drawing.Size(564, 323);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Account details";
+            this.tabPage1.Text = "Personal information";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // comboPosition
-            // 
-            this.comboPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboPosition.FormattingEnabled = true;
-            this.comboPosition.Items.AddRange(new object[] {
-            "Admin",
-            "Manager",
-            "Human Resource",
-            "Accounting",
-            "Sales",
-            "Clerk"});
-            this.comboPosition.Location = new System.Drawing.Point(146, 40);
-            this.comboPosition.Name = "comboPosition";
-            this.comboPosition.Size = new System.Drawing.Size(165, 21);
-            this.comboPosition.TabIndex = 3;
-            // 
-            // txtPassword2
-            // 
-            this.txtPassword2.Location = new System.Drawing.Point(146, 119);
-            this.txtPassword2.MaxLength = 45;
-            this.txtPassword2.Name = "txtPassword2";
-            this.txtPassword2.Size = new System.Drawing.Size(182, 20);
-            this.txtPassword2.TabIndex = 6;
-            this.txtPassword2.UseSystemPasswordChar = true;
-            // 
-            // txtPassword1
-            // 
-            this.txtPassword1.Location = new System.Drawing.Point(146, 93);
-            this.txtPassword1.MaxLength = 45;
-            this.txtPassword1.Name = "txtPassword1";
-            this.txtPassword1.Size = new System.Drawing.Size(182, 20);
-            this.txtPassword1.TabIndex = 5;
-            this.txtPassword1.UseSystemPasswordChar = true;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(146, 67);
-            this.txtUsername.MaxLength = 45;
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(182, 20);
-            this.txtUsername.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 122);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Confirm password";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(87, 96);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Password";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(96, 43);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Position";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(85, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Username";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(575, 309);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Profile details";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -231,10 +124,10 @@
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Location = new System.Drawing.Point(14, 172);
+            this.groupBox2.Location = new System.Drawing.Point(21, 173);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(546, 120);
-            this.groupBox2.TabIndex = 5;
+            this.groupBox2.Size = new System.Drawing.Size(273, 120);
+            this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "License cards/IDs";
             // 
@@ -303,10 +196,10 @@
             this.groupBox1.Controls.Add(this.txtProfile_Firstname);
             this.groupBox1.Controls.Add(this.txtProfile_Nationality);
             this.groupBox1.Controls.Add(this.txtProfile_Birthplace);
-            this.groupBox1.Location = new System.Drawing.Point(14, 18);
+            this.groupBox1.Location = new System.Drawing.Point(6, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(546, 148);
-            this.groupBox1.TabIndex = 4;
+            this.groupBox1.Size = new System.Drawing.Size(552, 148);
+            this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personal information";
             // 
@@ -362,6 +255,7 @@
             // 
             // txtProfile_Lastname
             // 
+            this.txtProfile_Lastname.Enabled = false;
             this.txtProfile_Lastname.Location = new System.Drawing.Point(330, 32);
             this.txtProfile_Lastname.Name = "txtProfile_Lastname";
             this.txtProfile_Lastname.Size = new System.Drawing.Size(107, 20);
@@ -396,6 +290,7 @@
             // 
             // txtProfile_Middlename
             // 
+            this.txtProfile_Middlename.Enabled = false;
             this.txtProfile_Middlename.Location = new System.Drawing.Point(217, 32);
             this.txtProfile_Middlename.Name = "txtProfile_Middlename";
             this.txtProfile_Middlename.Size = new System.Drawing.Size(107, 20);
@@ -421,6 +316,7 @@
             // 
             // txtProfile_Firstname
             // 
+            this.txtProfile_Firstname.Enabled = false;
             this.txtProfile_Firstname.Location = new System.Drawing.Point(104, 32);
             this.txtProfile_Firstname.Name = "txtProfile_Firstname";
             this.txtProfile_Firstname.Size = new System.Drawing.Size(107, 20);
@@ -441,16 +337,17 @@
             this.txtProfile_Birthplace.Size = new System.Drawing.Size(333, 20);
             this.txtProfile_Birthplace.TabIndex = 6;
             // 
-            // tabPage3
+            // tabPage2
             // 
-            this.tabPage3.Controls.Add(this.groupBox4);
-            this.tabPage3.Controls.Add(this.groupBox3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(575, 309);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Contact and Address details";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.groupBox4);
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(564, 323);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Contact and Address";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -462,10 +359,10 @@
             this.groupBox4.Controls.Add(this.label22);
             this.groupBox4.Controls.Add(this.label21);
             this.groupBox4.Controls.Add(this.label20);
-            this.groupBox4.Location = new System.Drawing.Point(293, 19);
+            this.groupBox4.Location = new System.Drawing.Point(286, 21);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(268, 159);
-            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Address details";
             // 
@@ -548,10 +445,10 @@
             this.groupBox3.Controls.Add(this.txtContact_Landline);
             this.groupBox3.Controls.Add(this.txtContact_Mobile);
             this.groupBox3.Controls.Add(this.txtContact_Email);
-            this.groupBox3.Location = new System.Drawing.Point(13, 19);
+            this.groupBox3.Location = new System.Drawing.Point(6, 21);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(274, 159);
-            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Contact details";
             // 
@@ -623,21 +520,10 @@
             this.txtContact_Email.Size = new System.Drawing.Size(174, 20);
             this.txtContact_Email.TabIndex = 1;
             // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(439, 9);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 1;
-            this.btnSubmit.TabStop = false;
-            this.btnSubmit.Text = "Save";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(520, 9);
+            this.btnCancel.Location = new System.Drawing.Point(509, 12);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -646,32 +532,40 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // UserManagementForm
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(428, 12);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 2;
+            this.btnSubmit.TabStop = false;
+            this.btnSubmit.Text = "Save";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // EmployeesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(607, 390);
-            this.Controls.Add(this.btnCancel);
+            this.ClientSize = new System.Drawing.Size(596, 408);
+            this.ControlBox = false;
             this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "UserManagementForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "User Management";
-            this.Load += new System.EventHandler(this.UserManagementForm_Load);
+            this.Name = "EmployeesForm";
+            this.Text = "{0} employee profile";
+            this.Load += new System.EventHandler(this.EmployeesForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -686,58 +580,49 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox txtPassword2;
-        private System.Windows.Forms.TextBox txtPassword1;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.TextBox txtProfile_Lastname;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtProfile_Middlename;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtProfile_Firstname;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtProfile_Birthdate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboProfile_Gender;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dtProfile_Birthdate;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtProfile_Birthplace;
+        private System.Windows.Forms.TextBox txtProfile_Lastname;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboPosition;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtProfile_Middlename;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtProfile_Firstname;
         private System.Windows.Forms.TextBox txtProfile_Nationality;
+        private System.Windows.Forms.TextBox txtProfile_Birthplace;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtLicense_TIN;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtLicense_PAGIBIG;
         private System.Windows.Forms.TextBox txtLicense_SSS;
+        private System.Windows.Forms.TextBox txtLicense_TIN;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtContact_Email;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtContact_Fax;
         private System.Windows.Forms.TextBox txtContact_Landline;
         private System.Windows.Forms.TextBox txtContact_Mobile;
-        private System.Windows.Forms.TextBox txtAddress_Street;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txtAddress_City;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtContact_Email;
+        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox txtAddress_Country;
         private System.Windows.Forms.TextBox txtAddress_Region;
+        private System.Windows.Forms.TextBox txtAddress_City;
+        private System.Windows.Forms.TextBox txtAddress_Street;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnSubmit;
     }
 }

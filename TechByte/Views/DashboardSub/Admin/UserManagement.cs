@@ -29,10 +29,6 @@ namespace TechByte.Views.DashboardSub.Admin
         }
 
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-
-        }
-
 
         private void btnNew_Click(object sender, EventArgs e) {
             UserManagementForm formNew = new UserManagementForm();
@@ -132,7 +128,7 @@ namespace TechByte.Views.DashboardSub.Admin
             int userId = int.Parse(cellID + "");
             SystemUser user = new SystemUser(userId);
             DialogResult choice =
-                MessageBox.Show("Are you sure you want to " + btnActivateToggle.Text.ToLower() + " " + user.getProfile().getFullname().getFirstName() + "'s account?", "Confirm " + btnActivateToggle.Text.ToLower(), MessageBoxButtons.YesNo);
+                MessageBox.Show("Are you sure you want to " + btnActivateToggle.Text.ToLower() + " " + user.getProfileDetails().getFullname().getFirstName() + "'s account?", "Confirm " + btnActivateToggle.Text.ToLower(), MessageBoxButtons.YesNo);
             if (choice == System.Windows.Forms.DialogResult.Yes) {
                 user.setStatus(new Architecture.Validations.AccountStatus(status.ToUpper().Equals("ACTIVE") ? "INACTIVE" : "ACTIVE", true));
                 if (!user.Update()) {

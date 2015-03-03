@@ -10,6 +10,7 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 
 using Guitar32.Common;
+using Guitar32.Controllers;
 using Guitar32.Validations.Monitors;
 using Guitar32.Database;
 
@@ -17,7 +18,7 @@ using Guitar32.Database;
 namespace TechByte.Views.DashboardSub
 {
 
-    public partial class DatabaseConfiguration : Guitar32.Controllers.FormController, IMonitorable
+    public partial class DatabaseConfiguration : FormController, IMonitorable
     {
         private bool allowClose = false;
 

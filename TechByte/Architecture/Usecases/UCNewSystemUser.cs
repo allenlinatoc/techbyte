@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Guitar32;
+using Guitar32.Database;
+using Guitar32.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Guitar32;
-using Guitar32.Database;
-using Guitar32.Utilities;
 using TechByte.Configs;
 using TechByte.Values;
 
@@ -35,11 +35,10 @@ namespace TechByte.Architecture.Usecases
                 this.setResponse(CODES.USERNAME_ALREADY_TAKEN);
                 return;
             }
-
             // Get PowerID
             query.Select("id")
                 .From("tblpowers")
-                .Where("lower(name) = " + Guitar32.Utilities.Strings.Surround(this.getPower().ToLower()))
+                .Where("lower(name)", Strings.NoSpaces(Strings.Surround(this.getPower().ToLower())), true)
                 ;
             // Check for database error
             try {
@@ -47,14 +46,13 @@ namespace TechByte.Architecture.Usecases
                 powerId = int.Parse(row["id"].ToString());
             }
             catch (Exception ex) {
-                Console.WriteLine(query.getQueryString());
                 this.setResponse(TechByte.Values.CODES.DATABASE_ERROR);
                 return;
             }
 
             // {{ BLOCK for Contact details creation
             TechByte.Architecture.Beans.Profiles.ContactDetails
-                contactDetails = this.getProfile().getContactDetails();
+                contactDetails = this.getProfileDetails().getContactDetails();
             query.InsertInto("tblcontactdetails", new string[] { "email", "mobile", "landline", "fax" })
                 .Values(new object[] {
                     Strings.Surround(contactDetails.getEmail()),
@@ -73,7 +71,7 @@ namespace TechByte.Architecture.Usecases
             // }}
             // {{ BLOCK for Address details creation
             TechByte.Architecture.Beans.Profiles.AddressDetails
-                addressDetails = this.getProfile().getAddressDetails();
+                addressDetails = this.getProfileDetails().getAddressDetails();
             query.InsertInto("tbladdressdetails", new string[] { "street", "city", "region", "country" })
                 .Values(new object[] {
                     Strings.Surround(addressDetails.getStreet()),
@@ -92,7 +90,7 @@ namespace TechByte.Architecture.Usecases
             // }}
             // {{ BLOCK for Profile details
             TechByte.Architecture.Beans.Accounts.ProfileDetails
-                profileDetails = this.getProfile();
+                profileDetails = this.getProfileDetails();
             query.InsertInto("tblprofiles", new string[] { "address_id", "contact_id", "fname", "mname", "lname", "gender", "birthdate", "birthplace", "nationality", "tin", "sss", "pagibig" })
                 .Values(new object[] {
                     addressId,

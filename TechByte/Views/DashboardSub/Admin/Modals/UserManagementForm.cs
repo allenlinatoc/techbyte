@@ -61,28 +61,28 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
             SystemUser user = new SystemUser(this.key);
             // account
             txtUsername.Text = user.getUsername();
-            comboPosition.SelectedItem = user.getPower().Trim().ToUpper();
+            comboPosition.SelectedItem = TechByte.Configs.Privileges.GetName(user.getPower());
             // profile
-            txtProfile_Firstname.Text = user.getProfile().getFullname().getFirstName();
-            txtProfile_Middlename.Text = user.getProfile().getFullname().getMiddleName();
-            txtProfile_Lastname.Text = user.getProfile().getFullname().getLastName();
-            txtProfile_Birthplace.Text = user.getProfile().getBirthPlace();
-            dtProfile_Birthdate.Value = System.DateTime.Parse(user.getProfile().getBirthDate());
-            txtProfile_Nationality.Text = user.getProfile().getNationality();
+            txtProfile_Firstname.Text = user.getProfileDetails().getFullname().getFirstName();
+            txtProfile_Middlename.Text = user.getProfileDetails().getFullname().getMiddleName();
+            txtProfile_Lastname.Text = user.getProfileDetails().getFullname().getLastName();
+            txtProfile_Birthplace.Text = user.getProfileDetails().getBirthPlace();
+            dtProfile_Birthdate.Value = System.DateTime.Parse(user.getProfileDetails().getBirthDate());
+            txtProfile_Nationality.Text = user.getProfileDetails().getNationality();
             // license
-            txtLicense_TIN.Text = user.getProfile().getTIN();
-            txtLicense_SSS.Text = user.getProfile().getSSS();
-            txtLicense_PAGIBIG.Text = user.getProfile().getPAGIBIG();
+            txtLicense_TIN.Text = user.getProfileDetails().getTIN();
+            txtLicense_SSS.Text = user.getProfileDetails().getSSS();
+            txtLicense_PAGIBIG.Text = user.getProfileDetails().getPAGIBIG();
             // contact details
-            txtContact_Email.Text = user.getProfile().getContactDetails().getEmail();
-            txtContact_Mobile.Text = user.getProfile().getContactDetails().getMobile();
-            txtContact_Landline.Text = user.getProfile().getContactDetails().getLandline();
-            txtContact_Fax.Text = user.getProfile().getContactDetails().getFax();
+            txtContact_Email.Text = user.getProfileDetails().getContactDetails().getEmail();
+            txtContact_Mobile.Text = user.getProfileDetails().getContactDetails().getMobile();
+            txtContact_Landline.Text = user.getProfileDetails().getContactDetails().getLandline();
+            txtContact_Fax.Text = user.getProfileDetails().getContactDetails().getFax();
             // address details
-            txtAddress_Street.Text = user.getProfile().getAddressDetails().getStreet();
-            txtAddress_City.Text = user.getProfile().getAddressDetails().getCity();
-            txtAddress_Region.Text = user.getProfile().getAddressDetails().getRegion();
-            txtAddress_Country.Text = user.getProfile().getAddressDetails().getCountry();
+            txtAddress_Street.Text = user.getProfileDetails().getAddressDetails().getStreet();
+            txtAddress_City.Text = user.getProfileDetails().getAddressDetails().getCity();
+            txtAddress_Region.Text = user.getProfileDetails().getAddressDetails().getRegion();
+            txtAddress_Country.Text = user.getProfileDetails().getAddressDetails().getCountry();
         }
 
         public void SetFormModalKey(object key) {
@@ -206,6 +206,7 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
                     MessageBox.Show(ctrlNewUser.getResponse().GetMessage());
                     if (ctrlNewUser.getResponse().GetCode() == "00") {
                         this.DisableCloseDetections();
+                        this.DialogResult = System.Windows.Forms.DialogResult.OK;
                         this.Close();
                     }
                 }
@@ -225,8 +226,10 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
                     }
                     // Update
                     user.setUsername(new SingleWordAlphaNumeric(txtUsername.Text, true));
-                    user.setPower(new Architecture.Validations.UserPower(comboPosition.SelectedItem.ToString(), true));
-                    ProfileDetails profileDetails = user.getProfile();
+                    user.setPower(
+                        new Architecture.Validations.UserPower(
+                            TechByte.Configs.Privileges.GetKey(comboPosition.SelectedItem.ToString()), true));
+                    ProfileDetails profileDetails = user.getProfileDetails();
                     Fullname profileDetails_Fullname = profileDetails.getFullname();
                     AddressDetails addressDetails = profileDetails.getAddressDetails();
                     ContactDetails contactDetails = profileDetails.getContactDetails();

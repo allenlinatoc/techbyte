@@ -48,6 +48,13 @@
             <param name="fence">(Optional) The fence to be determined</param>
             <returns>If this string is surrounded by a fence or not</returns>
         </member>
+        <member name="M:Guitar32.Utilities.Strings.NoSpaces(System.String)">
+            <summary>
+            Return string with spaces removed
+            </summary>
+            <param name="str">The input string</param>
+            <returns>Processed string with spaces removed</returns>
+        </member>
         <member name="M:Guitar32.Utilities.Strings.Reverse(System.String)">
             <summary>
             Reverse a string
@@ -199,6 +206,34 @@
             </summary>
             <returns>The associated control being monitored</returns>
         </member>
+        <member name="T:Guitar32.Utilities.Integer">
+            <summary>
+            Utility class as integer helpers
+            </summary>
+        </member>
+        <member name="M:Guitar32.Utilities.Integer.Parse(System.Object)">
+            <summary>
+            Parse an object integer into an integer type
+            </summary>
+            <param name="value">The object value to be parsed</param>
+            <returns>The integer value of the object supplied</returns>
+        </member>
+        <member name="T:Guitar32.Common.AbstractControlBinder">
+            <summary>
+            Abstract class for class with UI Control binding
+            </summary>
+        </member>
+        <member name="M:Guitar32.Common.AbstractControlBinder.getControl">
+            <summary>
+            Get the control associated with this binder
+            </summary>
+        </member>
+        <member name="M:Guitar32.Common.AbstractControlBinder.setControl(System.Windows.Forms.Control)">
+            <summary>
+            Associate a control to this binder
+            </summary>
+            <param name="control">The Control to be associated to this binder</param>
+        </member>
         <member name="T:Guitar32.SystemResponse">
             <summary>
             A response object from a Model or Module
@@ -236,6 +271,18 @@
             Get the data in this response
             </summary>
             <returns>The data in this response</returns>
+        </member>
+        <member name="M:Guitar32.Data.ComboBind.GetDisplay">
+            <summary>
+            Get currently display text in the ComboBox
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Guitar32.Data.ComboBind.GetValue">
+            <summary>
+            Get the value of currently selected item in ComboBox
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Guitar32.Utilities.IniFactory.readFile(System.String)">
             <summary>
@@ -427,19 +474,21 @@
             <param name="conditions">Condition string to be attached</param>
             <returns>Current instance</returns>
         </member>
-        <member name="M:Guitar32.Database.QueryBuilder.Where(System.Collections.Generic.Dictionary{System.Object,System.Object})">
+        <member name="M:Guitar32.Database.QueryBuilder.Where(System.Collections.Generic.Dictionary{System.Object,System.Object},System.Boolean)">
             <summary>
             Attach conditions to your query separated by logical operand "AND"
             </summary>
             <param name="conditions">Associative list of conditions</param>
+            <param name="noTilde">(Optional) Tilde character for column names will be removed</param>
             <returns>Current instance</returns>
         </member>
-        <member name="M:Guitar32.Database.QueryBuilder.Where(System.String,System.Object)">
+        <member name="M:Guitar32.Database.QueryBuilder.Where(System.String,System.Object,System.Boolean)">
             <summary>
             Attach single column-value-based condition to your query
             </summary>
             <param name="column">The column name</param>
             <param name="value">The expected column value</param>
+            <param name="noTilde">(Optional) Tilde character for column names will be removed</param>
             <returns>Current instance</returns>
         </member>
         <member name="M:Guitar32.Database.QueryBuilder.getQueryString">
@@ -666,18 +715,6 @@
             Remove a session key
             </summary>
             <param name="key">The target session key</param>
-        </member>
-        <member name="T:Guitar32.Utilities.Integer">
-            <summary>
-            Utility class as integer helpers
-            </summary>
-        </member>
-        <member name="M:Guitar32.Utilities.Integer.Parse(System.Object)">
-            <summary>
-            Parse an object integer into an integer type
-            </summary>
-            <param name="value">The object value to be parsed</param>
-            <returns>The integer value of the object supplied</returns>
         </member>
     </members>
 </doc>

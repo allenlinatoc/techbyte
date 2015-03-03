@@ -41,7 +41,7 @@ namespace TechByte.Architecture.Beans.Accounts
                     this.setUsername(new SingleWordAlphaNumeric(row["user_username"].ToString()));
                     this.setStatus(new Validations.AccountStatus(row["user_status"].ToString()));
                     this.setPower(new Validations.UserPower(int.Parse(row["power_id"].ToString())));
-                    this.setProfile(profileDetails);
+                    this.setProfileDetails(profileDetails);
                 }
                 else {
                     throw new BeanDataNotFoundException();
@@ -54,7 +54,7 @@ namespace TechByte.Architecture.Beans.Accounts
         }
 
         public String getPower() {
-            return this.userPower.getValue();
+            return Strings.NoSpaces(this.userPower.getValue());
         }
 
         public String getStatus() {
@@ -65,7 +65,7 @@ namespace TechByte.Architecture.Beans.Accounts
             return this.username;
         }
 
-        public ProfileDetails getProfile() {
+        public ProfileDetails getProfileDetails() {
             return this.profile;
         }
 
@@ -85,14 +85,14 @@ namespace TechByte.Architecture.Beans.Accounts
             this.username = username.getValue();
         }
 
-        public void setProfile(ProfileDetails profile) {
+        public void setProfileDetails(ProfileDetails profile) {
             this.profile = profile;
         }
 
 
         public bool CreateData() {
-            if (!this.getProfile().exists()) {
-                Boolean profileCreateSuccess = this.getProfile().CreateData();
+            if (!this.getProfileDetails().exists()) {
+                Boolean profileCreateSuccess = this.getProfileDetails().CreateData();
                 if (!profileCreateSuccess) {
                     return false;
                 }
@@ -103,7 +103,7 @@ namespace TechByte.Architecture.Beans.Accounts
                 })
                     .Values(new object[] {
                         this.userPower.getPowerId(),
-                        this.getProfile().getId(),
+                        this.getProfileDetails().getId(),
                         Strings.Surround(this.getUsername()),
                         Strings.Surround(this.getPassword())
                     });
@@ -118,8 +118,8 @@ namespace TechByte.Architecture.Beans.Accounts
 
 
         public bool Delete() {
-            if (this.exists() && this.getProfile().exists()) {
-                Boolean profileDeleteSuccess = this.getProfile().Delete();
+            if (this.exists() && this.getProfileDetails().exists()) {
+                Boolean profileDeleteSuccess = this.getProfileDetails().Delete();
                 // If profile deletion is success,
                 //  this instance will also be cascadely deleted from database
                 return profileDeleteSuccess;
@@ -131,13 +131,14 @@ namespace TechByte.Architecture.Beans.Accounts
         public bool Update() {
             if (this.exists()) {
                 // Try to update child beans first
-                if (!this.getProfile().Update()) {
+                if (!this.getProfileDetails().Update()) {
                     return false;
                 }
                 // Proceed with update
                 Dictionary<string, string> setPairs = new Dictionary<string, string>();
                 setPairs.Add("username", Strings.Surround(this.getUsername()));
                 setPairs.Add("status", Strings.Surround(this.getStatus()));
+                setPairs.Add("power_id", this.userPower.getPowerId().ToString());
 
                 QueryBuilder query = new QueryBuilder();
                 query.Update("tblusers")

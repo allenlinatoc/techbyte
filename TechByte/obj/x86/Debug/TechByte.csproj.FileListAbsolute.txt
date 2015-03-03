@@ -39,3 +39,9 @@ c:\extravolume\misc\my documents\visual studio 2010\Projects\TechByte\TechByte\o
 c:\extravolume\misc\my documents\visual studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Admin.Modals.UserManagementForm.resources
 c:\extravolume\misc\my documents\visual studio 2010\Projects\TechByte\TechByte\bin\Debug\Guitar32.xml
 c:\extravolume\misc\my documents\visual studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Admin.Modals.BusinessPartnersForm.resources
+c:\extravolume\misc\my documents\visual studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.HR.Employees.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.HR.Modals.EmployeesForm.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.GoodsCategories.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.Modals.GoodsCategoriesForm.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.Goods.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.Modals.GoodsForm.resources

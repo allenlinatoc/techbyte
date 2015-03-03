@@ -57,6 +57,7 @@
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Visible = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnActivateToggle
@@ -68,6 +69,7 @@
             this.btnActivateToggle.TabIndex = 2;
             this.btnActivateToggle.Text = "Activate";
             this.btnActivateToggle.UseVisualStyleBackColor = true;
+            this.btnActivateToggle.Visible = false;
             this.btnActivateToggle.Click += new System.EventHandler(this.btnActivateToggle_Click);
             // 
             // dgCompanies
@@ -88,6 +90,7 @@
             this.Column5});
             this.dgCompanies.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgCompanies.Location = new System.Drawing.Point(167, 12);
+            this.dgCompanies.MultiSelect = false;
             this.dgCompanies.Name = "dgCompanies";
             this.dgCompanies.RowHeadersVisible = false;
             this.dgCompanies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

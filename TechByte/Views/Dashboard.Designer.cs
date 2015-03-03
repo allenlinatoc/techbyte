@@ -47,8 +47,9 @@
             this.creditMemoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.promoManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clerkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.goodsInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.warehouseReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goodsManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goodsCategoryManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -216,23 +217,33 @@
             // clerkToolStripMenuItem
             // 
             this.clerkToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.goodsInventoryToolStripMenuItem,
-            this.warehouseReportsToolStripMenuItem});
+            this.warehouseReportsToolStripMenuItem,
+            this.goodsManagementToolStripMenuItem,
+            this.goodsCategoryManagementToolStripMenuItem});
             this.clerkToolStripMenuItem.Name = "clerkToolStripMenuItem";
             this.clerkToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.clerkToolStripMenuItem.Text = "Clerk / Goods";
             // 
-            // goodsInventoryToolStripMenuItem
-            // 
-            this.goodsInventoryToolStripMenuItem.Name = "goodsInventoryToolStripMenuItem";
-            this.goodsInventoryToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.goodsInventoryToolStripMenuItem.Text = "Goods inventory";
-            // 
             // warehouseReportsToolStripMenuItem
             // 
             this.warehouseReportsToolStripMenuItem.Name = "warehouseReportsToolStripMenuItem";
-            this.warehouseReportsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.warehouseReportsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.warehouseReportsToolStripMenuItem.Text = "Warehouse reports";
+            this.warehouseReportsToolStripMenuItem.Click += new System.EventHandler(this.warehouseReportsToolStripMenuItem_Click);
+            // 
+            // goodsManagementToolStripMenuItem
+            // 
+            this.goodsManagementToolStripMenuItem.Name = "goodsManagementToolStripMenuItem";
+            this.goodsManagementToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.goodsManagementToolStripMenuItem.Text = "Goods management";
+            this.goodsManagementToolStripMenuItem.Click += new System.EventHandler(this.goodsManagementToolStripMenuItem_Click);
+            // 
+            // goodsCategoryManagementToolStripMenuItem
+            // 
+            this.goodsCategoryManagementToolStripMenuItem.Name = "goodsCategoryManagementToolStripMenuItem";
+            this.goodsCategoryManagementToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.goodsCategoryManagementToolStripMenuItem.Text = "Goods category management";
+            this.goodsCategoryManagementToolStripMenuItem.Click += new System.EventHandler(this.goodsCategoryManagementToolStripMenuItem_Click);
             // 
             // Dashboard
             // 
@@ -279,7 +290,8 @@
         private System.Windows.Forms.ToolStripMenuItem creditMemoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem promoManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clerkToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem goodsInventoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem warehouseReportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goodsManagementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goodsCategoryManagementToolStripMenuItem;
     }
 }

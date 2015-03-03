@@ -70,7 +70,7 @@ namespace TechByte.Controllers
                 ucNewSystemUser.setPassword(new Password(password1, true));
                 ucNewSystemUser.setStatus(new AccountStatus("ACTIVE", true));
                 ucNewSystemUser.setPower(new UserPower(position, true));
-                ucNewSystemUser.setProfile(profileDetails);
+                ucNewSystemUser.setProfileDetails(profileDetails);
                 ucNewSystemUser.Register();
                 this.setResponse(ucNewSystemUser.getResponse());
             }

@@ -65,12 +65,15 @@
     <Compile Include="Architecture\Beans\Accounts\UserPower.cs" />
     <Compile Include="Architecture\Beans\AuditTrail.cs" />
     <Compile Include="Architecture\Beans\Business\Company.cs" />
+    <Compile Include="Architecture\Beans\Goods\Good.cs" />
+    <Compile Include="Architecture\Beans\Goods\GoodsCategory.cs" />
     <Compile Include="Architecture\Usecases\UCNewSystemUser.cs" />
     <Compile Include="Architecture\Usecases\UCSystemUserCollection.cs" />
     <Compile Include="Architecture\Validations\UserPower.cs" />
     <Compile Include="Configs\AppConfig.cs" />
     <Compile Include="Configs\DatabaseCredentialsFile.cs" />
     <Compile Include="Configs\DatabaseInstance.cs" />
+    <Compile Include="Configs\Privileges.cs" />
     <Compile Include="Controllers\NewUser.cs" />
     <Compile Include="Architecture\Common\INewSystemUser.cs" />
     <Compile Include="Architecture\Usecases\UCSystemUser.cs" />
@@ -112,6 +115,27 @@
     <Compile Include="Views\DashboardSub\Admin\SystemConfiguration.Designer.cs">
       <DependentUpon>SystemConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\Goods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\GoodsCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\GoodsCategories.Designer.cs">
+      <DependentUpon>GoodsCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\Modals\GoodsCategoriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\Modals\GoodsCategoriesForm.Designer.cs">
+      <DependentUpon>GoodsCategoriesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\Modals\GoodsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\Modals\GoodsForm.Designer.cs">
+      <DependentUpon>GoodsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashboardSub\DatabaseConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +160,12 @@
     <Compile Include="Views\DashboardSub\HR\Employees.Designer.cs">
       <DependentUpon>Employees.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DashboardSub\HR\Modals\EmployeesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\HR\Modals\EmployeesForm.Designer.cs">
+      <DependentUpon>EmployeesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +188,18 @@
     <EmbeddedResource Include="Views\DashboardSub\Admin\SystemConfiguration.resx">
       <DependentUpon>SystemConfiguration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Clerk\Goods.resx">
+      <DependentUpon>Goods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Clerk\GoodsCategories.resx">
+      <DependentUpon>GoodsCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Clerk\Modals\GoodsCategoriesForm.resx">
+      <DependentUpon>GoodsCategoriesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Clerk\Modals\GoodsForm.resx">
+      <DependentUpon>GoodsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\DatabaseConfiguration.resx">
       <DependentUpon>DatabaseConfiguration.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\HR\Employees.resx">
       <DependentUpon>Employees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\HR\Modals\EmployeesForm.resx">
+      <DependentUpon>EmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -196,7 +241,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Architecture\Exceptions\" />
-    <Folder Include="Views\DashboardSub\HR\Modals\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />
