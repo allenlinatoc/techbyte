@@ -74,5 +74,14 @@ namespace TechByte.Views.DashboardSub.Clerk
             DataGridViews.SelectIndex(0, ref dgGreceipts);
         }
 
+        private void dgGreceipts_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            if (dgGreceipts.Rows.Count > 0 && dgGreceipts.SelectedRows.Count > 0) {
+                int greceipt_id = Integer.Parse(DataGridViews.GetSelectedValue("ID", ref dgGreceipts));
+                Modals.GoodsReceiptsForm modal = new Modals.GoodsReceiptsForm();
+                modal.SetFormModalKey(greceipt_id);
+                modal.ShowDialog(this);
+            }
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Guitar32;
+using Guitar32.Controllers;
 using Guitar32.Data;
 using Guitar32.Database;
 using Guitar32.Utilities;
@@ -17,8 +18,7 @@ using TechByte.Architecture.Beans.Warehouse;
 
 namespace TechByte.Views.DashboardSub.Clerk.Modals
 {
-    public partial class GoodsReceiptsForm : Guitar32.Controllers.FormController,
-                                                    TechByte.Architecture.Common.IFormModal
+    public partial class GoodsReceiptsForm : FormController, TechByte.Architecture.Common.IFormModal
     {
         private DatabaseConnection dbConn = TechByte.Configs.DatabaseInstance.databaseConnection;
         private int key;
@@ -60,7 +60,7 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
         }
 
         private void dgItems_SelectionChanged(object sender, EventArgs e) {
-            btnRemove.Visible = dgItems.SelectedRows.Count > 0;
+            btnRemove.Visible = dgItems.SelectedRows.Count > 0 && this.type == Architecture.Enums.FormModalTypes.CREATE;
         }
 
         private void dgItems_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e) {
@@ -74,7 +74,7 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
         }
 
         private void dgItems_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
-            if (dgItems.SelectedRows.Count > 0) {
+            if (dgItems.SelectedRows.Count > 0 && this.type == Architecture.Enums.FormModalTypes.CREATE) {
                 int selectedIndex = dgItems.SelectedRows[0].Index;
                 DataGridViewRow row = dgItems.Rows[selectedIndex];
 
@@ -162,7 +162,21 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
 
         public void Fetch() {
             if (this.type == Architecture.Enums.FormModalTypes.VIEW) {
+                dgItems.Rows.Clear();
 
+                GoodsReceipt greceipt = new GoodsReceipt(this.key);
+                comboBind_Type.SetByValue(greceipt.getType());
+                WarehouseEntryItem[] itemList = greceipt.getWarehouseEntry().getItemList();
+                foreach (WarehouseEntryItem item in itemList) {
+                    dgItems.Rows.Add(new object[] {
+                        item.getGood().getGoodsCategory().getId().ToString(),
+                        item.getGood().getGoodsCategory().getName(),
+                        item.getGood().getId().ToString(),
+                        item.getGood().getName(),
+                        item.getQuantity().ToString(),
+                        item.getTotalCost().ToString()
+                    });
+                }
             }
         }
 
@@ -189,10 +203,11 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
                     break;
                     }
                 case Architecture.Enums.FormModalTypes.VIEW: {
-                    lblTitle.Text = lblTitle.Text.Replace("{0}", "New");
+                    lblTitle.Text = lblTitle.Text.Replace("{0}", "View a");
                     btnAdd.Hide();
                     btnRemove.Hide();
                     btnSave.Hide();
+                    btnCancel.Text = "Close";
                     comboBind_Type.getControl().Enabled = false;
                     this.DisableCloseDetections();
                     Fetch();

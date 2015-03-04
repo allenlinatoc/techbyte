@@ -74,6 +74,7 @@
             this.dgGreceipts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgGreceipts.Size = new System.Drawing.Size(440, 305);
             this.dgGreceipts.TabIndex = 6;
+            this.dgGreceipts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgGreceipts_CellDoubleClick);
             // 
             // Column1
             // 

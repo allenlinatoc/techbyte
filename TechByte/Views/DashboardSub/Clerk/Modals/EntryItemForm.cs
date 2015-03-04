@@ -16,8 +16,7 @@ using TechByte.Architecture.Beans.Goods;
 
 namespace TechByte.Views.DashboardSub.Clerk.Modals
 {
-    public partial class EntryItemForm : FormController,
-        TechByte.Architecture.Common.IFormModal
+    public partial class EntryItemForm : FormController, TechByte.Architecture.Common.IFormModal
     {
         private DatabaseConnection dbConn = TechByte.Configs.DatabaseInstance.databaseConnection;
         private TechByte.Architecture.Enums.FormModalTypes
