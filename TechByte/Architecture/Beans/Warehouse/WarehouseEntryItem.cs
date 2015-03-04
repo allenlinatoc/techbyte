@@ -28,6 +28,7 @@ namespace TechByte.Architecture.Beans.Warehouse
                 if (row != null && row.Count > 0) {
                     this.setGood(new Good(Integer.Parse(row["good_id"])));
                     this.setQuantity(Integer.Parse(row["quantity"]));
+                    this.setTotalcost(new Currency(row["totalcost"].ToString()));
                 }
                 else {
                     throw new Guitar32.Exceptions.BeanDataNotFoundException();

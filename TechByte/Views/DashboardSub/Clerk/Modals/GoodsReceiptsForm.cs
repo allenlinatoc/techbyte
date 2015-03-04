@@ -17,9 +17,11 @@ using TechByte.Architecture.Beans.Warehouse;
 
 namespace TechByte.Views.DashboardSub.Clerk.Modals
 {
-    public partial class GoodsReceiptsForm : Form, TechByte.Architecture.Common.IFormModal
+    public partial class GoodsReceiptsForm : Guitar32.Controllers.FormController,
+                                                    TechByte.Architecture.Common.IFormModal
     {
         private DatabaseConnection dbConn = TechByte.Configs.DatabaseInstance.databaseConnection;
+        private int key;
         private TechByte.Architecture.Enums.FormModalTypes
             type;
         private ComboBind comboBind_Type;
@@ -159,11 +161,14 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
 
 
         public void Fetch() {
-            throw new NotImplementedException();
+            if (this.type == Architecture.Enums.FormModalTypes.VIEW) {
+
+            }
         }
 
         public void SetFormModalKey(object key) {
-            throw new NotImplementedException();
+            this.key = Integer.Parse(key);
+            this.SetFormModalType(Architecture.Enums.FormModalTypes.VIEW);
         }
 
         public void SetFormModalType(Architecture.Enums.FormModalTypes type) {
@@ -180,9 +185,21 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
 
             switch (this.type) {
                 case Architecture.Enums.FormModalTypes.CREATE: {
+                    lblTitle.Text = lblTitle.Text.Replace("{0}", "New");
                     break;
                     }
+                case Architecture.Enums.FormModalTypes.VIEW: {
+                    lblTitle.Text = lblTitle.Text.Replace("{0}", "New");
+                    btnAdd.Hide();
+                    btnRemove.Hide();
+                    btnSave.Hide();
+                    comboBind_Type.getControl().Enabled = false;
+                    this.DisableCloseDetections();
+                    Fetch();
+                    break;
+                }
             }
+            this.Text = lblTitle.Text;
         }
     }
 }

@@ -65,9 +65,11 @@
     <Compile Include="Architecture\Beans\Accounts\UserPower.cs" />
     <Compile Include="Architecture\Beans\AuditTrail.cs" />
     <Compile Include="Architecture\Beans\Business\Company.cs" />
+    <Compile Include="Architecture\Beans\Delivery.cs" />
     <Compile Include="Architecture\Beans\Goods\Good.cs" />
     <Compile Include="Architecture\Beans\Goods\GoodsCategory.cs" />
     <Compile Include="Architecture\Beans\Goods\GoodsReceipt.cs" />
+    <Compile Include="Architecture\Beans\Purchasing.cs" />
     <Compile Include="Architecture\Beans\Warehouse\WarehouseEntry.cs" />
     <Compile Include="Architecture\Beans\Warehouse\WarehouseEntryItem.cs" />
     <Compile Include="Architecture\Beans\Warehouse\WarehouseEntryItemList.cs" />
@@ -188,6 +190,12 @@
     <Compile Include="Views\DashboardSub\HR\Modals\EmployeesForm.Designer.cs">
       <DependentUpon>EmployeesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DashboardSub\Purchasing\Purchasings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Purchasing\Purchasings.Designer.cs">
+      <DependentUpon>Purchasings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +254,9 @@
     <EmbeddedResource Include="Views\DashboardSub\HR\Modals\EmployeesForm.resx">
       <DependentUpon>EmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Purchasing\Purchasings.resx">
+      <DependentUpon>Purchasings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,7 +283,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Architecture\Exceptions\" />
-    <Folder Include="Views\DashboardSub\Purchasing\" />
+    <Folder Include="Views\DashboardSub\Purchasing\Modals\" />
     <Folder Include="Views\DashboardSub\Sales\" />
   </ItemGroup>
   <ItemGroup>
