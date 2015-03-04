@@ -257,9 +257,6 @@
             // 
             this.comboCompany_Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCompany_Type.FormattingEnabled = true;
-            this.comboCompany_Type.Items.AddRange(new object[] {
-            "Partner",
-            "Vendor"});
             this.comboCompany_Type.Location = new System.Drawing.Point(113, 54);
             this.comboCompany_Type.Name = "comboCompany_Type";
             this.comboCompany_Type.Size = new System.Drawing.Size(129, 21);

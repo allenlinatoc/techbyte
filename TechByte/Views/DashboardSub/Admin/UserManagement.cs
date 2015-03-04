@@ -42,7 +42,7 @@ namespace TechByte.Views.DashboardSub.Admin
 
         private void btnEdit_Click(object sender, EventArgs e) {
             UserManagementForm formEdit = new UserManagementForm();
-            formEdit.SetFormModalType(Architecture.Enums.FormModalTypes.Update);
+            formEdit.SetFormModalType(Architecture.Enums.FormModalTypes.UPDATE);
             // Get User ID
             object cellValue = DataGridViews.GetSelectedValue("ID", ref dgUsers);
             int id = int.Parse(cellValue.ToString());
@@ -105,7 +105,7 @@ namespace TechByte.Views.DashboardSub.Admin
 
         private void dgUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
             UserManagementForm formEdit = new UserManagementForm();
-            formEdit.SetFormModalType(Architecture.Enums.FormModalTypes.Update);
+            formEdit.SetFormModalType(Architecture.Enums.FormModalTypes.UPDATE);
             // Get User ID
             object cellValue = DataGridViews.GetSelectedValue("ID", ref dgUsers);
             int id = int.Parse(cellValue.ToString());

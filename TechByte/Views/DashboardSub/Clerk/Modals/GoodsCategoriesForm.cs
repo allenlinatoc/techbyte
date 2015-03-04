@@ -25,7 +25,7 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
 
         public GoodsCategoriesForm() {
             InitializeComponent();
-            this.type = Architecture.Enums.FormModalTypes.Create;
+            this.type = Architecture.Enums.FormModalTypes.CREATE;
         }
 
         private void GoodsCategoriesForm_Load(object sender, EventArgs e) {
@@ -45,7 +45,7 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
         private void btnSave_Click(object sender, EventArgs e) {
             if (this.IsSubmittable()) {
                 GoodsCategory category;
-                if (this.type == Architecture.Enums.FormModalTypes.Create) {
+                if (this.type == Architecture.Enums.FormModalTypes.CREATE) {
                     if (GoodsCategory.NameExists(new MultiWordAlphaNumeric(txtName.Text))) {
                         MessageBox.Show("That category name already exists. Please choose another name");
                         return;
@@ -82,7 +82,7 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
         }
 
         public void Fetch() {
-            if (this.type == Architecture.Enums.FormModalTypes.Update) {
+            if (this.type == Architecture.Enums.FormModalTypes.UPDATE) {
                 GoodsCategory category = new GoodsCategory(this.key);
                 txtName.Text = category.getName();
                 txtDescription.Text = category.getDescription();
@@ -91,7 +91,7 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
 
         public void SetFormModalKey(object key) {
             this.key = Integer.Parse(key);
-            this.SetFormModalType(Architecture.Enums.FormModalTypes.Update);
+            this.SetFormModalType(Architecture.Enums.FormModalTypes.UPDATE);
         }
 
         public void SetFormModalType(Architecture.Enums.FormModalTypes type) {
@@ -100,12 +100,12 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
 
         public void InitFormModal() {
             switch (this.type) {
-                case Architecture.Enums.FormModalTypes.Create: {
+                case Architecture.Enums.FormModalTypes.CREATE: {
                     lblTitle.Text = lblTitle.Text.Replace("{0}", "New");
                     this.EnableCloseDetections();
                     break;
                     }
-                case Architecture.Enums.FormModalTypes.Update: {
+                case Architecture.Enums.FormModalTypes.UPDATE: {
                     lblTitle.Text = lblTitle.Text.Replace("{0}", "Edit");
                     this.DisableCloseDetections();
                     break;

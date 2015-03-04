@@ -2,7 +2,8 @@
 {
     public enum FormModalTypes
     {
-        Create,
-        Update
+        CREATE,
+        UPDATE,
+        VIEW
     }
 }

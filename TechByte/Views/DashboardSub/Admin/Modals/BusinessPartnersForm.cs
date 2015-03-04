@@ -1,4 +1,5 @@
 ﻿using Guitar32.Controllers;
+using Guitar32.Data;
 using Guitar32.Utilities;
 using Guitar32.Validations;
 using Guitar32.Validations.Monitors;
@@ -18,15 +19,23 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
     public partial class BusinessPartnersForm : FormController, TechByte.Architecture.Common.IFormModal
     {
         private int key;
-        private Architecture.Enums.FormModalTypes type = Architecture.Enums.FormModalTypes.Create;
+        private Architecture.Enums.FormModalTypes type = Architecture.Enums.FormModalTypes.CREATE;
+        private ComboBind comboBind_Type;
 
         public BusinessPartnersForm() : base(true) {
             InitializeComponent();
             this.GetInputMonitors().Clear();
+            this.comboBind_Type = new ComboBind(ref comboCompany_Type);
+            comboBind_Type
+                .AddItem("Partner", "PARTNER")
+                .AddItem("Vendor", "VENDOR")
+                .AddItem("Logistics", "LOGISTICS")
+            ;
         }
 
         private void BusinessPartnersForm_Load(object sender, EventArgs e) {
             InitFormModal();
+            comboBind_Type.TrySelect(0);
             this.ResetFields(new Control[] { txtAddress_Country });
             this.AddInputMonitor(new InputMonitor(txtCompany_Name, true));
             this.AddInputMonitor(new InputMonitor(txtContact_Email, true));
@@ -38,7 +47,7 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
         }
 
         public void Fetch() {
-            if (this.type == Architecture.Enums.FormModalTypes.Update) {
+            if (this.type == Architecture.Enums.FormModalTypes.UPDATE) {
                 Company company = new Company(this.key);
                 txtCompany_Name.Text = company.getName();
                 comboCompany_Type.SelectedItem = Strings.UppercaseFirst(company.getType());
@@ -63,11 +72,11 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
 
         public void InitFormModal() {
             switch (this.type) {
-                case Architecture.Enums.FormModalTypes.Create: {
+                case Architecture.Enums.FormModalTypes.CREATE: {
                     lblTitle.Text = lblTitle.Text.Replace("{0}", "New");
                     break;
                     }
-                case Architecture.Enums.FormModalTypes.Update: {
+                case Architecture.Enums.FormModalTypes.UPDATE: {
                     lblTitle.Text = lblTitle.Text.Replace("{0}", "Edit");
                     btnCancel.Text = "Close";
                     this.DisableCloseDetections();
@@ -85,7 +94,7 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
             AddressDetails addressDetails = new AddressDetails();
             ContactDetails contactDetails = new ContactDetails();
             Company company = new Company();
-            if (this.type == Architecture.Enums.FormModalTypes.Update) {
+            if (this.type == Architecture.Enums.FormModalTypes.UPDATE) {
                 company = new Company(this.key);
                 addressDetails = company.getAddressDetails();
                 contactDetails = company.getContactDetails();
@@ -110,7 +119,7 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
             company.setContactDetails(contactDetails);
             // }}
 
-            if (this.type == Architecture.Enums.FormModalTypes.Create) {
+            if (this.type == Architecture.Enums.FormModalTypes.CREATE) {
                 bool companyCreateSuccess = company.CreateData();
                 if (!companyCreateSuccess) {
                     MessageBox.Show("Unable to create company entry. Please check your connection and try again");
@@ -121,7 +130,7 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
                 this.DisableCloseDetections();
                 this.Close();
             }
-            else if (type == Architecture.Enums.FormModalTypes.Update) {
+            else if (type == Architecture.Enums.FormModalTypes.UPDATE) {
                 bool companyUpdateSuccess = company.Update();
                 if (!companyUpdateSuccess) {
                     MessageBox.Show("Unable to update changes. Please check your connnection and try again");

@@ -28,7 +28,7 @@ namespace TechByte.Views.DashboardSub.HR.Modals
 
         public EmployeesForm() : base(true) {
             InitializeComponent();
-            this.type = Architecture.Enums.FormModalTypes.Create;
+            this.type = Architecture.Enums.FormModalTypes.CREATE;
         }
 
         private void EmployeesForm_Load(object sender, EventArgs e) {
@@ -47,7 +47,7 @@ namespace TechByte.Views.DashboardSub.HR.Modals
         }
 
         public void Fetch() {
-            if (this.type == Architecture.Enums.FormModalTypes.Update) {
+            if (this.type == Architecture.Enums.FormModalTypes.UPDATE) {
                 SystemUser user = new SystemUser(this.key);
                 ProfileDetails profile = user.getProfileDetails();
                 txtProfile_Firstname.Text = profile.getFullname().getFirstName();
@@ -74,7 +74,7 @@ namespace TechByte.Views.DashboardSub.HR.Modals
 
         public void SetFormModalKey(object key) {
             this.key = Integer.Parse(key);
-            this.SetFormModalType(Architecture.Enums.FormModalTypes.Update);
+            this.SetFormModalType(Architecture.Enums.FormModalTypes.UPDATE);
         }
 
         public void SetFormModalType(Architecture.Enums.FormModalTypes type) {
@@ -83,12 +83,12 @@ namespace TechByte.Views.DashboardSub.HR.Modals
 
         public void InitFormModal() {
             switch (this.type) {
-                case Architecture.Enums.FormModalTypes.Create: {
+                case Architecture.Enums.FormModalTypes.CREATE: {
                     lblTitle.Text = lblTitle.Text.Replace("{0}", "Create");
                     this.Text = this.Text.Replace("{0}", "Create");
                     break;
                 }
-                case Architecture.Enums.FormModalTypes.Update: {
+                case Architecture.Enums.FormModalTypes.UPDATE: {
                     lblTitle.Text = lblTitle.Text.Replace("{0}", "Edit");
                     this.Text = this.Text.Replace("{0}", "Edit");
                     this.DisableCloseDetections();

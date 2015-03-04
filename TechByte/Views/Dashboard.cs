@@ -145,5 +145,9 @@ namespace TechByte.Views
         private void warehouseReportsToolStripMenuItem_Click(object sender, EventArgs e) {
 
         }
+
+        private void goodsReceiptToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
     }
 }

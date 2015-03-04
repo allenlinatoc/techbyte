@@ -60,7 +60,7 @@ namespace TechByte.Views.DashboardSub.Admin
         private void btnEdit_Click(object sender, EventArgs e) {
             Modals.BusinessPartnersForm modal = new Modals.BusinessPartnersForm();
             modal.SetFormModalKey(DataGridViews.GetSelectedValue("ID", ref dgCompanies));
-            modal.SetFormModalType(Architecture.Enums.FormModalTypes.Update);
+            modal.SetFormModalType(Architecture.Enums.FormModalTypes.UPDATE);
             DialogResult result = modal.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK) {
                 LoadData();
@@ -88,7 +88,7 @@ namespace TechByte.Views.DashboardSub.Admin
         private void dgCompanies_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
             Modals.BusinessPartnersForm modal = new Modals.BusinessPartnersForm();
             modal.SetFormModalKey(DataGridViews.GetSelectedValue("ID", ref dgCompanies));
-            modal.SetFormModalType(Architecture.Enums.FormModalTypes.Update);
+            modal.SetFormModalType(Architecture.Enums.FormModalTypes.UPDATE);
             DialogResult result = modal.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK) {
                 LoadData();

@@ -67,6 +67,10 @@
     <Compile Include="Architecture\Beans\Business\Company.cs" />
     <Compile Include="Architecture\Beans\Goods\Good.cs" />
     <Compile Include="Architecture\Beans\Goods\GoodsCategory.cs" />
+    <Compile Include="Architecture\Beans\Goods\GoodsReceipt.cs" />
+    <Compile Include="Architecture\Beans\Warehouse\WarehouseEntry.cs" />
+    <Compile Include="Architecture\Beans\Warehouse\WarehouseEntryItem.cs" />
+    <Compile Include="Architecture\Beans\Warehouse\WarehouseEntryItemList.cs" />
     <Compile Include="Architecture\Usecases\UCNewSystemUser.cs" />
     <Compile Include="Architecture\Usecases\UCSystemUserCollection.cs" />
     <Compile Include="Architecture\Validations\UserPower.cs" />
@@ -124,6 +128,12 @@
     <Compile Include="Views\DashboardSub\Clerk\GoodsCategories.Designer.cs">
       <DependentUpon>GoodsCategories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\GoodsReceipts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\GoodsReceipts.Designer.cs">
+      <DependentUpon>GoodsReceipts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashboardSub\Clerk\Modals\GoodsCategoriesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +145,12 @@
     </Compile>
     <Compile Include="Views\DashboardSub\Clerk\Modals\GoodsForm.Designer.cs">
       <DependentUpon>GoodsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\Modals\GoodsReceiptsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\Modals\GoodsReceiptsForm.Designer.cs">
+      <DependentUpon>GoodsReceiptsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\DashboardSub\DatabaseConfiguration.cs">
       <SubType>Form</SubType>
@@ -194,11 +210,17 @@
     <EmbeddedResource Include="Views\DashboardSub\Clerk\GoodsCategories.resx">
       <DependentUpon>GoodsCategories.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Clerk\GoodsReceipts.resx">
+      <DependentUpon>GoodsReceipts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\Clerk\Modals\GoodsCategoriesForm.resx">
       <DependentUpon>GoodsCategoriesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\Clerk\Modals\GoodsForm.resx">
       <DependentUpon>GoodsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Clerk\Modals\GoodsReceiptsForm.resx">
+      <DependentUpon>GoodsReceiptsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\DatabaseConfiguration.resx">
       <DependentUpon>DatabaseConfiguration.cs</DependentUpon>
@@ -241,6 +263,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Architecture\Exceptions\" />
+    <Folder Include="Views\DashboardSub\Purchasing\" />
+    <Folder Include="Views\DashboardSub\Sales\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />

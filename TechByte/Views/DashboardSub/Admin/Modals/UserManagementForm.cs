@@ -23,7 +23,7 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
     public partial class UserManagementForm : FormController, TechByte.Architecture.Common.IFormModal
     {
         private Architecture.Enums.FormModalTypes
-            type = Architecture.Enums.FormModalTypes.Create;
+            type = Architecture.Enums.FormModalTypes.CREATE;
         private int key;
         private DatabaseConnection dbConn = TechByte.Configs.DatabaseInstance.databaseConnection;
 
@@ -35,19 +35,19 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
 
         private void UserManagementForm_Load(object sender, EventArgs e) {
             this.InitializeMonitors();
-            if (this.type == Architecture.Enums.FormModalTypes.Update) {
+            if (this.type == Architecture.Enums.FormModalTypes.UPDATE) {
                 Fetch();
             }
         }
 
         public void InitFormModal() {
             switch (this.type) {
-                case Architecture.Enums.FormModalTypes.Create: {
+                case Architecture.Enums.FormModalTypes.CREATE: {
                         lblTitle.Text = lblTitle.Text.Replace("{0}", "New");
                         btnSubmit.Text = "Save";
                         break;
                     }
-                case Architecture.Enums.FormModalTypes.Update: {
+                case Architecture.Enums.FormModalTypes.UPDATE: {
                         lblTitle.Text = lblTitle.Text.Replace("{0}", "Edit");
                         btnSubmit.Text = "Save changes";
                         btnCancel.Text = "Close";
@@ -98,7 +98,7 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
             // {{ BLOCK for account details
             InputMonitor mUsername = new InputMonitor(txtUsername, true);
             mUsername.SetValidator(SingleWordAlphaNumeric.expression, SingleWordAlphaNumeric.message);
-            if (this.type == Architecture.Enums.FormModalTypes.Create) {
+            if (this.type == Architecture.Enums.FormModalTypes.CREATE) {
                 InputMonitor mPassword2 = new InputMonitor(txtPassword2, true);
                 InputMonitor mPassword1 = new InputMonitor(txtPassword1, true);
                 mPassword1.SetValidator(Password.expression, Password.message);
@@ -176,7 +176,7 @@ namespace TechByte.Views.DashboardSub.Admin.Modals
 
             // Additional non-text inputs
             if (this.IsSubmittable()) {
-                if (this.type == Architecture.Enums.FormModalTypes.Create) {
+                if (this.type == Architecture.Enums.FormModalTypes.CREATE) {
                     // Create
                     Guitar32.Validations.DateTime dt = Guitar32.Validations.DateTime.CreateFromDateTimePicker(dtProfile_Birthdate);
 

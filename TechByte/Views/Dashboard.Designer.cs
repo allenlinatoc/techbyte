@@ -38,7 +38,6 @@
             this.purchasingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemPurchasingManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invoiceManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.goodsReceiptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goodsReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemSalesManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,6 +49,7 @@
             this.warehouseReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goodsManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goodsCategoryManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goodsReceiptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,7 +142,6 @@
             this.purchasingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itemPurchasingManagementToolStripMenuItem,
             this.invoiceManagementToolStripMenuItem,
-            this.goodsReceiptToolStripMenuItem,
             this.goodsReturnToolStripMenuItem});
             this.purchasingToolStripMenuItem.Name = "purchasingToolStripMenuItem";
             this.purchasingToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
@@ -159,12 +158,6 @@
             this.invoiceManagementToolStripMenuItem.Name = "invoiceManagementToolStripMenuItem";
             this.invoiceManagementToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.invoiceManagementToolStripMenuItem.Text = "A/P Invoice management";
-            // 
-            // goodsReceiptToolStripMenuItem
-            // 
-            this.goodsReceiptToolStripMenuItem.Name = "goodsReceiptToolStripMenuItem";
-            this.goodsReceiptToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.goodsReceiptToolStripMenuItem.Text = "Goods receipt";
             // 
             // goodsReturnToolStripMenuItem
             // 
@@ -219,7 +212,8 @@
             this.clerkToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.warehouseReportsToolStripMenuItem,
             this.goodsManagementToolStripMenuItem,
-            this.goodsCategoryManagementToolStripMenuItem});
+            this.goodsCategoryManagementToolStripMenuItem,
+            this.goodsReceiptToolStripMenuItem});
             this.clerkToolStripMenuItem.Name = "clerkToolStripMenuItem";
             this.clerkToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.clerkToolStripMenuItem.Text = "Clerk / Goods";
@@ -244,6 +238,13 @@
             this.goodsCategoryManagementToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.goodsCategoryManagementToolStripMenuItem.Text = "Goods category management";
             this.goodsCategoryManagementToolStripMenuItem.Click += new System.EventHandler(this.goodsCategoryManagementToolStripMenuItem_Click);
+            // 
+            // goodsReceiptToolStripMenuItem
+            // 
+            this.goodsReceiptToolStripMenuItem.Name = "goodsReceiptToolStripMenuItem";
+            this.goodsReceiptToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.goodsReceiptToolStripMenuItem.Text = "Goods receipts";
+            this.goodsReceiptToolStripMenuItem.Click += new System.EventHandler(this.goodsReceiptToolStripMenuItem_Click);
             // 
             // Dashboard
             // 
@@ -281,7 +282,6 @@
         private System.Windows.Forms.ToolStripMenuItem purchasingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemPurchasingManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem invoiceManagementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem goodsReceiptToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goodsReturnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemSalesManagementToolStripMenuItem;
@@ -293,5 +293,6 @@
         private System.Windows.Forms.ToolStripMenuItem warehouseReportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goodsManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goodsCategoryManagementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goodsReceiptToolStripMenuItem;
     }
 }
