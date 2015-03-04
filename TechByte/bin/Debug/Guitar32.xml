@@ -125,6 +125,12 @@
             <param name="dataGridView">The target DataGridView object</param>
             <returns>The current value of the specified position, otherwise, FALSE</returns>
         </member>
+        <member name="M:Guitar32.Utilities.UI.DataGridViews.RemoveSelected(System.Windows.Forms.DataGridView@)">
+            <summary>
+            Remove all selected indices/rows in a DataGridView object
+            </summary>
+            <param name="dataGridView">The current DataGridView object</param>
+        </member>
         <member name="M:Guitar32.Utilities.UI.DataGridViews.SelectIndex(System.Int32,System.Windows.Forms.DataGridView@)">
             <summary>
             Select a row. If target DataGridView is MultiSelect, then the specified row index will be included in the selection.
@@ -210,6 +216,14 @@
             <summary>
             Utility class as integer helpers
             </summary>
+        </member>
+        <member name="M:Guitar32.Utilities.Integer.Pad(System.Int32,System.Int32)">
+            <summary>
+            Pad zeroes to specified number
+            </summary>
+            <param name="number">The number to be padded</param>
+            <param name="length">Total length of digit (including the padding)</param>
+            <returns></returns>
         </member>
         <member name="M:Guitar32.Utilities.Integer.Parse(System.Object)">
             <summary>
@@ -652,9 +666,21 @@
             Enable detection of onClose operations
             </summary>
         </member>
+        <member name="M:Guitar32.Controllers.FormController.GetFormData">
+            <summary>
+            Get the FormData object of this form
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Guitar32.Controllers.FormController.GetInputMonitors">
             <summary>
             Get all input monitors in this form
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Guitar32.Controllers.FormController.HasFormData">
+            <summary>
+            Check if this form has FormData contents inside
             </summary>
             <returns></returns>
         </member>
@@ -677,6 +703,12 @@
             </summary>
             <param name="exceptions">(Optional) An array of controls to be excluded from the reset</param>
             <param name="controls">[NO!] Do not supply this parameter!!!</param>
+        </member>
+        <member name="M:Guitar32.Controllers.FormController.SetFormData(Guitar32.FormData)">
+            <summary>
+            Set the FormData of this form of this Form
+            </summary>
+            <param name="formData">The FormData to be passed to this form</param>
         </member>
         <member name="T:Guitar32.Utilities.Session">
             <summary>
@@ -736,6 +768,11 @@
             <param name="array">The Array object to be searched</param>
             <param name="value">The value to search for</param>
             <returns>If certain value exists in the supplied Array object instance</returns>
+        </member>
+        <member name="T:Guitar32.FormData">
+            <summary>
+            Class used to contain form data
+            </summary>
         </member>
     </members>
 </doc>

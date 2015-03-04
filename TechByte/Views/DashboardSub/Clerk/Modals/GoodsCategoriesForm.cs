@@ -32,9 +32,7 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
             InitFormModal();
             Fetch();
             // Load monitors
-            this.AddInputMonitor(new InputMonitor(txtName, true))
-                .AddInputMonitor(new InputMonitor(txtDescription, true));
-            ;
+            this.AddInputMonitor(new InputMonitor(txtName, true));
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {

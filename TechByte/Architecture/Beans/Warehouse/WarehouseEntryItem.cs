@@ -16,6 +16,7 @@ namespace TechByte.Architecture.Beans.Warehouse
         private Good good;
         private WarehouseEntry parentWarehouseEntry;
         private int quantity;
+        private float totalcost;
 
 
         public WarehouseEntryItem(int id = -1) {
@@ -40,8 +41,11 @@ namespace TechByte.Architecture.Beans.Warehouse
         public WarehouseEntry getParentWarehouseEntry() {
             return this.parentWarehouseEntry;
         }
-        public int getQuantity() {
-            return this.quantity;
+        public int getQuantity(bool absolute=false) {
+            return absolute ? Math.Abs(this.quantity) : this.quantity;
+        }
+        public float getTotalCost() {
+            return this.totalcost;
         }
 
         public void setGood(Good good) {
@@ -52,6 +56,13 @@ namespace TechByte.Architecture.Beans.Warehouse
         }
         public void setQuantity(int quantity) {
             this.quantity = quantity;
+            if (this.getGood().exists()) {
+                float totalCost = ((float)this.quantity) * this.getGood().getPrice();
+                this.setTotalcost(new Currency(totalCost.ToString()));
+            }
+        }
+        public void setTotalcost(Currency totalcost) {
+            this.totalcost = totalcost.getValue();
         }
 
 
@@ -60,11 +71,12 @@ namespace TechByte.Architecture.Beans.Warehouse
         public bool CreateData() {
             if (!this.exists() && this.getGood().exists() && this.getParentWarehouseEntry().exists()) {
                 QueryBuilder query = new QueryBuilder();
-                query.InsertInto(TABLE, new string[] { "good_id", "warehouse_id", "quantity" })
+                query.InsertInto(TABLE, new string[] { "good_id", "warehouse_id", "quantity", "totalcost" })
                     .Values(new object[] {
                         this.getGood().getId(),
                         this.getParentWarehouseEntry().getId(),
-                        this.getQuantity()
+                        this.getQuantity(),
+                        this.getTotalCost()
                     });
                 bool success = dbConn.Execute(query);
                 if (success) {
@@ -92,6 +104,7 @@ namespace TechByte.Architecture.Beans.Warehouse
                 setPairs.Add("good_id", this.getGood().getId().ToString());
                 setPairs.Add("warehouse_id", this.getParentWarehouseEntry().getId().ToString());
                 setPairs.Add("quantity", this.getQuantity().ToString());
+                setPairs.Add("totalcost", this.getTotalCost().ToString());
                 query.Update(TABLE)
                     .Set(setPairs)
                     .Where("id", this.getId());

@@ -147,7 +147,10 @@ namespace TechByte.Views
         }
 
         private void goodsReceiptToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            TechByte.Views.DashboardSub.Clerk.GoodsReceipts frmGoodsReceipts
+                = new DashboardSub.Clerk.GoodsReceipts();
+            frmGoodsReceipts.MdiParent = this;
+            frmGoodsReceipts.Show();
         }
     }
 }

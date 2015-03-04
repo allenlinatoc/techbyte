@@ -45,3 +45,6 @@ C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\o
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.Modals.GoodsCategoriesForm.resources
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.Goods.resources
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.Modals.GoodsForm.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.GoodsReceipts.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.Modals.EntryItemForm.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.Modals.GoodsReceiptsForm.resources

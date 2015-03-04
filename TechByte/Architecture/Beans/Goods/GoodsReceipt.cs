@@ -37,29 +37,29 @@ namespace TechByte.Architecture.Beans.Goods
             }
         }
 
-        private SystemUser getPIC() {
+        public SystemUser getPIC() {
             return this.PIC;
         }
-        private WarehouseEntry getWarehouseEntry() {
+        public WarehouseEntry getWarehouseEntry() {
             return this.warehouseEntry;
         }
-        private String getCreationDate() {
+        public String getCreationDate() {
             return this.created;
         }
-        private String getType() {
+        public String getType() {
             return this.type;
         }
 
-        private void setPIC(SystemUser PIC) {
+        public void setPIC(SystemUser PIC) {
             this.PIC = PIC;
         }
-        private void setWarehouseEntry(WarehouseEntry warehouseEntry) {
+        public void setWarehouseEntry(WarehouseEntry warehouseEntry) {
             this.warehouseEntry = warehouseEntry;
         }
-        private void setCreationDate(Guitar32.Validations.DateTime created) {
+        public void setCreationDate(Guitar32.Validations.DateTime created) {
             this.created = created.getValue();
         }
-        private void setType(SingleWordAlpha type) {
+        public void setType(SingleWordAlpha type) {
             this.type = type.getValue();
         }
 
