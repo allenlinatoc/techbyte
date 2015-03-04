@@ -94,7 +94,7 @@ namespace TechByte.Architecture.Beans
                         this.getUser().getId(),
                         this.getLogistic().getId(),
                         this.getGoodsReceipt().getId(),
-                        this.getCreationDate()
+                        Strings.Surround(this.getCreationDate())
                     });
                 bool success = dbConn.Execute(query);
                 if (success) {

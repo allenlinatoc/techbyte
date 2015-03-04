@@ -160,7 +160,10 @@ namespace TechByte.Views
 
         // CLERK: Management of Delivery/Logistics
         private void deliveryManagementToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            TechByte.Views.DashboardSub.Clerk.DeliveryLogistics frmDeliveries
+                = new DashboardSub.Clerk.DeliveryLogistics();
+            frmDeliveries.MdiParent = this;
+            frmDeliveries.Show();
         }
     }
 }
