@@ -30,6 +30,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgPurchasings)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,6 +43,7 @@
             this.btnNew.TabIndex = 6;
             this.btnNew.Text = "New";
             this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // dgPurchasings
             // 
@@ -57,29 +59,43 @@
             this.dgPurchasings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.Column4});
             this.dgPurchasings.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgPurchasings.Location = new System.Drawing.Point(167, 12);
             this.dgPurchasings.MultiSelect = false;
             this.dgPurchasings.Name = "dgPurchasings";
+            this.dgPurchasings.RowHeadersVisible = false;
             this.dgPurchasings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgPurchasings.Size = new System.Drawing.Size(454, 282);
             this.dgPurchasings.TabIndex = 7;
             // 
             // Column1
             // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column1.HeaderText = "Vendor";
             this.Column1.Name = "Column1";
+            this.Column1.Width = 64;
             // 
             // Column2
             // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column2.HeaderText = "Delivery ID";
             this.Column2.Name = "Column2";
+            this.Column2.Width = 82;
             // 
             // Column3
             // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column3.HeaderText = "Person in-charge";
             this.Column3.Name = "Column3";
+            this.Column3.Width = 110;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.HeaderText = "Expense";
+            this.Column4.Name = "Column4";
             // 
             // Purchasings
             // 
@@ -89,6 +105,7 @@
             this.Controls.Add(this.dgPurchasings);
             this.Controls.Add(this.btnNew);
             this.Name = "Purchasings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purchasings";
             ((System.ComponentModel.ISupportInitialize)(this.dgPurchasings)).EndInit();
             this.ResumeLayout(false);
@@ -102,5 +119,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

@@ -31,6 +31,21 @@ namespace TechByte.Architecture.Beans.Warehouse
 
 
         /// <summary>
+        /// Get the total cost (gross) of all items enlisted here
+        /// </summary>
+        /// <returns></returns>
+        public float GetTotalCost() {
+            float totalCost = 0;
+            for (int i = 0; i < this.Count; i++) {
+                if (this[i].exists()) {
+                    totalCost += this[i].getTotalCost();
+                }
+            }
+            return totalCost;
+        }
+
+
+        /// <summary>
         /// Get the remaining number of stocks of a certain good
         /// </summary>
         /// <param name="goodId">The ID of the specific good</param>

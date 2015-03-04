@@ -145,6 +145,7 @@
             this.itemPurchasingManagementToolStripMenuItem.Name = "itemPurchasingManagementToolStripMenuItem";
             this.itemPurchasingManagementToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.itemPurchasingManagementToolStripMenuItem.Text = "Item purchasing management";
+            this.itemPurchasingManagementToolStripMenuItem.Click += new System.EventHandler(this.itemPurchasingManagementToolStripMenuItem_Click);
             // 
             // invoiceManagementToolStripMenuItem
             // 

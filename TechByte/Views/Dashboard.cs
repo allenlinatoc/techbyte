@@ -165,5 +165,13 @@ namespace TechByte.Views
             frmDeliveries.MdiParent = this;
             frmDeliveries.Show();
         }
+
+        // PURCHASING: Management of purchasing entries
+        private void itemPurchasingManagementToolStripMenuItem_Click(object sender, EventArgs e) {
+            TechByte.Views.DashboardSub.Purchasing.Purchasings frmPurchasings
+                = new DashboardSub.Purchasing.Purchasings();
+            frmPurchasings.MdiParent = this;
+            frmPurchasings.Show();
+        }
     }
 }

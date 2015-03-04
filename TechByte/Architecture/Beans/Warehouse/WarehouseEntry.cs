@@ -53,6 +53,9 @@ namespace TechByte.Architecture.Beans.Warehouse
         public WarehouseEntryItem[] getItemList() {
             return this.itemList.ToArray();
         }
+        public WarehouseEntryItemList getItemListObject() {
+            return this.itemList;
+        }
 
         public void setCreationDate(Guitar32.Validations.DateTime created) {
             this.created = created.getValue();

@@ -13,7 +13,7 @@ using TechByte.Architecture.Beans.Goods;
 using TechByte.Architecture.Beans.Warehouse;
 
 
-namespace TechByte.Architecture
+namespace TechByte.Architecture.Beans
 {
     public class Invoice : Guitar32.Model, IDatabaseEntity
     {
@@ -55,60 +55,60 @@ namespace TechByte.Architecture
             }
         }
 
-        private SystemUser getUser() {
+        public SystemUser getUser() {
             return this.user;
         }
-        private Company getVendor() {
+        public Company getVendor() {
             return this.vendor;
         }
-        private Delivery getDelivery() {
+        public Delivery getDelivery() {
             return this.delivery;
         }
-        private GoodsReceipt getGoodsReceipt() {
+        public GoodsReceipt getGoodsReceipt() {
             return this.greceipt;
         }
-        private float getGrossTotal() {
+        public float getGrossTotal() {
             return this.grossTotal;
         }
-        private float getActualTotal() {
+        public float getActualTotal() {
             return this.actualTotal;
         }
-        private float getAmountPaid() {
+        public float getAmountPaid() {
             return this.amountpaid;
         }
-        private float getChange() {
+        public float getChange() {
             return this.change;
         }
-        private String getType() {
+        public String getType() {
             return this.type.ToUpper();
         }
 
 
-        private void setUser(SystemUser user) {
+        public void setUser(SystemUser user) {
             this.user = user;
         }
-        private void setVendor(Company vendor) {
+        public void setVendor(Company vendor) {
             this.vendor = vendor;
         }
-        private void setDelivery(Delivery delivery) {
+        public void setDelivery(Delivery delivery) {
             this.delivery = delivery;
         }
-        private void setGoodsReceipt(GoodsReceipt greceipt) {
+        public void setGoodsReceipt(GoodsReceipt greceipt) {
             this.greceipt = greceipt;
         }
-        private void setGrossTotal(Currency grossTotal) {
+        public void setGrossTotal(Currency grossTotal) {
             this.grossTotal = grossTotal.getValue();
         }
-        private void setActualTotal(Currency actualTotal) {
+        public void setActualTotal(Currency actualTotal) {
             this.actualTotal = actualTotal.getValue();
         }
-        private void setAmountPaid(Currency amountpaid) {
+        public void setAmountPaid(Currency amountpaid) {
             this.amountpaid = amountpaid.getValue();
         }
-        private void setChange(Currency change) {
+        public void setChange(Currency change) {
             this.change = change.getValue();
         }
-        private void setType(SingleWordAlpha type) {
+        public void setType(SingleWordAlpha type) {
             this.type = type.getValue().ToUpper();
         }
 
@@ -122,7 +122,7 @@ namespace TechByte.Architecture
                     "grosstotal",
                     "actualtotal",
                     "amountpaid",
-                    "change",
+                    "`change`",
                     "type"
                 })
                     .Values(new object[] {
