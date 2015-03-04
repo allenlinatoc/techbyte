@@ -32,7 +32,6 @@
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.businessPartnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.auditTrailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.humanResourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeMasterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchasingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,6 +49,7 @@
             this.goodsManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goodsCategoryManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goodsReceiptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deliveryManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,8 +89,7 @@
             this.administrationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userManagementToolStripMenuItem,
             this.systemConfigurationToolStripMenuItem,
-            this.businessPartnersToolStripMenuItem,
-            this.auditTrailToolStripMenuItem});
+            this.businessPartnersToolStripMenuItem});
             this.administrationToolStripMenuItem.Name = "administrationToolStripMenuItem";
             this.administrationToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.administrationToolStripMenuItem.Text = "Administration";
@@ -115,12 +114,6 @@
             this.businessPartnersToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.businessPartnersToolStripMenuItem.Text = "Business partners management";
             this.businessPartnersToolStripMenuItem.Click += new System.EventHandler(this.businessPartnersToolStripMenuItem_Click);
-            // 
-            // auditTrailToolStripMenuItem
-            // 
-            this.auditTrailToolStripMenuItem.Name = "auditTrailToolStripMenuItem";
-            this.auditTrailToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.auditTrailToolStripMenuItem.Text = "Audit trail";
             // 
             // humanResourceToolStripMenuItem
             // 
@@ -213,7 +206,8 @@
             this.warehouseReportsToolStripMenuItem,
             this.goodsManagementToolStripMenuItem,
             this.goodsCategoryManagementToolStripMenuItem,
-            this.goodsReceiptToolStripMenuItem});
+            this.goodsReceiptToolStripMenuItem,
+            this.deliveryManagementToolStripMenuItem});
             this.clerkToolStripMenuItem.Name = "clerkToolStripMenuItem";
             this.clerkToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.clerkToolStripMenuItem.Text = "Clerk / Goods";
@@ -246,6 +240,13 @@
             this.goodsReceiptToolStripMenuItem.Text = "Goods receipts";
             this.goodsReceiptToolStripMenuItem.Click += new System.EventHandler(this.goodsReceiptToolStripMenuItem_Click);
             // 
+            // deliveryManagementToolStripMenuItem
+            // 
+            this.deliveryManagementToolStripMenuItem.Name = "deliveryManagementToolStripMenuItem";
+            this.deliveryManagementToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.deliveryManagementToolStripMenuItem.Text = "Delivery and Logistics";
+            this.deliveryManagementToolStripMenuItem.Click += new System.EventHandler(this.deliveryManagementToolStripMenuItem_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,7 +277,6 @@
         private System.Windows.Forms.ToolStripMenuItem userManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemConfigurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem businessPartnersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem auditTrailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem humanResourceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employeeMasterDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem purchasingToolStripMenuItem;
@@ -294,5 +294,6 @@
         private System.Windows.Forms.ToolStripMenuItem goodsManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goodsCategoryManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goodsReceiptToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deliveryManagementToolStripMenuItem;
     }
 }

@@ -49,3 +49,4 @@ C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\o
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.Modals.EntryItemForm.resources
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.Modals.GoodsReceiptsForm.resources
 C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Purchasing.Purchasings.resources
+C:\ExtraVolume\misc\My Documents\Visual Studio 2010\Projects\TechByte\TechByte\obj\x86\Debug\TechByte.Views.DashboardSub.Clerk.Reports.resources

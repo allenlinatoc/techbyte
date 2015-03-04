@@ -66,6 +66,17 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
+            // Check for stocks if outgoing
+            DialogResult result = MessageBox.Show("Is this an OUTGOING transaction?", "Out-of-stock check", MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.Yes) {
+                int stocks = TechByte.Architecture.Beans.Warehouse.WarehouseEntryItemList.CountStocks(Integer.Parse(comboBind_Item.GetValue()));
+                if (stocks < numericQuantity.Value) {
+                    MessageBox.Show("Sorry but you only have " + stocks + " remaining stock/s in warehouse");
+                    numericQuantity.Value = decimal.Parse(stocks.ToString());
+                    return;
+                }
+            }
+
             FormData formData = new FormData();
             formData.Add("CATEGORY_ID", comboBind_Category.GetValue());
             formData.Add("CATEGORY_NAME", comboBind_Category.GetDisplay());
@@ -102,11 +113,11 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
                 int categoryId = Integer.Parse(this.GetFormData()["CATEGORY_ID"]);
                 int goodId = Integer.Parse(this.GetFormData()["GOOD_ID"]);
                 int quantity = Integer.Parse(this.GetFormData()["QUANTITY"]);
-                float totalCost = (float)this.GetFormData()["TOTAL_COST"];
+                float totalCost = float.Parse(this.GetFormData()["TOTAL_COST"].ToString());
                 comboBind_Category.SetByValue(categoryId);
                 comboBind_Item.SetByValue(goodId);
-                numericQuantity.Value = (decimal)quantity;
-                numericTotalcost.Value = (decimal)totalCost;
+                numericQuantity.Value = decimal.Parse(quantity.ToString());
+                numericTotalcost.Value = decimal.Parse(totalCost.ToString());
             }
         }
 
@@ -148,6 +159,7 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
                     break;
                     }
             }
+            Fetch();
         }
 
 

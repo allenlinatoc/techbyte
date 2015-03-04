@@ -63,7 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Architecture\Beans\Accounts\UserPower.cs" />
-    <Compile Include="Architecture\Beans\AuditTrail.cs" />
     <Compile Include="Architecture\Beans\Business\Company.cs" />
     <Compile Include="Architecture\Beans\Delivery.cs" />
     <Compile Include="Architecture\Beans\Goods\Good.cs" />
@@ -73,6 +72,7 @@
     <Compile Include="Architecture\Beans\Warehouse\WarehouseEntry.cs" />
     <Compile Include="Architecture\Beans\Warehouse\WarehouseEntryItem.cs" />
     <Compile Include="Architecture\Beans\Warehouse\WarehouseEntryItemList.cs" />
+    <Compile Include="Architecture\Invoice.cs" />
     <Compile Include="Architecture\Usecases\UCNewSystemUser.cs" />
     <Compile Include="Architecture\Usecases\UCSystemUserCollection.cs" />
     <Compile Include="Architecture\Validations\UserPower.cs" />
@@ -121,6 +121,12 @@
     <Compile Include="Views\DashboardSub\Admin\SystemConfiguration.Designer.cs">
       <DependentUpon>SystemConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\DeliveryLogistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\DeliveryLogistics.Designer.cs">
+      <DependentUpon>DeliveryLogistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashboardSub\Clerk\Goods.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,12 @@
     </Compile>
     <Compile Include="Views\DashboardSub\Clerk\Modals\GoodsReceiptsForm.Designer.cs">
       <DependentUpon>GoodsReceiptsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Clerk\Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\DashboardSub\DatabaseConfiguration.cs">
       <SubType>Form</SubType>
@@ -218,6 +230,9 @@
     <EmbeddedResource Include="Views\DashboardSub\Admin\SystemConfiguration.resx">
       <DependentUpon>SystemConfiguration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Clerk\DeliveryLogistics.resx">
+      <DependentUpon>DeliveryLogistics.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\Clerk\Goods.resx">
       <DependentUpon>Goods.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\Clerk\Modals\GoodsReceiptsForm.resx">
       <DependentUpon>GoodsReceiptsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Clerk\Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\DatabaseConfiguration.resx">
       <DependentUpon>DatabaseConfiguration.cs</DependentUpon>

@@ -142,15 +142,25 @@ namespace TechByte.Views
             frmGoodsCategories.Show();
         }
 
+        // CLERK: View warehouse reports
         private void warehouseReportsToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            TechByte.Views.DashboardSub.Clerk.Reports frmReports
+                = new DashboardSub.Clerk.Reports();
+            frmReports.MdiParent = this;
+            frmReports.Show();
         }
 
+        // CLERK: Management of Goods Receipt
         private void goodsReceiptToolStripMenuItem_Click(object sender, EventArgs e) {
             TechByte.Views.DashboardSub.Clerk.GoodsReceipts frmGoodsReceipts
                 = new DashboardSub.Clerk.GoodsReceipts();
             frmGoodsReceipts.MdiParent = this;
             frmGoodsReceipts.Show();
+        }
+
+        // CLERK: Management of Delivery/Logistics
+        private void deliveryManagementToolStripMenuItem_Click(object sender, EventArgs e) {
+
         }
     }
 }
