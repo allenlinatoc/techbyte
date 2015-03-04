@@ -37,6 +37,8 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
 
         private void btnSave_Click(object sender, EventArgs e) {
             Delivery delivery = new Delivery();
+            Console.WriteLine(System.DateTime.Now);
+            Console.WriteLine(Guitar32.Validations.DateTime.CreateFromNativeDateTime(System.DateTime.Now, true).getValue());
             delivery.setCreationDate(Guitar32.Validations.DateTime.CreateFromNativeDateTime(System.DateTime.Now, true));
             delivery.setUser((TechByte.Architecture.Beans.Accounts.SystemUser)
                 Guitar32.Utilities.Session.Get("CURRENT_USER"));
