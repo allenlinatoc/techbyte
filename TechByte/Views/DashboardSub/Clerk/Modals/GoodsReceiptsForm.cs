@@ -18,7 +18,7 @@ using TechByte.Architecture.Beans.Warehouse;
 
 namespace TechByte.Views.DashboardSub.Clerk.Modals
 {
-    public partial class GoodsReceiptsForm : FormController, TechByte.Architecture.Common.IFormModal
+    public partial class GoodsReceiptsForm : Form, TechByte.Architecture.Common.IFormModal
     {
         private DatabaseConnection dbConn = TechByte.Configs.DatabaseInstance.databaseConnection;
         private int key;

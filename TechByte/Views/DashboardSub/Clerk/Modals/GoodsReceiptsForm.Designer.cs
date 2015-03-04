@@ -207,6 +207,7 @@
             this.numericTotalCost.ReadOnly = true;
             this.numericTotalCost.Size = new System.Drawing.Size(147, 20);
             this.numericTotalCost.TabIndex = 5;
+            this.numericTotalCost.ThousandsSeparator = true;
             // 
             // GoodsReceiptsForm
             // 
