@@ -45,12 +45,30 @@ namespace TechByte.Views.DashboardSub.Clerk
             QueryResult result = dbConn.Query(query);
             for (int i = 0; i < result.RowCount(); i++) {
                 QueryResultRow row = result.GetSingle(i);
+                
+                // Get items
+                int greceipt_id = Integer.Parse(row["greceipt_id"]);
+                query = new QueryBuilder();
+                query.Select()
+                    .From("view_s_fullwarehouse")
+                    .Where("greceipt_id", greceipt_id);
+                QueryResult resultItems = dbConn.Query(query);
+                List<string> listSummary = new List<string>();
+                for (int j = 0; j < resultItems.RowCount(); j++) {
+                    QueryResultRow rowItem = resultItems.GetSingle(j);
+                    listSummary.Add(String.Format("{0}x {1}"
+                        , rowItem["warehouselist_quantity"].ToString()
+                        , rowItem["good_name"].ToString()));
+                }
+
                 dgGreceipts.Rows.Add(new object[] {
                     row["greceipt_id"].ToString(),
                     row["user_username"].ToString(),
                     row["greceipt_warehouse_id"].ToString(),
                     row["greceipt_created"].ToString(),
-                    row["greceipt_type"].ToString()
+                    row["greceipt_type"].ToString(),
+                    resultItems.RowCount().ToString(),
+                    String.Join(" | ", listSummary.ToArray())
                 });
             }
             DataGridViews.SelectIndex(0, ref dgGreceipts);

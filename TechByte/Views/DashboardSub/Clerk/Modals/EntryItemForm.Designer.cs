@@ -101,7 +101,7 @@
             // 
             this.numericQuantity.Location = new System.Drawing.Point(114, 123);
             this.numericQuantity.Maximum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             0});
@@ -157,6 +157,11 @@
             // 
             this.numericTotalcost.DecimalPlaces = 2;
             this.numericTotalcost.Location = new System.Drawing.Point(114, 149);
+            this.numericTotalcost.Maximum = new decimal(new int[] {
+            1215752191,
+            23,
+            0,
+            0});
             this.numericTotalcost.Name = "numericTotalcost";
             this.numericTotalcost.ReadOnly = true;
             this.numericTotalcost.Size = new System.Drawing.Size(120, 20);

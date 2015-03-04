@@ -32,6 +32,8 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgGreceipts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +63,9 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5});
+            this.Column5,
+            this.Column6,
+            this.Column7});
             this.dgGreceipts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgGreceipts.Location = new System.Drawing.Point(167, 12);
             this.dgGreceipts.MultiSelect = false;
@@ -106,6 +110,20 @@
             this.Column5.Name = "Column5";
             this.Column5.Width = 54;
             // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column6.HeaderText = "Number of Items";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 107;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column7.HeaderText = "Summary";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 73;
+            // 
             // GoodsReceipts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,5 +148,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

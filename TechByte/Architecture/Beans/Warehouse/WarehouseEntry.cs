@@ -69,13 +69,6 @@ namespace TechByte.Architecture.Beans.Warehouse
                 if (this.getItemList() == null || this.getItemList().Length == 0) {
                     return false;
                 }
-                WarehouseEntryItem[] list = this.getItemList();
-                foreach (WarehouseEntryItem item in list) {
-                    if (!item.CreateData()) {
-                        this.itemList.DeleteAll();
-                        return false;
-                    }
-                }
                 QueryBuilder query = new QueryBuilder();
                 query.InsertInto(TABLE, new string[] { "created" })
                     .Values(new object[] {
@@ -83,8 +76,18 @@ namespace TechByte.Architecture.Beans.Warehouse
                     });
                 bool success = dbConn.Execute(query);
                 if (success) {
+                    Console.WriteLine("Success!");
                     this.setId(dbConn.GetLastInsertID());
                 }
+
+                WarehouseEntryItem[] list = this.getItemList();
+                foreach (WarehouseEntryItem item in list) {
+                    if (!item.CreateData()) {
+                        this.itemList.DeleteAll();
+                        return false;
+                    }
+                }
+
                 return success;
             }
             return false;

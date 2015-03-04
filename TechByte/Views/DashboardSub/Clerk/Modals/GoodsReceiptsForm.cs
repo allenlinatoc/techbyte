@@ -45,7 +45,8 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
                     formData["CATEGORY_NAME"].ToString(),
                     formData["GOOD_ID"].ToString(),
                     formData["GOOD_NAME"].ToString(),
-                    formData["QUANTITY"].ToString()
+                    formData["QUANTITY"].ToString(),
+                    formData["TOTAL_COST"].ToString()
                 });
             }
         }
@@ -60,6 +61,16 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
             btnRemove.Visible = dgItems.SelectedRows.Count > 0;
         }
 
+        private void dgItems_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e) {
+            ComputeTotalCost();
+            btnSave.Enabled = dgItems.Rows.Count > 0;
+        }
+
+        private void dgItems_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e) {
+            ComputeTotalCost();
+            btnSave.Enabled = dgItems.Rows.Count > 0;
+        }
+
         private void dgItems_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
             if (dgItems.SelectedRows.Count > 0) {
                 int selectedIndex = dgItems.SelectedRows[0].Index;
@@ -70,6 +81,7 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
                 formData.Add("CATEGORY_ID", row.Cells["Column1"].Value);
                 formData.Add("GOOD_ID", row.Cells["Column3"].Value);
                 formData.Add("QUANTITY", row.Cells["Column5"].Value);
+                formData.Add("TOTAL_COST", row.Cells["Column6"].Value);
 
                 // Show edit modal
                 EntryItemForm modal = new EntryItemForm();
@@ -84,7 +96,8 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
                         newFormData["CATEGORY_NAME"].ToString(),
                         newFormData["GOOD_ID"].ToString(),
                         newFormData["GOOD_NAME"].ToString(),
-                        newFormData["QUANTITY"].ToString()
+                        newFormData["QUANTITY"].ToString(),
+                        newFormData["TOTAL_COST"].ToString()
                     });
                     dgItems.Rows.RemoveAt(selectedIndex);
                     dgItems.Rows.Insert(selectedIndex, row);
@@ -105,16 +118,11 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
                 Good good = new Good(Integer.Parse(row.Cells["Column3"].Value));
                 item.setGood(good);
                 item.setQuantity(Integer.Parse(row.Cells["Column5"].Value));
-                if (!item.CreateData()) {
-                    MessageBox.Show("Failed to create a warehouse entry item");
-                    this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-                    return;
-                }
                 list.Add(item);
             }
 
             // Warehouse entry
-            warehouseEntry.setCreationDate(Guitar32.Validations.DateTime.CreateFromNativeDateTime(System.DateTime.Today));
+            warehouseEntry.setCreationDate(Guitar32.Validations.DateTime.CreateFromNativeDateTime(System.DateTime.Today, true));
             warehouseEntry.setItemList(list);
             if (!warehouseEntry.CreateData()) {
                 this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -139,6 +147,14 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
         private void btnCancel_Click(object sender, EventArgs e) {
             this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close();
+        }
+
+        public void ComputeTotalCost() {
+            decimal totalcost = 0;
+            for (int i = 0; i < dgItems.Rows.Count; i++) {
+                totalcost += Decimal.Parse(dgItems.Rows[i].Cells["Column6"].Value.ToString());
+            }
+            numericTotalCost.Value = totalcost;
         }
 
 

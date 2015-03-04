@@ -39,7 +39,10 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numericTotalCost = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericTotalCost)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -93,6 +96,8 @@
             this.dgItems.Size = new System.Drawing.Size(522, 208);
             this.dgItems.TabIndex = 3;
             this.dgItems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgItems_CellDoubleClick);
+            this.dgItems.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgItems_RowsAdded);
+            this.dgItems.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgItems_RowsRemoved);
             this.dgItems.SelectionChanged += new System.EventHandler(this.dgItems_SelectionChanged);
             // 
             // btnAdd
@@ -113,6 +118,7 @@
             this.btnRemove.TabIndex = 4;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Visible = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnCancel
@@ -129,6 +135,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(358, 319);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 28);
@@ -178,17 +185,42 @@
             this.Column6.Name = "Column6";
             this.Column6.Width = 51;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 327);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Total cost";
+            // 
+            // numericTotalCost
+            // 
+            this.numericTotalCost.DecimalPlaces = 2;
+            this.numericTotalCost.Location = new System.Drawing.Point(73, 325);
+            this.numericTotalCost.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.numericTotalCost.Name = "numericTotalCost";
+            this.numericTotalCost.ReadOnly = true;
+            this.numericTotalCost.Size = new System.Drawing.Size(147, 20);
+            this.numericTotalCost.TabIndex = 5;
+            // 
             // GoodsReceiptsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 359);
             this.ControlBox = false;
+            this.Controls.Add(this.numericTotalCost);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgItems);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboType);
             this.Controls.Add(this.lblTitle);
@@ -199,6 +231,7 @@
             this.Text = "{0} Goods receipt";
             this.Load += new System.EventHandler(this.GoodsReceiptsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericTotalCost)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +253,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numericTotalCost;
     }
 }

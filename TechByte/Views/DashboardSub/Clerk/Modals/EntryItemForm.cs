@@ -58,6 +58,7 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
 
         private void comboItem_SelectedIndexChanged(object sender, EventArgs e) {
             btnSave.Enabled = comboItem.SelectedIndex >= 0;
+            ComputeTotalCost();
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
@@ -72,13 +73,17 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
             formData.Add("GOOD_ID", comboBind_Item.GetValue());
             formData.Add("GOOD_NAME", comboBind_Item.GetDisplay());
             formData.Add("QUANTITY", numericQuantity.Value);
-            formData.Add("TOTAL_PRICE", numericTotalcost.Value);
+            formData.Add("TOTAL_COST", numericTotalcost.Value);
             this.SetFormData(formData);
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
         }
 
         private void numericQuantity_ValueChanged(object sender, EventArgs e) {
+            ComputeTotalCost();
+        }
+
+        private void ComputeTotalCost() {
             if (comboItem.Items.Count > 0 && comboItem.SelectedIndex >= 0) {
                 int goodId = Integer.Parse(comboBind_Item.GetValue());
                 Good good = new Good(goodId);
@@ -98,9 +103,11 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
                 int categoryId = Integer.Parse(this.GetFormData()["CATEGORY_ID"]);
                 int goodId = Integer.Parse(this.GetFormData()["GOOD_ID"]);
                 int quantity = Integer.Parse(this.GetFormData()["QUANTITY"]);
+                float totalCost = (float)this.GetFormData()["TOTAL_COST"];
                 comboBind_Category.SetByValue(categoryId);
                 comboBind_Item.SetByValue(goodId);
                 numericQuantity.Value = (decimal)quantity;
+                numericTotalcost.Value = (decimal)totalCost;
             }
         }
 

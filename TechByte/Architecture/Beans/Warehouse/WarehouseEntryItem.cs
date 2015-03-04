@@ -84,6 +84,12 @@ namespace TechByte.Architecture.Beans.Warehouse
                 }
                 return success;
             }
+            if (!this.getGood().exists()) {
+                Console.WriteLine("Good does not exist!");
+            }
+            if (!this.getParentWarehouseEntry().exists()) {
+                Console.WriteLine("Parent warehouse entry does not exist! : " + this.getParentWarehouseEntry().getId());
+            }
             return false;
         }
 
