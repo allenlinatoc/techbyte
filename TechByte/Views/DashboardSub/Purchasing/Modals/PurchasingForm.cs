@@ -59,6 +59,7 @@ namespace TechByte.Views.DashboardSub.Purchasing.Modals
             Architecture.Beans.Purchasing purchasing
                 = new Architecture.Beans.Purchasing();
             Invoice invoice = new Invoice();
+            invoice.setUser((SystemUser)(Guitar32.Utilities.Session.Get("CURRENT_USER")));
             invoice.setVendor(new Company(Integer.Parse(cbVendor.GetValue())));
             invoice.setDelivery(new Delivery(Integer.Parse(cbDelivery.GetValue())));
             invoice.setGoodsReceipt(new GoodsReceipt(Integer.Parse(cbGreceipt.GetValue())));
@@ -66,6 +67,7 @@ namespace TechByte.Views.DashboardSub.Purchasing.Modals
             invoice.setActualTotal(new Currency(numericActualtotal.Value.ToString()));
             invoice.setAmountPaid(new Currency(numericAmountpaid.Value.ToString()));
             invoice.setChange(new Currency(numericChange.Value.ToString()));
+            invoice.setType(new SingleWordAlpha(txtType.Text));
             purchasing.setInvoice(invoice);
             if (!purchasing.CreateData()) {
                 MessageBox.Show("Failed to create Purchasing entry, please try again later");
@@ -83,7 +85,7 @@ namespace TechByte.Views.DashboardSub.Purchasing.Modals
         }
 
         private void numericAmountpaid_ValueChanged(object sender, EventArgs e) {
-            float change = (float)(numericActualtotal.Value - numericAmountpaid.Value);
+            float change = (float)(numericAmountpaid.Value - numericActualtotal.Value);
             change = change < 0 ? 0 : change;
             numericChange.Value = (decimal)change;
             UpdateSaveButton();
@@ -92,8 +94,8 @@ namespace TechByte.Views.DashboardSub.Purchasing.Modals
 
         private void ComputeGross(float grossTotal) {
             numericGrosstotal.Value = (decimal)grossTotal;
-            float tax = TechByte.Configs.AppConfig.TaxRate / 100;
-            float actualTotal = grossTotal * tax;
+            float tax = ((float)TechByte.Configs.AppConfig.TaxRate) / 100;
+            float actualTotal = grossTotal + (grossTotal * tax);
             numericActualtotal.Value = Math.Abs((decimal)actualTotal);
         }
         private void UpdateSaveButton() {
@@ -115,6 +117,7 @@ namespace TechByte.Views.DashboardSub.Purchasing.Modals
                 numericActualtotal.Value = (decimal)purchasing.getInvoice().getActualTotal();
                 numericAmountpaid.Value = (decimal)purchasing.getInvoice().getAmountPaid();
                 numericChange.Value = (decimal)purchasing.getInvoice().getChange();
+                txtType.Text = purchasing.getInvoice().getType();
             }
         }
 
@@ -146,8 +149,10 @@ namespace TechByte.Views.DashboardSub.Purchasing.Modals
             // {{ Combo Delivery
             cbDelivery = new ComboBind(ref comboDelivery);
             query.Select()
-                .From("tbldeliveries")
-                .Where("id NOT IN (SELECT delivery_id FROM tblinvoices)");
+                .From("tbldeliveries");
+            if (this.type == Architecture.Enums.FormModalTypes.CREATE) {
+                query.Where("id NOT IN (SELECT delivery_id FROM tblinvoices)");
+            }
             result = dbConn.Query(query);
             for (int i = 0; i < result.RowCount(); i++) {
                 QueryResultRow row = result.GetSingle(i);
@@ -158,8 +163,10 @@ namespace TechByte.Views.DashboardSub.Purchasing.Modals
             // {{ Combo Goods receipt
             cbGreceipt = new ComboBind(ref comboGreceipt);
             query.Select()
-                .From("tblgreceipts")
-                .Where("id NOT IN (SELECT greceipt_id FROM tblinvoices)");
+                .From("tblgreceipts");
+            if (this.type == Architecture.Enums.FormModalTypes.CREATE) {
+                query.Where("id NOT IN (SELECT greceipt_id FROM tblinvoices)");
+            }
             result = dbConn.Query(query);
             for (int i = 0; i < result.RowCount(); i++) {
                 QueryResultRow row = result.GetSingle(i);
@@ -176,8 +183,12 @@ namespace TechByte.Views.DashboardSub.Purchasing.Modals
                     break;
                     }
                 case Architecture.Enums.FormModalTypes.VIEW: {
+                    comboVendor.Enabled = false;
+                    comboDelivery.Enabled = false;
+                    comboGreceipt.Enabled = false;
                     btnSave.Hide();
                     btnCancel.Text = "Close";
+                    numericAmountpaid.Enabled = false;
                     lblTitle.Text = lblTitle.Text.Replace("{0}", "View");
                     this.DisableCloseDetections();
                     break;

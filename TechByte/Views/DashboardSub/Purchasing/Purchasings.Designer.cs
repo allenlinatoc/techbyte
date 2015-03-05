@@ -27,6 +27,8 @@
         private void InitializeComponent() {
             this.btnNew = new System.Windows.Forms.Button();
             this.dgPurchasings = new System.Windows.Forms.DataGridView();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +59,7 @@
             this.dgPurchasings.ColumnHeadersHeight = 30;
             this.dgPurchasings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgPurchasings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -69,6 +72,27 @@
             this.dgPurchasings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgPurchasings.Size = new System.Drawing.Size(454, 282);
             this.dgPurchasings.TabIndex = 7;
+            this.dgPurchasings.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPurchasings_CellDoubleClick);
+            this.dgPurchasings.SelectionChanged += new System.EventHandler(this.dgPurchasings_SelectionChanged);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(12, 56);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(149, 38);
+            this.btnEdit.TabIndex = 6;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Visible = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.HeaderText = "ID";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 41;
             // 
             // Column1
             // 
@@ -103,10 +127,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 306);
             this.Controls.Add(this.dgPurchasings);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnNew);
             this.Name = "Purchasings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purchasings";
+            this.Load += new System.EventHandler(this.Purchasings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgPurchasings)).EndInit();
             this.ResumeLayout(false);
 
@@ -116,6 +142,8 @@
 
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.DataGridView dgPurchasings;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

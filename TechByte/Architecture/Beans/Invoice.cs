@@ -48,6 +48,7 @@ namespace TechByte.Architecture.Beans
                     this.setActualTotal(new Currency(row["actualtotal"].ToString()));
                     this.setAmountPaid(new Currency(row["amountpaid"].ToString()));
                     this.setChange(new Currency(row["change"].ToString()));
+                    this.setType(new SingleWordAlpha(row["type"].ToString()));
                 }
                 else {
                     throw new Guitar32.Exceptions.BeanDataNotFoundException();

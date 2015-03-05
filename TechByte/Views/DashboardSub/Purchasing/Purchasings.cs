@@ -34,6 +34,20 @@ namespace TechByte.Views.DashboardSub.Purchasing
             }
         }
 
+        private void dgPurchasings_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            Modals.PurchasingForm modal = new Modals.PurchasingForm();
+            modal.SetFormModalKey(DataGridViews.GetSelectedValue("ID", ref dgPurchasings));
+            DialogResult result = modal.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK) {
+                LoadData();
+            }
+        }
+
+        private void dgPurchasings_SelectionChanged(object sender, EventArgs e) {
+            btnEdit.Visible = dgPurchasings.SelectedRows.Count > 0;
+        }
+
+
         public void LoadData() {
             dgPurchasings.Rows.Clear();
             QueryBuilder query = new QueryBuilder();
@@ -46,6 +60,7 @@ namespace TechByte.Views.DashboardSub.Purchasing
                 Company company = new Company(Integer.Parse(row["invoice_vendor_id"]));
                 SystemUser user = new SystemUser(Integer.Parse(row["invoice_user_id"]));
                 dgPurchasings.Rows.Add(new object[] {
+                    row["purchasing_id"].ToString(),
                     company.getName(),
                     row["invoice_delivery_id"].ToString(),
                     user.getUsername(),
@@ -53,6 +68,10 @@ namespace TechByte.Views.DashboardSub.Purchasing
                 });
             }
             DataGridViews.SelectIndex(0, ref dgPurchasings);
+        }
+
+        private void Purchasings_Load(object sender, EventArgs e) {
+            LoadData();
         }
     }
 }

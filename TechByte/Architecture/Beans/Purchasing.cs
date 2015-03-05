@@ -51,7 +51,7 @@ namespace TechByte.Architecture.Beans
                     }
                 }
                 QueryBuilder query = new QueryBuilder();
-                query.InsertInto("tblinvoices", new string[] { "invoice_id" })
+                query.InsertInto("tblpurchasings", new string[] { "invoice_id" })
                     .Values(new object[] {
                         this.getInvoice().getId()
                     });
