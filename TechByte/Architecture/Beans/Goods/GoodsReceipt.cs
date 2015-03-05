@@ -88,6 +88,16 @@ namespace TechByte.Architecture.Beans.Goods
             throw new NotImplementedException();
         }
 
+        public bool IsCheckedOut() {
+            QueryBuilder query = new QueryBuilder();
+            query.Select()
+                .From("tblgreceipts")
+                .Where("id NOT IN (SELECT greceipt_id FROM tblinvoices) AND "
+                        + "id NOT IN (SELECT greceipt_id FROM tblsalesinvoice)");
+            QueryResultRow row = dbConn.QuerySingle(query);
+            return !(row != null && row.Count > 0);
+        }
+
         public bool Update() {
             throw new NotImplementedException();
         }

@@ -80,6 +80,7 @@
             this.Column5,
             this.Column6,
             this.Column7});
+            this.dgSales.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgSales.Location = new System.Drawing.Point(167, 12);
             this.dgSales.MultiSelect = false;
             this.dgSales.Name = "dgSales";
@@ -87,6 +88,7 @@
             this.dgSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgSales.Size = new System.Drawing.Size(536, 292);
             this.dgSales.TabIndex = 8;
+            this.dgSales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSales_CellDoubleClick);
             this.dgSales.SelectionChanged += new System.EventHandler(this.dgSales_SelectionChanged);
             // 
             // Column1

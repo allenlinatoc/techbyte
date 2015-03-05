@@ -69,6 +69,8 @@ namespace TechByte.Views.DashboardSub.Clerk
                         , rowItem["warehouselist_quantity"].ToString()
                         , rowItem["good_name"].ToString()));
                 }
+                Architecture.Beans.Goods.GoodsReceipt goodsReceipt =
+                    new Architecture.Beans.Goods.GoodsReceipt(Integer.Parse(row["greceipt_id"]));
 
                 dgGreceipts.Rows.Add(new object[] {
                     row["greceipt_id"].ToString(),
@@ -76,6 +78,7 @@ namespace TechByte.Views.DashboardSub.Clerk
                     row["greceipt_warehouse_id"].ToString(),
                     row["greceipt_created"].ToString(),
                     row["greceipt_type"].ToString(),
+                    goodsReceipt.IsCheckedOut() ? "Checked-out" : "Ready",
                     resultItems.RowCount().ToString(),
                     String.Join(" | ", listSummary.ToArray())
                 });

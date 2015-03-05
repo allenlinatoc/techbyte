@@ -76,6 +76,10 @@ namespace TechByte.Views.DashboardSub.Sales
             btnView.Visible = dgSales.Rows.Count > 0 && dgSales.SelectedRows.Count > 0;
         }
 
+        private void dgSales_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            btnView_Click(btnView, null);
+        }
+
 
     }
 }

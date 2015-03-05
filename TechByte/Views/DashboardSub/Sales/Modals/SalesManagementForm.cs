@@ -2,6 +2,7 @@
 using Guitar32.Data;
 using Guitar32.Database;
 using Guitar32.Utilities;
+using Guitar32.Utilities.UI;
 using Guitar32.Validations;
 using System;
 using System.Collections.Generic;
@@ -121,13 +122,18 @@ namespace TechByte.Views.DashboardSub.Sales.Modals
                 case Architecture.Enums.FormModalTypes.VIEW: {
                     btnCancel.Text = "Close";
                     lblTitle.Text = lblTitle.Text.Replace("{0}", "View");
-                    comboGreceipt.Enabled = false;
-                    numericAmountpaid.Enabled = false;
+                    Guitar32.Utilities.UI.Controls.DisableTouch(comboGreceipt);
+                    Guitar32.Utilities.UI.Controls.DisableTouch(numericAmountpaid);
                     this.DisableCloseDetections();
                     this.Fetch();
                     break;
                     }
             }
+
+            // Disable some controls
+            Guitar32.Utilities.UI.Controls.DisableTouch(numericGrosstotal);
+            Guitar32.Utilities.UI.Controls.DisableTouch(numericActualtotal);
+            Guitar32.Utilities.UI.Controls.DisableTouch(numericChange);
 
             this.Text = lblTitle.Text;
 

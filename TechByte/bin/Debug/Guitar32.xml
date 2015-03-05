@@ -774,5 +774,39 @@
             </summary>
             <param name="key">The target session key</param>
         </member>
+        <member name="T:Guitar32.Utilities.UI.Controls">
+            <summary>
+            Utility class for generic helpers of Control elements
+            </summary>
+        </member>
+        <member name="M:Guitar32.Utilities.UI.Controls.DisableTouch(System.Windows.Forms.Control,Guitar32.Drawing.ForeBackColorSet)">
+            <summary>
+            Disable this control while maintaining an appropriate color for visibility of value
+            </summary>
+            <param name="control">The target Control object</param>
+            <param name="colorSet">(Optional) ForeBackColorSet to be used for styling</param>
+        </member>
+        <member name="M:Guitar32.Utilities.UI.Controls.EnableTouch(System.Windows.Forms.Control,Guitar32.Drawing.ForeBackColorSet)">
+            <summary>
+            Enable this control while applying appropriate coloring scheme
+            </summary>
+            <param name="control">The target Control object</param>
+            <param name="colorSet">(Optional) ForeBackColorSet to be used for styling</param>
+        </member>
+        <member name="T:Guitar32.Drawing.ForeBackColorSet">
+            <summary>
+            Instance class to store set of foreground and background colors
+            </summary>
+        </member>
+        <member name="P:Guitar32.Drawing.ForeBackColorSet.BackColor">
+            <summary>
+            Get or set the background color of this Color set
+            </summary>
+        </member>
+        <member name="P:Guitar32.Drawing.ForeBackColorSet.ForeColor">
+            <summary>
+            Get or set the foreground color of this color set
+            </summary>
+        </member>
     </members>
 </doc>

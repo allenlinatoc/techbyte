@@ -27,14 +27,15 @@
         private void InitializeComponent() {
             this.btnNew = new System.Windows.Forms.Button();
             this.dgGreceipts = new System.Windows.Forms.DataGridView();
+            this.btnView = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgGreceipts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +66,7 @@
             this.Column3,
             this.Column4,
             this.Column5,
+            this.Column8,
             this.Column6,
             this.Column7});
             this.dgGreceipts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -76,6 +78,17 @@
             this.dgGreceipts.Size = new System.Drawing.Size(440, 305);
             this.dgGreceipts.TabIndex = 6;
             this.dgGreceipts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgGreceipts_CellDoubleClick);
+            // 
+            // btnView
+            // 
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.Location = new System.Drawing.Point(12, 56);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(149, 38);
+            this.btnView.TabIndex = 5;
+            this.btnView.Text = "View";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // Column1
             // 
@@ -112,6 +125,13 @@
             this.Column5.Name = "Column5";
             this.Column5.Width = 54;
             // 
+            // Column8
+            // 
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column8.HeaderText = "Status";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 60;
+            // 
             // Column6
             // 
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -125,17 +145,6 @@
             this.Column7.HeaderText = "Summary";
             this.Column7.Name = "Column7";
             this.Column7.Width = 73;
-            // 
-            // btnView
-            // 
-            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView.Location = new System.Drawing.Point(12, 56);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(149, 38);
-            this.btnView.TabIndex = 5;
-            this.btnView.Text = "View";
-            this.btnView.UseVisualStyleBackColor = true;
-            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // GoodsReceipts
             // 
@@ -157,13 +166,14 @@
 
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.DataGridView dgGreceipts;
+        private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.Button btnView;
     }
 }
