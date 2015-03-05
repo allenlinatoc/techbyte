@@ -208,6 +208,12 @@
     <Compile Include="Views\DashboardSub\HR\Modals\EmployeesForm.Designer.cs">
       <DependentUpon>EmployeesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DashboardSub\Purchasing\APInvoices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Purchasing\APInvoices.Designer.cs">
+      <DependentUpon>APInvoices.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashboardSub\Purchasing\Modals\PurchasingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\HR\Modals\EmployeesForm.resx">
       <DependentUpon>EmployeesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Purchasing\APInvoices.resx">
+      <DependentUpon>APInvoices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\Purchasing\Modals\PurchasingForm.resx">
       <DependentUpon>PurchasingForm.cs</DependentUpon>

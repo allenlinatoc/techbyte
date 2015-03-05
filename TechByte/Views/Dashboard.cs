@@ -173,5 +173,13 @@ namespace TechByte.Views
             frmPurchasings.MdiParent = this;
             frmPurchasings.Show();
         }
+
+        // PURCHASING: Purchasing invoice management
+        private void invoiceManagementToolStripMenuItem_Click(object sender, EventArgs e) {
+            TechByte.Views.DashboardSub.Purchasing.APInvoices frmAPInvoices
+                = new DashboardSub.Purchasing.APInvoices();
+            frmAPInvoices.MdiParent = this;
+            frmAPInvoices.Show();
+        }
     }
 }

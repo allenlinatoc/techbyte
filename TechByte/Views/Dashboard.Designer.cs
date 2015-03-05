@@ -41,8 +41,6 @@
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemSalesManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aRInvoiceManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.creditMemoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.promoManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clerkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.warehouseReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -152,6 +150,7 @@
             this.invoiceManagementToolStripMenuItem.Name = "invoiceManagementToolStripMenuItem";
             this.invoiceManagementToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.invoiceManagementToolStripMenuItem.Text = "A/P Invoice management";
+            this.invoiceManagementToolStripMenuItem.Click += new System.EventHandler(this.invoiceManagementToolStripMenuItem_Click);
             // 
             // goodsReturnToolStripMenuItem
             // 
@@ -164,8 +163,6 @@
             this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itemSalesManagementToolStripMenuItem,
             this.aRInvoiceManagementToolStripMenuItem,
-            this.itemReturnToolStripMenuItem,
-            this.creditMemoToolStripMenuItem,
             this.promoManagementToolStripMenuItem});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
             this.salesToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -182,18 +179,6 @@
             this.aRInvoiceManagementToolStripMenuItem.Name = "aRInvoiceManagementToolStripMenuItem";
             this.aRInvoiceManagementToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.aRInvoiceManagementToolStripMenuItem.Text = "A/R Invoice management";
-            // 
-            // itemReturnToolStripMenuItem
-            // 
-            this.itemReturnToolStripMenuItem.Name = "itemReturnToolStripMenuItem";
-            this.itemReturnToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.itemReturnToolStripMenuItem.Text = "Item return";
-            // 
-            // creditMemoToolStripMenuItem
-            // 
-            this.creditMemoToolStripMenuItem.Name = "creditMemoToolStripMenuItem";
-            this.creditMemoToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.creditMemoToolStripMenuItem.Text = "Credit memo";
             // 
             // promoManagementToolStripMenuItem
             // 
@@ -287,8 +272,6 @@
         private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemSalesManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aRInvoiceManagementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem itemReturnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem creditMemoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem promoManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clerkToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem warehouseReportsToolStripMenuItem;
