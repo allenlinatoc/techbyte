@@ -68,7 +68,10 @@
     <Compile Include="Architecture\Beans\Goods\Good.cs" />
     <Compile Include="Architecture\Beans\Goods\GoodsCategory.cs" />
     <Compile Include="Architecture\Beans\Goods\GoodsReceipt.cs" />
+    <Compile Include="Architecture\Beans\Promo.cs" />
     <Compile Include="Architecture\Beans\Purchasing.cs" />
+    <Compile Include="Architecture\Beans\Sales.cs" />
+    <Compile Include="Architecture\Beans\SalesInvoice.cs" />
     <Compile Include="Architecture\Beans\Warehouse\WarehouseEntry.cs" />
     <Compile Include="Architecture\Beans\Warehouse\WarehouseEntryItem.cs" />
     <Compile Include="Architecture\Beans\Warehouse\WarehouseEntryItemList.cs" />
@@ -226,6 +229,30 @@
     <Compile Include="Views\DashboardSub\Purchasing\Purchasings.Designer.cs">
       <DependentUpon>Purchasings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DashboardSub\Sales\Modals\PromoManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Sales\Modals\PromoManagementForm.Designer.cs">
+      <DependentUpon>PromoManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Sales\Modals\SalesManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Sales\Modals\SalesManagementForm.Designer.cs">
+      <DependentUpon>SalesManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Sales\PromoManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Sales\PromoManagement.Designer.cs">
+      <DependentUpon>PromoManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Sales\SalesManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Sales\SalesManagement.Designer.cs">
+      <DependentUpon>SalesManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +329,18 @@
     <EmbeddedResource Include="Views\DashboardSub\Purchasing\Purchasings.resx">
       <DependentUpon>Purchasings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Sales\Modals\PromoManagementForm.resx">
+      <DependentUpon>PromoManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Sales\Modals\SalesManagementForm.resx">
+      <DependentUpon>SalesManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Sales\PromoManagement.resx">
+      <DependentUpon>PromoManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Sales\SalesManagement.resx">
+      <DependentUpon>SalesManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,7 +367,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Architecture\Exceptions\" />
-    <Folder Include="Views\DashboardSub\Sales\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />

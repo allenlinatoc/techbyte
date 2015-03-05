@@ -98,12 +98,17 @@ namespace TechByte.Views
             ctrlSystemLogin.Login(username, password);
             Guitar32.SystemResponse response = ctrlSystemLogin.getResponse();
             if (response.GetCode() == "00") {
+                // {{ BLOCK for Session
+                SystemUser user = (SystemUser)response.GetData();
+                TechByte.Configs.AppConfig.Reinitialize();
+                if (!user.getPower().Equals("ADMIN") && TechByte.Configs.AppConfig.IsSystemLockdown) {
+                    MessageBox.Show("System is currently locked down. Only admins can log in");
+                    return;
+                }
                 // Success login
                 this.Hide();
                 txtUsername.Clear();
                 txtPassword.Clear();
-                // {{ BLOCK for Session
-                SystemUser user = (SystemUser)response.GetData();
                 Guitar32.Utilities.Session.Set("CURRENT_USER", user);
                 // }}
                 FormManager.frmDashboard = new Dashboard();

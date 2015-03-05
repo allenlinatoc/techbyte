@@ -157,6 +157,7 @@
             this.goodsReturnToolStripMenuItem.Name = "goodsReturnToolStripMenuItem";
             this.goodsReturnToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.goodsReturnToolStripMenuItem.Text = "Goods return";
+            this.goodsReturnToolStripMenuItem.Click += new System.EventHandler(this.goodsReturnToolStripMenuItem_Click);
             // 
             // salesToolStripMenuItem
             // 
@@ -173,6 +174,7 @@
             this.itemSalesManagementToolStripMenuItem.Name = "itemSalesManagementToolStripMenuItem";
             this.itemSalesManagementToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.itemSalesManagementToolStripMenuItem.Text = "Item Sales management";
+            this.itemSalesManagementToolStripMenuItem.Click += new System.EventHandler(this.itemSalesManagementToolStripMenuItem_Click);
             // 
             // aRInvoiceManagementToolStripMenuItem
             // 
@@ -185,6 +187,7 @@
             this.promoManagementToolStripMenuItem.Name = "promoManagementToolStripMenuItem";
             this.promoManagementToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.promoManagementToolStripMenuItem.Text = "Promo management";
+            this.promoManagementToolStripMenuItem.Click += new System.EventHandler(this.promoManagementToolStripMenuItem_Click);
             // 
             // clerkToolStripMenuItem
             // 

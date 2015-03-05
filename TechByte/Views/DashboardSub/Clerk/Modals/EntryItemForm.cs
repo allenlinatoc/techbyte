@@ -72,6 +72,7 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
                 int stocks = TechByte.Architecture.Beans.Warehouse.WarehouseEntryItemList.CountStocks(Integer.Parse(comboBind_Item.GetValue()));
                 if (stocks < numericQuantity.Value) {
                     MessageBox.Show("Sorry but you only have " + stocks + " remaining stock/s in warehouse");
+                    numericQuantity.Minimum = stocks==0 ? 0 : 1;
                     numericQuantity.Value = decimal.Parse(stocks.ToString());
                     return;
                 }

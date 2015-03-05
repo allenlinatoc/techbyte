@@ -181,5 +181,30 @@ namespace TechByte.Views
             frmAPInvoices.MdiParent = this;
             frmAPInvoices.Show();
         }
+
+        // PURCHASING: Goods return
+        private void goodsReturnToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        // SALES: Promo management
+        private void promoManagementToolStripMenuItem_Click(object sender, EventArgs e) {
+            TechByte.Views.DashboardSub.Sales.PromoManagement frmPromoManagement
+                = new DashboardSub.Sales.PromoManagement();
+            frmPromoManagement.MdiParent = this;
+            frmPromoManagement.StartPosition = FormStartPosition.CenterScreen;
+            frmPromoManagement.Show();
+        }
+
+        // SALES: Sales management
+        private void itemSalesManagementToolStripMenuItem_Click(object sender, EventArgs e) {
+            TechByte.Views.DashboardSub.Sales.SalesManagement frmSalesManagement
+                = new DashboardSub.Sales.SalesManagement();
+            frmSalesManagement.MdiParent = this;
+            frmSalesManagement.StartPosition = FormStartPosition.CenterParent;
+            frmSalesManagement.Show();
+        }
+
+
     }
 }

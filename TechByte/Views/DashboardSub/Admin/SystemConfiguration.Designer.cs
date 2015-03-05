@@ -193,9 +193,9 @@
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(14, 116);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(228, 22);
+            this.label8.Size = new System.Drawing.Size(218, 22);
             this.label8.TabIndex = 2;
-            this.label8.Text = "System is Lock-down is OFF";
+            this.label8.Text = "System is Lock-down is {0}";
             // 
             // label3
             // 

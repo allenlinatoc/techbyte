@@ -47,6 +47,7 @@ namespace TechByte.Views.DashboardSub.Admin
             checkClerk.Checked = AppConfig.Modules.Contains("CLERK");
             // System lock-down status
             comboLockdown.SelectedIndex = AppConfig.IsSystemLockdown ? 1 : 0;
+            label8.Text = "System Lock-down is " + comboLockdown.SelectedItem.ToString();
             // Tax-rate
             txtTaxrate.Text = AppConfig.TaxRate.ToString();
             // UI
@@ -147,6 +148,7 @@ namespace TechByte.Views.DashboardSub.Admin
 
         private void comboLockdown_SelectedIndexChanged(object sender, EventArgs e) {
             this.isLockdownChanged = true;
+            label8.Text = "System Lock-down is " + comboLockdown.SelectedItem.ToString();
         }
     }
 }
