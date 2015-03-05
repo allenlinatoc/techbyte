@@ -41,7 +41,7 @@ namespace TechByte.Views.DashboardSub.Sales.Modals
             Architecture.Beans.Sales sales = new Architecture.Beans.Sales();
             SalesInvoice salesInvoice = new SalesInvoice();
             salesInvoice.setUser((Architecture.Beans.Accounts.SystemUser)Guitar32.Utilities.Session.Get("CURRENT_USER"));
-            salesInvoice.setGoodsReceipt(new GoodsReceipt(Integer.Parse(cbGreceipt.GetValue())));
+            salesInvoice.setGoodsReceipt(new GoodsReturn(Integer.Parse(cbGreceipt.GetValue())));
             salesInvoice.setGrossTotal(new Currency(numericGrosstotal.Value.ToString()));
             salesInvoice.setActualTotal(new Currency(numericActualtotal.Value.ToString()));
             salesInvoice.setAmountPaid(new Currency(numericAmountpaid.Value.ToString()));

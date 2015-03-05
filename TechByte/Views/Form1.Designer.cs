@@ -180,7 +180,7 @@
             this.Name = "Form1";
             this.Opacity = 0D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "TECH|Byte";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.EnabledChanged += new System.EventHandler(this.Form1_EnabledChanged);
             this.panel1.ResumeLayout(false);

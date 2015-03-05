@@ -21,6 +21,7 @@ namespace TechByte.Views
 
         public Dashboard() {
             InitializeComponent();
+            this.Text = "TECH|Byte Dashboard";
         }
 
 
@@ -184,7 +185,11 @@ namespace TechByte.Views
 
         // PURCHASING: Goods return
         private void goodsReturnToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            TechByte.Views.DashboardSub.Purchasing.GoodsReturnMgmt frmGoodsReturnMgmt
+                = new DashboardSub.Purchasing.GoodsReturnMgmt();
+            frmGoodsReturnMgmt.MdiParent = this;
+            frmGoodsReturnMgmt.StartPosition = FormStartPosition.CenterScreen;
+            frmGoodsReturnMgmt.Show();
         }
 
         // SALES: Promo management
@@ -201,8 +206,17 @@ namespace TechByte.Views
             TechByte.Views.DashboardSub.Sales.SalesManagement frmSalesManagement
                 = new DashboardSub.Sales.SalesManagement();
             frmSalesManagement.MdiParent = this;
-            frmSalesManagement.StartPosition = FormStartPosition.CenterParent;
+            frmSalesManagement.StartPosition = FormStartPosition.CenterScreen;
             frmSalesManagement.Show();
+        }
+
+        // SALES: AR Invoice report
+        private void aRInvoiceManagementToolStripMenuItem_Click(object sender, EventArgs e) {
+            TechByte.Views.DashboardSub.Sales.ARInvoices frmARInvoices
+                = new DashboardSub.Sales.ARInvoices();
+            frmARInvoices.MdiParent = this;
+            frmARInvoices.StartPosition = FormStartPosition.CenterScreen;
+            frmARInvoices.Show();
         }
 
 

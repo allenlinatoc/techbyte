@@ -65,6 +65,7 @@
     <Compile Include="Architecture\Beans\Accounts\UserPower.cs" />
     <Compile Include="Architecture\Beans\Business\Company.cs" />
     <Compile Include="Architecture\Beans\Delivery.cs" />
+    <Compile Include="Architecture\Beans\GoodsReturn.cs" />
     <Compile Include="Architecture\Beans\Goods\Good.cs" />
     <Compile Include="Architecture\Beans\Goods\GoodsCategory.cs" />
     <Compile Include="Architecture\Beans\Goods\GoodsReceipt.cs" />
@@ -217,6 +218,18 @@
     <Compile Include="Views\DashboardSub\Purchasing\APInvoices.Designer.cs">
       <DependentUpon>APInvoices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DashboardSub\Purchasing\GoodsReturnMgmt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Purchasing\GoodsReturnMgmt.Designer.cs">
+      <DependentUpon>GoodsReturnMgmt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Purchasing\Modals\GoodsReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardSub\Purchasing\Modals\GoodsReturnForm.Designer.cs">
+      <DependentUpon>GoodsReturnForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashboardSub\Purchasing\Modals\PurchasingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -328,6 +341,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\Purchasing\APInvoices.resx">
       <DependentUpon>APInvoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Purchasing\GoodsReturnMgmt.resx">
+      <DependentUpon>GoodsReturnMgmt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardSub\Purchasing\Modals\GoodsReturnForm.resx">
+      <DependentUpon>GoodsReturnForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardSub\Purchasing\Modals\PurchasingForm.resx">
       <DependentUpon>PurchasingForm.cs</DependentUpon>

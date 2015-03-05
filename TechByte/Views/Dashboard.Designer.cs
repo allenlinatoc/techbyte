@@ -179,8 +179,9 @@
             // aRInvoiceManagementToolStripMenuItem
             // 
             this.aRInvoiceManagementToolStripMenuItem.Name = "aRInvoiceManagementToolStripMenuItem";
-            this.aRInvoiceManagementToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.aRInvoiceManagementToolStripMenuItem.Text = "A/R Invoice management";
+            this.aRInvoiceManagementToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.aRInvoiceManagementToolStripMenuItem.Text = "A/R Invoice";
+            this.aRInvoiceManagementToolStripMenuItem.Click += new System.EventHandler(this.aRInvoiceManagementToolStripMenuItem_Click);
             // 
             // promoManagementToolStripMenuItem
             // 

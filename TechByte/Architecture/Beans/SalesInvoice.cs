@@ -18,7 +18,7 @@ namespace TechByte.Architecture.Beans
     {
         private DatabaseConnection dbConn = TechByte.Configs.DatabaseInstance.databaseConnection;
         private SystemUser user;
-        private GoodsReceipt greceipt;
+        private GoodsReturn greceipt;
         private float
             grossTotal,
             actualTotal,
@@ -37,7 +37,7 @@ namespace TechByte.Architecture.Beans
                 QueryResultRow row = dbConn.QuerySingle(query);
                 if (row != null && row.Count > 0) {
                     SystemUser user = new SystemUser(Integer.Parse(row["user_id"]));
-                    GoodsReceipt greceipt = new GoodsReceipt(Integer.Parse(row["greceipt_id"]));
+                    GoodsReturn greceipt = new GoodsReturn(Integer.Parse(row["greceipt_id"]));
                     this.setUser(user);
                     this.setGoodsReceipt(greceipt);
                     this.setGrossTotal(new Currency(row["grosstotal"].ToString()));
@@ -57,7 +57,7 @@ namespace TechByte.Architecture.Beans
         public SystemUser getUser() {
             return this.user;
         }
-        public GoodsReceipt getGoodsReceipt() {
+        public GoodsReturn getGoodsReceipt() {
             return this.greceipt;
         }
         public float getGrossTotal() {
@@ -77,7 +77,7 @@ namespace TechByte.Architecture.Beans
         public void setUser(SystemUser user) {
             this.user = user;
         }
-        public void setGoodsReceipt(GoodsReceipt greceipt) {
+        public void setGoodsReceipt(GoodsReturn greceipt) {
             this.greceipt = greceipt;
         }
         public void setGrossTotal(Currency grossTotal) {

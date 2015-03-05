@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using Guitar32.Common;
+using Guitar32.Controllers;
 using Guitar32.Cryptography;
 using Guitar32.Database;
 using Guitar32.Utilities;
@@ -21,7 +22,7 @@ using TechByte.Architecture.Beans.Accounts;
 
 namespace TechByte.Views
 {
-    public partial class Form1 : Guitar32.Controllers.FormController, IMonitorable
+    public partial class Form1 : FormController, IMonitorable
     {
         delegate void SetStatusCallback(object sender, DoWorkEventArgs e);
         System.Data.ConnectionState connectionState = ConnectionState.Closed;
@@ -104,6 +105,10 @@ namespace TechByte.Views
                 if (!user.getPower().Equals("ADMIN") && TechByte.Configs.AppConfig.IsSystemLockdown) {
                     MessageBox.Show("System is currently locked down. Only admins can log in");
                     return;
+                }
+                if (user.getStatus().ToUpper().Equals("INACTIVE")) {
+                    MessageBox.Show("Account is currently disabled. Please contact your administrator for further assistance");
+                    return; 
                 }
                 // Success login
                 this.Hide();
