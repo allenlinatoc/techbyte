@@ -286,6 +286,7 @@
             this.Controls.Add(this.comboVendor);
             this.Controls.Add(this.lblTitle);
             this.Name = "PurchasingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "{0} purchase";
             this.Load += new System.EventHandler(this.PurchasingForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericGrosstotal)).EndInit();

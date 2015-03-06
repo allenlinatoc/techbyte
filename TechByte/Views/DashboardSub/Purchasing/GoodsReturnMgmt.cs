@@ -47,9 +47,10 @@ namespace TechByte.Views.DashboardSub.Purchasing
                 GoodsReturn greturn = new GoodsReturn(Integer.Parse(row["id"]));
                 dgGoodsReturns.Rows.Add(new object[] {
                     greturn.getId().ToString(),
-                    greturn.getUser().getUsername(),
                     greturn.getVendor().getName(),
+                    greturn.getDelivery().getId().ToString(),
                     greturn.getGoodsReceipt().getId().ToString(),
+                    greturn.getUser().getUsername(),
                     greturn.getDescription()
                 });
             }

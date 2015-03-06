@@ -103,6 +103,7 @@ namespace TechByte.Views.DashboardSub.Sales.Modals
             if (this.type == Architecture.Enums.FormModalTypes.CREATE) {
                 query.Where("id NOT IN (SELECT greceipt_id FROM tblinvoices) AND "
                 + "id NOT IN (SELECT greceipt_id FROM tblsalesinvoice) AND "
+                + "id NOT IN (SELECT greceipt_id FROM tblgreturns) AND "
                 + "upper(type) = " + Strings.Surround("OUTGOING"));
             }
             QueryResult result = dbConn.Query(query);

@@ -148,8 +148,10 @@ namespace TechByte.Views.DashboardSub.Purchasing.Modals
             query.Select()
                 .From("tblgreceipts");
             if (this.type == Architecture.Enums.FormModalTypes.CREATE) {
-                query.Where("id IN (SELECT greceipt_id FROM tblinvoices) AND "
-                    + "id NOT IN (SELECT greceipt_id FROM tblgreturns)");
+                query.Where("id NOT IN (SELECT greceipt_id FROM tblinvoices) AND "
+                    + "id NOT IN (SELECT greceipt_id FROM tblsalesinvoice) AND "
+                    + "id NOT IN (SELECT greceipt_id FROM tblgreturns) AND "
+                    + "upper(type) = \"OUTGOING\" ");
             }
             result = dbConn.Query(query);
             for (int i = 0; i < result.RowCount(); i++) {

@@ -56,6 +56,10 @@ namespace TechByte.Views.DashboardSub.Clerk
                         row["company_name"].ToString(),
                         stock.ToString()
                     });
+                    if (stock < 10) {
+                        dgGoods.Rows[dgGoods.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Red;
+                        dgGoods.Rows[dgGoods.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.White;
+                    }
                 }
                 DataGridViews.SelectIndex(0, ref dgGoods);
             }

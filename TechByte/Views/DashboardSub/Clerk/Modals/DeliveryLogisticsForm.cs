@@ -93,7 +93,8 @@ namespace TechByte.Views.DashboardSub.Clerk.Modals
             query = new QueryBuilder(
                 "SELECT * "
                 + "FROM view_greceipts "
-                + "WHERE greceipt_id NOT IN (SELECT greceipt_id FROM tbldeliveries)");
+                + "WHERE greceipt_id NOT IN (SELECT greceipt_id FROM tbldeliveries) AND "
+                    + "upper(greceipt_type) = \"INCOMING\"");
             result = dbConn.Query(query);
             for (int i = 0; i < result.RowCount(); i++) {
                 QueryResultRow row = result.GetSingle(i);

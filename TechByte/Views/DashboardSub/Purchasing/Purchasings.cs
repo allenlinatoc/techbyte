@@ -73,5 +73,14 @@ namespace TechByte.Views.DashboardSub.Purchasing
         private void Purchasings_Load(object sender, EventArgs e) {
             LoadData();
         }
+
+        private void btnEdit_Click(object sender, EventArgs e) {
+            Modals.PurchasingForm modal = new Modals.PurchasingForm();
+            modal.SetFormModalKey(DataGridViews.GetSelectedValue("ID", ref dgPurchasings));
+            DialogResult result = modal.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK) {
+                LoadData();
+            }
+        }
     }
 }
